@@ -1,0 +1,37 @@
+files: examples
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.3.0
+    hooks:
+    -   id: end-of-file-fixer
+        name: EOF for examples
+    -   id: trailing-whitespace
+        name: Whitespace for examples
+    -   id: check-ast
+        name: Check python parse valid for examples
+    -   id: check-docstring-first
+        name: Check docstring first in examples
+
+-   repo: https://github.com/psf/black
+    rev: 22.8.0
+    hooks:
+    -   id: black
+        name: Black for examples
+
+-   repo: https://github.com/pycqa/flake8
+    rev: '5.0.4'  # pick a git hash / tag to point to
+    hooks:
+    -   id: flake8
+        name: Flake8 for examples
+        files: examples/
+        # https://github.com/PyCQA/pydocstyle/issues/68 for ignore of D401
+        # https://github.com/OCA/maintainer-quality-tools/issues/552 for ignore of W503
+        args: ["--config=examples/setup.cfg", "--ignore=D401,W503"]
+        additional_dependencies: [flake8-docstrings]
+        exclude: (^.*/tests|^.*/__init__.py)
+
+-   repo: https://github.com/pycqa/isort
+    rev: 5.10.1
+    hooks:
+      - id: isort
+        name: isort for examples
