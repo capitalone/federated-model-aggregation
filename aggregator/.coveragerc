@@ -1,0 +1,3 @@
+[run]
+omit = */tests/*,manage.py,*/settings_remote.py, */settings_remote_clean.py, */fma_settings_clean.py
+branch = True

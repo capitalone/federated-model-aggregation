@@ -1,0 +1,8 @@
+version = 0.1
+[default.local_invoke]
+[default.local_invoke.parameters]
+skip_pull_image=true  # --skip-pull-image
+
+[default.local_start_api]
+[default.local_start_api.parameters]
+skip_pull_image=true  # --skip-pull-image

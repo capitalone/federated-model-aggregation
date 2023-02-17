@@ -1,0 +1,41 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  FmaServerless
+
+  Sample SAM Template for asp-template-generator
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 15
+    Environment:
+      Variables:
+        ENV: dev
+        fake/path/to/passwords: "{\"fake\": \"secret\"}"
+        DJANGO_SETTINGS_MODULE: federated_learning_project.settings_local
+        IS_LAMBDA_DEPLOYMENT: True
+        FMA_SETTINGS_MODULE: federated_learning_project.fma_settings
+
+Resources:
+  FmaServerless:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Metadata:
+      BuildMethod: makefile
+    Properties:
+      CodeUri: ./
+      Handler: app.handler
+      Runtime: python3.9
+      Architectures:
+        - x86_64
+      Events:
+        HelloWorld:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /health
+            Method: get
+        ExampleEndpoint:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /example
+            Method: get
