@@ -1,0 +1,18 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+requests = "2.27.1"
+
+[dev-packages]
+pytest = "*"
+pytest-cov = "*"
+black = "*"
+flake8 = "*"
+tox = "*"
+pre-commit = "*"
+
+[requires]
+python_version = "3.9"
