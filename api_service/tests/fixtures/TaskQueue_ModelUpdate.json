@@ -1,0 +1,90 @@
+[
+  {
+    "model": "fma_django.modelupdate",
+    "pk": 1,
+    "fields": {
+      "client": "cbb6025f-c15c-4e90-b3fb-85626f7a79f1",
+      "federated_model": 1,
+      "data": "fake/path/model_updates/1",
+      "status": 2,
+      "created_on": "2022-12-15T23:08:28.720Z"
+    }
+  },
+  {
+    "model": "fma_django.modelupdate",
+    "pk": 2,
+    "fields": {
+      "client": "cbb6025f-c15c-4e90-b3fb-85626f7a79f1",
+      "federated_model": 1,
+      "data": "fake/path/model_updates/2",
+      "status": 2,
+      "created_on": "2023-01-10T23:10:33.720Z"
+    }
+  },
+  {
+    "model": "fma_django.modelupdate",
+    "pk": 3,
+    "fields": {
+      "client": "531580e6-ce6c-4f01-a5aa-9ed7af5ee768",
+      "federated_model": 1,
+      "data":  "fake/path/model_updates/3",
+      "status": 2,
+      "created_on": "2023-01-16T23:17:35.480Z"
+    }
+  },
+  {
+    "model": "fma_django.modelupdate",
+    "pk": 4,
+    "fields": {
+      "client": "531580e6-ce6c-4f01-a5aa-9ed7af5ee768",
+      "federated_model": 1,
+      "data":  "fake/path/model_updates/4",
+      "status": 3,
+      "created_on": "2022-02-17T17:58:13.819Z"
+    }
+  },
+  {
+    "model": "fma_django.modelupdate",
+    "pk": 5,
+    "fields": {
+      "client": "cbb6025f-c15c-4e90-b3fb-85626f7a79f1",
+      "federated_model": 2,
+      "data":  "fake/path/model_updates/5",
+      "status": 0,
+      "created_on": "2022-02-17T17:58:44.441Z"
+    }
+  },
+  {
+    "model": "fma_django.modelupdate",
+    "pk": 6,
+    "fields": {
+      "client": "ab359e5d-6991-4088-8815-a85d3e413c02",
+      "federated_model": 2,
+      "data":  "fake/path/model_updates/6",
+      "status": 0,
+      "created_on": "2022-02-28T00:36:54.803Z"
+    }
+  },
+  {
+    "model": "fma_django.modelupdate",
+    "pk": 7,
+    "fields": {
+      "client": "cbb6025f-c15c-4e90-b3fb-85626f7a79f1",
+      "federated_model": 3,
+      "data":  "fake/path/model_updates/7",
+      "status": 0,
+      "created_on": "2022-12-26T01:12:55.467Z"
+    }
+  },
+  {
+    "model": "fma_django.modelupdate",
+    "pk": 8,
+    "fields": {
+      "client": "cbb6025f-c15c-4e90-b3fb-85626f7a79f1",
+      "federated_model": 3,
+      "data":  "fake/path/model_updates/8",
+      "status": 0,
+      "created_on": "2022-12-08T13:22:24.557Z"
+    }
+  }
+]

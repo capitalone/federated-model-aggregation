@@ -1,0 +1,17 @@
+[
+  {
+    "model": "fma_django.client",
+    "pk": "531580e6-ce6c-4f01-a5aa-9ed7af5ee768",
+    "fields": {}
+  },
+  {
+    "model": "fma_django.client",
+    "pk": "ab359e5d-6991-4088-8815-a85d3e413c02",
+    "fields": {}
+  },
+  {
+    "model": "fma_django.client",
+    "pk": "cbb6025f-c15c-4e90-b3fb-85626f7a79f1",
+    "fields": {}
+  }
+]

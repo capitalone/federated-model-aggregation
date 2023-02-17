@@ -1,0 +1,64 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  FmaServerless
+
+  Sample SAM Template for asp-template-generator
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 15
+    Environment:
+      Variables:
+        ENV: dev
+        databases/fma-qa/fma_database/passwords: "{\"fake\": \"secret\"}"
+        DJANGO_SETTINGS_MODULE: federated_learning_project.settings_local
+        FMA_SETTINGS_MODULE: federated_learning_project.fma_settings
+        IS_LAMBDA_DEPLOYMENT: True
+
+Resources:
+  FmaServerless:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: ./
+      Handler: service_initialization.handler
+      Runtime: python3.9
+      Architectures:
+        - x86_64
+      Events:
+        AdminEndpointRoot:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /admin
+            Method: any
+        AdminEndpointGreedy:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /admin/{proxy+}
+            Method: any
+        StaticWebPageEndpointRoot:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /static
+            Method: get
+        StaticWebPageEndpointGreedy:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /static/{proxy+}
+            Method: get
+        StaticIconEndpoint:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /favicon.ico
+            Method: get
+        APIEndpointRoot:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /api
+            Method: any
+        APIGreedyEndpoint:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /api/{proxy+}
+            Method: any

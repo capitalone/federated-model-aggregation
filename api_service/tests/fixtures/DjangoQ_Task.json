@@ -1,0 +1,155 @@
+[
+  {
+    "model": "django_q.task",
+    "pk": "00e1e856f432482a8ec88766615c5764",
+    "fields": {
+      "name": "hotel-one-oregon-autumn",
+      "func": "fma_django_api.v1.aggregator_components.tasks.agg_service",
+      "hook": "fma_django_api.v1.aggregator_components.tasks.post_agg_service_hook",
+      "args": "gAWVBQAAAAAAAABLAYWULg==",
+      "kwargs": "gAV9lC4=",
+      "result": null,
+      "group": "1",
+      "started": "2022-11-03T15:47:25.437Z",
+      "stopped": "2022-11-03T15:47:25.555Z",
+      "success": true,
+      "attempt_count": 1
+    }
+  },
+  {
+    "model": "django_q.task",
+    "pk": "0246b30654ac4cc9b3eaa66835554dba",
+    "fields": {
+      "name": "washington-louisiana-nebraska-nebraska",
+      "func": "fma_django_api.v1.aggregator_components.tasks.agg_service",
+      "hook": "fma_django_api.v1.aggregator_components.tasks.post_agg_service_hook",
+      "args": "gAWVBQAAAAAAAABLAoWULg==",
+      "kwargs": "gAV9lC4=",
+      "result": null,
+      "group": "2",
+      "started": "2023-01-16T21:37:02.390Z",
+      "stopped": "2023-01-16T21:37:02.399Z",
+      "success": true,
+      "attempt_count": 1
+    }
+  },
+  {
+    "model": "django_q.task",
+    "pk": "03b637f07453428c82838f30e4f4c84c",
+    "fields": {
+      "name": "king-utah-sad-mountain",
+      "func": "fma_django_api.v1.aggregator_components.tasks.agg_service",
+      "hook": "fma_django_api.v1.aggregator_components.tasks.post_agg_service_hook",
+      "args": "gAWVBQAAAAAAAABLAYWULg==",
+      "kwargs": "gAV9lC4=",
+      "result": null,
+      "group": "1",
+      "started": "2022-12-13T23:32:25.130Z",
+      "stopped": "2022-12-13T23:32:25.285Z",
+      "success": true,
+      "attempt_count": 1
+    }
+  },
+  {
+    "model": "django_q.task",
+    "pk": "0524ce5f18684e3c809bce35490b21ca",
+    "fields": {
+      "name": "pizza-alanine-timing-oven",
+      "func": "fma_django_api.v1.aggregator_components.tasks.agg_service",
+      "hook": "fma_django_api.v1.aggregator_components.tasks.post_agg_service_hook",
+      "args": "gAWVBQAAAAAAAABLAYWULg==",
+      "kwargs": "gAV9lC4=",
+      "result": null,
+      "group": "1",
+      "started": "2022-12-11T23:34:25.975Z",
+      "stopped": "2022-12-11T23:34:26.130Z",
+      "success": true,
+      "attempt_count": 1
+    }
+  },
+  {
+    "model": "django_q.task",
+    "pk": "06fe00da1cfe4983b140a9fd8aac19ed",
+    "fields": {
+      "name": "carpet-cola-orange-spring",
+      "func": "fma_django_api.v1.aggregator_components.tasks.agg_service",
+      "hook": "fma_django_api.v1.aggregator_components.tasks.post_agg_service_hook",
+      "args": "gAWVBQAAAAAAAABLAYWULg==",
+      "kwargs": "gAV9lC4=",
+      "result": null,
+      "group": "1",
+      "started": "2022-11-29T16:31:15.312Z",
+      "stopped": "2022-11-29T16:31:15.318Z",
+      "success": true,
+      "attempt_count": 1
+    }
+  },
+  {
+    "model": "django_q.task",
+    "pk": "07d13f2f26af4abfbc8c96300418384b",
+    "fields": {
+      "name": "single-london-music-kansas",
+      "func": "fma_django_api.v1.aggregator_components.tasks.agg_service",
+      "hook": "fma_django_api.v1.aggregator_components.tasks.post_agg_service_hook",
+      "args": "gAWVBQAAAAAAAABLAYWULg==",
+      "kwargs": "gAV9lC4=",
+      "result": null,
+      "group": "1",
+      "started": "2023-01-09T15:39:21.762Z",
+      "stopped": "2023-01-09T15:39:21.769Z",
+      "success": true,
+      "attempt_count": 1
+    }
+  },
+  {
+    "model": "django_q.task",
+    "pk": "08b7aa01d6754ad7afd5afe0f164e049",
+    "fields": {
+      "name": "berlin-emma-double-eighteen",
+      "func": "fma_django_api.v1.aggregator_components.tasks.agg_service",
+      "hook": "fma_django_api.v1.aggregator_components.tasks.post_agg_service_hook",
+      "args": "gAWVBQAAAAAAAABLAYWULg==",
+      "kwargs": "gAV9lC4=",
+      "result": null,
+      "group": "1",
+      "started": "2023-01-23T15:10:08.631Z",
+      "stopped": "2023-01-23T15:10:08.639Z",
+      "success": true,
+      "attempt_count": 1
+    }
+  },
+  {
+    "model": "django_q.task",
+    "pk": "0b379ab5c37f4ef9b98ae950e617c39c",
+    "fields": {
+      "name": "beer-asparagus-mike-pennsylvania",
+      "func": "fma_django_api.v1.aggregator_components.tasks.agg_service",
+      "hook": "fma_django_api.v1.aggregator_components.tasks.post_agg_service_hook",
+      "args": "gAWVBQAAAAAAAABLAYWULg==",
+      "kwargs": "gAV9lC4=",
+      "result": null,
+      "group": "1",
+      "started": "2022-12-17T16:52:24.624Z",
+      "stopped": "2022-12-17T16:52:24.631Z",
+      "success": true,
+      "attempt_count": 1
+    }
+  },
+  {
+    "model": "django_q.task",
+    "pk": "0b81094263fb44fc91f61aa7c1aa4ac3",
+    "fields": {
+      "name": "september-cardinal-ten-twelve",
+      "func": "fma_django_api.v1.aggregator_components.tasks.agg_service",
+      "hook": "fma_django_api.v1.aggregator_components.tasks.post_agg_service_hook",
+      "args": "gAWVBQAAAAAAAABLAYWULg==",
+      "kwargs": "gAV9lC4=",
+      "result": null,
+      "group": "1",
+      "started": "2022-12-28T16:29:14.380Z",
+      "stopped": "2022-12-28T16:29:14.387Z",
+      "success": false,
+      "attempt_count": 1
+    }
+  }
+]

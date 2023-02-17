@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[dev-packages]
+pytest = "*"
+coverage = "*"
+behave = "*"
+flake8 = "*"
+pytest-cov = "*"
+pre-commit = "*"
+pytest-django = "*"
+
+[packages]
+requests = "2.28.1"
+boto3 = "1.26.11"
+aws-lambda-powertools = {extras = ["tracer"], version = "2.3.0"}
+fma-django = {extras = ["api"], path = "./artifacts/fma_django-0.0.1-py3-none-any.whl"}
+fma-core = {path = "./artifacts/fma_core-0.0.1-py3-none-any.whl"}
+
+[requires]
+python_version = "3.9"

@@ -1,0 +1,75 @@
+[
+  {
+    "model": "fma_django.federatedmodel",
+    "pk": 1,
+    "fields": {
+      "name": "test",
+      "developer": 1,
+      "current_artifact": null,
+      "requirement": "require_x_updates",
+      "requirement_args": [
+        3
+      ],
+      "aggregator": "avg_values_if_data",
+      "update_schema": {
+        "type": "array",
+        "prefixItems": [
+          {"type": "array", "minItems": 3, "maxItems": 3},
+          {"type": "array", "minItems": 3, "maxItems": 3}
+        ],
+        "items": false
+      },
+      "scheduler": 1,
+      "created_on": "2022-12-15T23:08:28.693Z",
+      "last_modified": "2022-12-18T23:08:28.693Z",
+      "clients": [
+        "531580e6-ce6c-4f01-a5aa-9ed7af5ee768",
+        "ab359e5d-6991-4088-8815-a85d3e413c02",
+        "cbb6025f-c15c-4e90-b3fb-85626f7a79f1"
+      ]
+    }
+  },
+  {
+    "model": "fma_django.federatedmodel",
+    "pk": 2,
+    "fields": {
+      "name": "test-non-admin",
+      "developer": 2,
+      "current_artifact": null,
+      "requirement": "all_clients",
+      "requirement_args": null,
+      "aggregator": "avg_values_if_data",
+      "update_schema": null,
+      "scheduler": 2,
+      "created_on": "2022-12-24T23:08:28.693Z",
+      "last_modified": "2022-12-28T23:08:28.693Z",
+      "clients": []
+    }
+  },
+  {
+    "model": "fma_django.federatedmodel",
+    "pk": 3,
+    "fields": {
+      "name": "test-no-aggregate",
+      "developer": 2,
+      "current_artifact": null,
+      "requirement": "all_clients",
+      "requirement_args": null,
+      "aggregator": "avg_values_if_data",
+      "update_schema": {
+        "type": "array",
+        "prefixItems": [
+          {"type": "array", "minItems": 3, "maxItems": 3},
+          {"type": "array", "minItems": 3, "maxItems": 3}
+        ],
+        "items": false
+      },
+      "scheduler": 3,
+      "created_on": "2022-12-18T23:08:28.693Z",
+      "last_modified": "2022-12-19T23:08:28.693Z",
+      "clients": [
+        "cbb6025f-c15c-4e90-b3fb-85626f7a79f1"
+      ]
+    }
+  }
+]
