@@ -1,0 +1,16 @@
+.vscode
+feature_branch/
+**DS_Store**
+**.pickle
+.aws-sam/
+.idea/
+**/__pycache__/
+/aggregator/
+/api_service/
+/clients/
+/connectors/
+/examples/
+/fma-core/
+.coverage
+
+venv-ghpages/
