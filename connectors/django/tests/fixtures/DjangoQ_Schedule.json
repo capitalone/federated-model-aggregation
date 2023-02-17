@@ -1,0 +1,56 @@
+[
+  {
+    "model": "django_q.schedule",
+    "pk": 1,
+    "fields": {
+      "name": "1 - test - Scheduled Aggregator",
+      "func": "fma_django_api.v1.aggregator_components.tasks.agg_service",
+      "hook": "fma_django_api.v1.aggregator_components.tasks.post_agg_service_hook",
+      "args": "(1,)",
+      "kwargs": "{}",
+      "schedule_type": "I",
+      "minutes": 1,
+      "repeats": -792,
+      "next_run": "2023-01-22T02:53:45Z",
+      "cron": null,
+      "task": "1da0e26c81b74b62a24d297483623668",
+      "cluster": null
+    }
+  },
+  {
+    "model": "django_q.schedule",
+    "pk": 2,
+    "fields": {
+      "name": "2 - test-non-admin - Scheduled Aggregator",
+      "func": "fma_django_api.v1.aggregator_components.tasks.agg_service",
+      "hook": "fma_django_api.v1.aggregator_components.tasks.post_agg_service_hook",
+      "args": "(1,)",
+      "kwargs": "{}",
+      "schedule_type": "I",
+      "minutes": 1,
+      "repeats": 0,
+      "next_run": "2022-12-10T05:15:00Z",
+      "cron": null,
+      "task": "1da0e26c81b74b62a24d297483623668",
+      "cluster": null
+    }
+  },
+    {
+    "model": "django_q.schedule",
+    "pk": 3,
+    "fields": {
+      "name": "3 - test-non-aggregate - Scheduled Aggregator",
+      "func": "fma_django_api.v1.aggregator_components.tasks.agg_service",
+      "hook": "fma_django_api.v1.aggregator_components.tasks.post_agg_service_hook",
+      "args": "(1,)",
+      "kwargs": "{}",
+      "schedule_type": "I",
+      "minutes": 1,
+      "repeats": -792,
+      "next_run": "2022-01-09T07:18:23Z",
+      "cron": null,
+      "task": "1da0e26c81b74b62a24d297483623668",
+      "cluster": null
+    }
+  }
+]

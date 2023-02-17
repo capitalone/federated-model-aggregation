@@ -1,0 +1,8 @@
+pytest
+pytest-cov
+pytest-mock
+pytest-django
+flake8
+black
+pre-commit
+isort

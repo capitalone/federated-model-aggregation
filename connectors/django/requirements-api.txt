@@ -1,0 +1,4 @@
+djangorestframework==3.13.1
+jsonschema==4.4.0
+django-filter==22.1
+apig-wsgi==2.15.0

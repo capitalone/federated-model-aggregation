@@ -1,0 +1,28 @@
+[
+    {
+        "model": "fma_django.clientaggregatescore",
+        "pk": 1,
+        "fields": {
+          "client": "cbb6025f-c15c-4e90-b3fb-85626f7a79f1",
+          "validation_results": {
+              "f1_score": 0.8
+          },
+          "created_on": "2022-02-15T23:08:28.720Z",
+          "aggregate": 1
+        }
+    },
+    {
+        "model": "fma_django.clientaggregatescore",
+        "pk": 2,
+        "fields": {
+          "client": "cbb6025f-c15c-4e90-b3fb-85626f7a79f1",
+          "validation_results": {
+              "prec": 0.25,
+              "rec": 0.4,
+              "skew": 0.6
+          },
+          "created_on": "2022-02-15T23:08:28.720Z",
+          "aggregate": 2
+        }
+    }
+]

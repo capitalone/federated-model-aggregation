@@ -1,0 +1,3 @@
+[run]
+omit = */tests/*,conftest.py,fma_django/migrations/*,setup.py
+branch = True

@@ -1,0 +1,12 @@
+[
+  {
+    "model": "fma_django.modelartifact",
+    "pk": 3,
+    "fields": {
+      "values": "fake/path/model_artifact/1",
+      "federated_model": 1,
+      "version": "1.0.0",
+      "created_on": "2022-12-12T23:55:34.066Z"
+    }
+  }
+]
