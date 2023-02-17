@@ -1,0 +1,34 @@
+FMA Connect
+=============
+
+FMA Connect allows users to directly interface with the FMA Service API without the need to write explicit API calls.
+
+.. include:: ../../../../feature_branch/clients/python_client/README.md
+   :parser: myst_parser.sphinx_
+
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+   :caption: Getting Started:
+
+   FMA Home Page <https://github.com/capitalone/federated-model-aggregation/docs/build/index.html>
+   Overview <self>
+   
+.. toctree::
+  :maxdepth: 2
+  :hidden:
+  :caption: User Guide:
+
+  API <modules.rst>
+
+.. automodule:: fma_connect
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+Versions
+========
+* `0.0.1`_
+
+.. _0.0.1: ../../0.0.1/html/index.html
