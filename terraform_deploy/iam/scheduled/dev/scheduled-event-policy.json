@@ -1,0 +1,28 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowScheduledRuleForAggregationLambda",
+            "Effect": "Allow",
+            "Action":[
+                      "events:DescribeRule",
+                      "events:DisableRule",
+                      "events:EnableRule",
+                      "events:DeleteRule"],
+            "Resource": "<Arn of scheduling resource>"
+        },
+        {
+            "Sid": "AllowPutRuleForAggregationLambda",
+            "Effect": "Allow",
+            "Action": ["events:PutRule",
+                       "events:PutTargets",
+                       "events:TagResource"],
+            "Resource": "<Arn of scheduling resource>",
+            "Condition": {
+                "ForAllValues:ArnEquals": {
+                    "events:TargetArn": "<Arn of scheduling resource>::LIVE_TRAFFIC"
+                }
+            }
+        }
+    ]
+}
