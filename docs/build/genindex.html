@@ -1,0 +1,1767 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="#" /><link rel="search" title="Search" href="search.html" />
+
+    <!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 --><title>Index - Federated Model Aggregation</title>
+<link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand"><div class='title'>Federated Model Aggregation</div></div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text"><div class='title'>Federated Model Aggregation</div></span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Intro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="examples.html">Examples</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="client_example.html">Client Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="django_example.html">Django Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_endpoints.html">API Endpoints</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Components:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://localhost/replaceme">Aggregator</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://localhost/replaceme">API Service</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://localhost/replaceme">FMA Django</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://localhost/replaceme">FMA Connect</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://localhost/replaceme">FMA Core</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Community:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/capitalone/federated-model-aggregation/releases">Changelog</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/capitalone/federated-model-aggregation/issues">Feedback</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/capitalone/federated-model-aggregation">GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/capitalone/federated-model-aggregation/blob/master/.github/CONTRIBUTING.md">Contributing</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          
+<section class="genindex-section">
+  <h1 id="index">Index</h1>
+  <div class="genindex-jumpbox"><a href="#A"><strong>A</strong></a> | <a href="#B"><strong>B</strong></a> | <a href="#C"><strong>C</strong></a> | <a href="#D"><strong>D</strong></a> | <a href="#E"><strong>E</strong></a> | <a href="#F"><strong>F</strong></a> | <a href="#G"><strong>G</strong></a> | <a href="#H"><strong>H</strong></a> | <a href="#I"><strong>I</strong></a> | <a href="#J"><strong>J</strong></a> | <a href="#L"><strong>L</strong></a> | <a href="#M"><strong>M</strong></a> | <a href="#N"><strong>N</strong></a> | <a href="#O"><strong>O</strong></a> | <a href="#P"><strong>P</strong></a> | <a href="#Q"><strong>Q</strong></a> | <a href="#R"><strong>R</strong></a> | <a href="#S"><strong>S</strong></a> | <a href="#T"><strong>T</strong></a> | <a href="#U"><strong>U</strong></a> | <a href="#V"><strong>V</strong></a> | <a href="#W"><strong>W</strong></a></div>
+</section>
+<section id="A" class="genindex-section">
+  <h2>A</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="fma-core/fma_core.workflows.tasks.html#fma_core.workflows.tasks.agg_service">agg_service() (in module fma_core.workflows.tasks)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ClientAggregateScore.aggregate">aggregate (fma_django.models.ClientAggregateScore attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ClientAggregateScore.aggregate_id">aggregate_id (fma_django.models.ClientAggregateScore attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.Client.aggregate_scores">aggregate_scores (fma_django.models.Client attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.FederatedModel.aggregates">aggregates (fma_django.models.FederatedModel attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.FederatedModel.aggregator">aggregator (fma_django.models.FederatedModel attribute)</a>
+</li>
+        <li><a href="fma-core/fma_core.algorithms.requirements.common.html#fma_core.algorithms.requirements.common.all_clients">all_clients() (in module fma_core.algorithms.requirements.common)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.FederatedModel.allow_aggregation">allow_aggregation (fma_django.models.FederatedModel property)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="clients/python_client/fma_connect.exceptions.html#fma_connect.exceptions.APIException">APIException</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelUpdate.applied_aggregate">applied_aggregate (fma_django.models.ModelUpdate attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelUpdate.applied_aggregate_id">applied_aggregate_id (fma_django.models.ModelUpdate attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.FederatedModel.artifacts">artifacts (fma_django.models.FederatedModel attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django.authenticators.html#fma_django.authenticators.ClientAuthentication.authenticate">authenticate() (fma_django.authenticators.ClientAuthentication method)</a>
+</li>
+        <li><a href="fma-core/fma_core.workflows.aggregator_utils.html#fma_core.workflows.aggregator_utils.AutoSubRegistrationMeta">AutoSubRegistrationMeta (class in fma_core.workflows.aggregator_utils)</a>
+</li>
+        <li><a href="fma-core/fma_core.algorithms.aggregators.common.html#fma_core.algorithms.aggregators.common.average_layers">average_layers() (in module fma_core.algorithms.aggregators.common)</a>
+</li>
+        <li><a href="fma-core/fma_core.algorithms.aggregators.common.html#fma_core.algorithms.aggregators.common.avg_values_if_data">avg_values_if_data() (in module fma_core.algorithms.aggregators.common)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="B" class="genindex-section">
+  <h2>B</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelUpdate.base_aggregate">base_aggregate (fma_django.models.ModelUpdate attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelUpdate.base_aggregate_id">base_aggregate_id (fma_django.models.ModelUpdate attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.filters.html#fma_django_api.v1.filters.FederatedModelFilter.base_filters">base_filters (fma_django_api.v1.filters.FederatedModelFilter attribute)</a>
+</li>
+        <li><a href="fma-core/fma_core.workflows.aggregator_connectors_factory.html#fma_core.workflows.aggregator_connectors_factory.BaseAggConnector">BaseAggConnector (class in fma_core.workflows.aggregator_connectors_factory)</a>
+</li>
+        <li><a href="fma-core/fma_core.workflows.metadata_connectors_factory.html#fma_core.workflows.metadata_connectors_factory.BaseMetadataConnector">BaseMetadataConnector (class in fma_core.workflows.metadata_connectors_factory)</a>
+</li>
+        <li><a href="fma-core/fma_core.workflows.model_data_connectors_factory.html#fma_core.workflows.model_data_connectors_factory.BaseModelDataConnector">BaseModelDataConnector (class in fma_core.workflows.model_data_connectors_factory)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ClientAggregateScoreViewSet.basename">basename (fma_django_api.v1.views.ClientAggregateScoreViewSet attribute)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.FederatedModelViewSet.basename">(fma_django_api.v1.views.FederatedModelViewSet attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ModelAggregateViewSet.basename">(fma_django_api.v1.views.ModelAggregateViewSet attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ModelUpdateViewSet.basename">(fma_django_api.v1.views.ModelUpdateViewSet attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="connectors/django/fma_django_api.v1.paginators.html#fma_django_api.v1.paginators.BaseResultsSetPagination">BaseResultsSetPagination (class in fma_django_api.v1.paginators)</a>
+</li>
+        <li><a href="api_service/federated_learning_project.s3_storage_utils.html#federated_learning_project.s3_storage_utils.StaticStorage.bucket_name">bucket_name (federated_learning_project.s3_storage_utils.StaticStorage attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="C" class="genindex-section">
+  <h2>C</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="fma-core/fma_core.workflows.api_handler_factory.html#fma_core.workflows.api_handler_factory.call_api_handler">call_api_handler() (in module fma_core.workflows.api_handler_factory)</a>
+</li>
+        <li><a href="clients/python_client/fma_connect.clients.html#fma_connect.clients.WebClient.check_for_latest_model">check_for_latest_model() (fma_connect.clients.WebClient method)</a>
+</li>
+        <li><a href="clients/python_client/fma_connect.clients.html#fma_connect.clients.WebClient.check_for_new_model_aggregate">check_for_new_model_aggregate() (fma_connect.clients.WebClient method)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelAggregate.children">children (fma_django.models.ModelAggregate attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.Client">Client (class in fma_django.models)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ClientAggregateScore.client">client (fma_django.models.ClientAggregateScore attribute)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelUpdate.client">(fma_django.models.ModelUpdate attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.Client.DoesNotExist">Client.DoesNotExist</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.Client.MultipleObjectsReturned">Client.MultipleObjectsReturned</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.FederatedModel.client_agg_results_schema">client_agg_results_schema (fma_django.models.FederatedModel attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ClientAggregateScore.client_id">client_id (fma_django.models.ClientAggregateScore attribute)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelUpdate.client_id">(fma_django.models.ModelUpdate attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelAggregate.client_scores">client_scores (fma_django.models.ModelAggregate attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django.admin.html#fma_django.admin.ClientAdmin">ClientAdmin (class in fma_django.admin)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ClientAggregateScore">ClientAggregateScore (class in fma_django.models)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ClientAggregateScore.DoesNotExist">ClientAggregateScore.DoesNotExist</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ClientAggregateScore.MultipleObjectsReturned">ClientAggregateScore.MultipleObjectsReturned</a>
+</li>
+        <li><a href="connectors/django/fma_django.admin.html#fma_django.admin.ClientAggregateScoreAdmin">ClientAggregateScoreAdmin (class in fma_django.admin)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.ClientAggregateScoreSerializer">ClientAggregateScoreSerializer (class in fma_django_api.v1.serializers)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.ClientAggregateScoreSerializer.Meta">ClientAggregateScoreSerializer.Meta (class in fma_django_api.v1.serializers)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ClientAggregateScoreViewSet">ClientAggregateScoreViewSet (class in fma_django_api.v1.views)</a>
+</li>
+        <li><a href="connectors/django/fma_django.authenticators.html#fma_django.authenticators.ClientAuthentication">ClientAuthentication (class in fma_django.authenticators)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.permissions.html#fma_django_api.v1.permissions.ClientCreateGetViewPermission">ClientCreateGetViewPermission (class in fma_django_api.v1.permissions)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.ClientModelUpdateSerializer">ClientModelUpdateSerializer (class in fma_django_api.v1.serializers)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.ClientModelUpdateSerializer.Meta">ClientModelUpdateSerializer.Meta (class in fma_django_api.v1.serializers)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.FederatedModel.clients">clients (fma_django.models.FederatedModel attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.Client.clients_of_model">clients_of_model (fma_django.models.Client attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.ClientSerializer">ClientSerializer (class in fma_django_api.v1.serializers)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.ClientSerializer.Meta">ClientSerializer.Meta (class in fma_django_api.v1.serializers)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ClientUser">ClientUser (class in fma_django.models)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.permissions.html#fma_django_api.v1.permissions.ClientViewOnlyPermission">ClientViewOnlyPermission (class in fma_django_api.v1.permissions)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelUpdate.TaskStatus.COMPLETE">COMPLETE (fma_django.models.ModelUpdate.TaskStatus attribute)</a>
+</li>
+        <li><a href="fma-core/fma_core.workflows.aggregator_connectors_factory.html#fma_core.workflows.aggregator_connectors_factory.BaseAggConnector.create">create() (fma_core.workflows.aggregator_connectors_factory.BaseAggConnector class method)</a>
+
+        <ul>
+          <li><a href="fma-core/fma_core.workflows.metadata_connectors_factory.html#fma_core.workflows.metadata_connectors_factory.BaseMetadataConnector.create">(fma_core.workflows.metadata_connectors_factory.BaseMetadataConnector class method)</a>
+</li>
+          <li><a href="fma-core/fma_core.workflows.model_data_connectors_factory.html#fma_core.workflows.model_data_connectors_factory.BaseModelDataConnector.create">(fma_core.workflows.model_data_connectors_factory.BaseModelDataConnector class method)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.CreateFederatedModelSerializer.create">(fma_django_api.v1.serializers.CreateFederatedModelSerializer method)</a>
+</li>
+        </ul></li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.create_model_agg_task">create_model_agg_task() (in module fma_django.models)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.create_model_aggregation_schedule_local">create_model_aggregation_schedule_local() (in module fma_django.models)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.create_model_aggregation_schedule_remote">create_model_aggregation_schedule_remote() (in module fma_django.models)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.utils.html#fma_django_api.utils.create_model_file">create_model_file() (in module fma_django_api.utils)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django_connectors.utils.html#fma_django_connectors.utils.create_model_file">(in module fma_django_connectors.utils)</a>
+</li>
+        </ul></li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ClientAggregateScore.created_on">created_on (fma_django.models.ClientAggregateScore attribute)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django.models.html#fma_django.models.FederatedModel.created_on">(fma_django.models.FederatedModel attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelAggregate.created_on">(fma_django.models.ModelAggregate attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelArtifact.created_on">(fma_django.models.ModelArtifact attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelUpdate.created_on">(fma_django.models.ModelUpdate attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.CreateFederatedModelSerializer">CreateFederatedModelSerializer (class in fma_django_api.v1.serializers)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.CreateFederatedModelSerializer.Meta">CreateFederatedModelSerializer.Meta (class in fma_django_api.v1.serializers)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.FederatedModel.current_artifact">current_artifact (fma_django.models.FederatedModel attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.FederatedModel.current_artifact_id">current_artifact_id (fma_django.models.FederatedModel attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="D" class="genindex-section">
+  <h2>D</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelUpdate.data">data (fma_django.models.ModelUpdate attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.filters.html#fma_django_api.v1.filters.FederatedModelFilter.declared_filters">declared_filters (fma_django_api.v1.filters.FederatedModelFilter attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django.apps.html#fma_django.apps.FMADjangoBaseConfig.default_auto_field">default_auto_field (fma_django.apps.FMADjangoBaseConfig attribute)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.apps.html#fma_django_api.apps.TaskQueueApiConfig.default_auto_field">(fma_django_api.apps.TaskQueueApiConfig attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.delete_model_agg_task">delete_model_agg_task() (in module fma_django.models)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.delete_model_aggregation_schedule_local">delete_model_aggregation_schedule_local() (in module fma_django.models)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.delete_model_aggregation_schedule_remote">delete_model_aggregation_schedule_remote() (in module fma_django.models)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ClientAggregateScoreViewSet.description">description (fma_django_api.v1.views.ClientAggregateScoreViewSet attribute)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.FederatedModelViewSet.description">(fma_django_api.v1.views.FederatedModelViewSet attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ModelAggregateViewSet.description">(fma_django_api.v1.views.ModelAggregateViewSet attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ModelUpdateViewSet.description">(fma_django_api.v1.views.ModelUpdateViewSet attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ClientAggregateScoreViewSet.detail">detail (fma_django_api.v1.views.ClientAggregateScoreViewSet attribute)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.FederatedModelViewSet.detail">(fma_django_api.v1.views.FederatedModelViewSet attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ModelAggregateViewSet.detail">(fma_django_api.v1.views.ModelAggregateViewSet attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ModelUpdateViewSet.detail">(fma_django_api.v1.views.ModelUpdateViewSet attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.FederatedModel.developer">developer (fma_django.models.FederatedModel attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.FederatedModel.developer_id">developer_id (fma_django.models.FederatedModel attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.DisplayClient">DisplayClient (class in fma_django.models)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.DisplayClient.DoesNotExist">DisplayClient.DoesNotExist</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.DisplayClient.MultipleObjectsReturned">DisplayClient.MultipleObjectsReturned</a>
+</li>
+        <li><a href="connectors/django/fma_django_connectors.api_handlers.html#fma_django_connectors.api_handlers.django_lambda_handler">django_lambda_handler() (in module fma_django_connectors.api_handlers)</a>
+</li>
+        <li><a href="connectors/django/fma_django_connectors.aggregator_connector.html#fma_django_connectors.aggregator_connector.DjangoAggConnector">DjangoAggConnector (class in fma_django_connectors.aggregator_connector)</a>
+</li>
+        <li><a href="connectors/django/fma_django_connectors.metadata_connector.html#fma_django_connectors.metadata_connector.DjangoMetadataConnector">DjangoMetadataConnector (class in fma_django_connectors.metadata_connector)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="E" class="genindex-section">
+  <h2>E</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.error404">error404() (in module fma_django_api.v1.views)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.ClientModelUpdateSerializer.Meta.exclude">exclude (fma_django_api.v1.serializers.ClientModelUpdateSerializer.Meta attribute)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.FederatedModelSerializer.Meta.exclude">(fma_django_api.v1.serializers.FederatedModelSerializer.Meta attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.ModelUpdateSerializer.Meta.exclude">(fma_django_api.v1.serializers.ModelUpdateSerializer.Meta attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.FederatedModelSerializer.Meta.extra_fields">extra_fields (fma_django_api.v1.serializers.FederatedModelSerializer.Meta attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="F" class="genindex-section">
+  <h2>F</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelUpdate.TaskStatus.FAILED">FAILED (fma_django.models.ModelUpdate.TaskStatus attribute)</a>
+</li>
+        <li>
+    federated_learning_project
+
+        <ul>
+          <li><a href="aggregator/federated_learning_project.html#module-federated_learning_project">module</a>, <a href="api_service/federated_learning_project.html#module-federated_learning_project">[1]</a>
+</li>
+        </ul></li>
+        <li>
+    federated_learning_project.s3_storage_utils
+
+        <ul>
+          <li><a href="api_service/federated_learning_project.s3_storage_utils.html#module-federated_learning_project.s3_storage_utils">module</a>
+</li>
+        </ul></li>
+        <li>
+    federated_learning_project.urls
+
+        <ul>
+          <li><a href="api_service/federated_learning_project.urls.html#module-federated_learning_project.urls">module</a>
+</li>
+        </ul></li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelAggregate.federated_model">federated_model (fma_django.models.ModelAggregate attribute)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelArtifact.federated_model">(fma_django.models.ModelArtifact attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelUpdate.federated_model">(fma_django.models.ModelUpdate attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="clients/python_client/fma_connect.clients.html#fma_connect.clients.WebClient.federated_model_id">federated_model_id (fma_connect.clients.WebClient property)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelAggregate.federated_model_id">(fma_django.models.ModelAggregate attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelArtifact.federated_model_id">(fma_django.models.ModelArtifact attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelUpdate.federated_model_id">(fma_django.models.ModelUpdate attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.FederatedModel">FederatedModel (class in fma_django.models)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.FederatedModel.DoesNotExist">FederatedModel.DoesNotExist</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.FederatedModel.MultipleObjectsReturned">FederatedModel.MultipleObjectsReturned</a>
+</li>
+        <li><a href="connectors/django/fma_django.admin.html#fma_django.admin.FederatedModelAdmin">FederatedModelAdmin (class in fma_django.admin)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.filters.html#fma_django_api.v1.filters.FederatedModelFilter">FederatedModelFilter (class in fma_django_api.v1.filters)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.filters.html#fma_django_api.v1.filters.FederatedModelFilter.Meta">FederatedModelFilter.Meta (class in fma_django_api.v1.filters)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.FederatedModelSerializer">FederatedModelSerializer (class in fma_django_api.v1.serializers)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.FederatedModelSerializer.Meta">FederatedModelSerializer.Meta (class in fma_django_api.v1.serializers)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.FederatedModelViewSet">FederatedModelViewSet (class in fma_django_api.v1.views)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.filters.html#fma_django_api.v1.filters.FederatedModelFilter.Meta.fields">fields (fma_django_api.v1.filters.FederatedModelFilter.Meta attribute)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.ClientAggregateScoreSerializer.Meta.fields">(fma_django_api.v1.serializers.ClientAggregateScoreSerializer.Meta attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.ClientSerializer.Meta.fields">(fma_django_api.v1.serializers.ClientSerializer.Meta attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.ModelAggregateRetrieveJSONSerializer.Meta.fields">(fma_django_api.v1.serializers.ModelAggregateRetrieveJSONSerializer.Meta attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.ModelAggregateSerializer.Meta.fields">(fma_django_api.v1.serializers.ModelAggregateSerializer.Meta attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.ModelArtifactSerializer.Meta.fields">(fma_django_api.v1.serializers.ModelArtifactSerializer.Meta attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="connectors/django/fma_django_api.v1.filters.html#fma_django_api.v1.filters.FederatedModelFilter.filter_allow_aggregation">filter_allow_aggregation() (fma_django_api.v1.filters.FederatedModelFilter method)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.FederatedModelViewSet.filterset_class">filterset_class (fma_django_api.v1.views.FederatedModelViewSet attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ClientAggregateScoreViewSet.filterset_fields">filterset_fields (fma_django_api.v1.views.ClientAggregateScoreViewSet attribute)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ModelAggregateViewSet.filterset_fields">(fma_django_api.v1.views.ModelAggregateViewSet attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ModelUpdateViewSet.filterset_fields">(fma_django_api.v1.views.ModelUpdateViewSet attribute)</a>
+</li>
+        </ul></li>
+        <li>
+    fma_connect
+
+        <ul>
+          <li><a href="clients/python_client/fma_connect.html#module-fma_connect">module</a>, <a href="clients/python_client/index.html#module-fma_connect">[1]</a>
+</li>
+        </ul></li>
+        <li>
+    fma_connect.clients
+
+        <ul>
+          <li><a href="clients/python_client/fma_connect.clients.html#module-fma_connect.clients">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_connect.exceptions
+
+        <ul>
+          <li><a href="clients/python_client/fma_connect.exceptions.html#module-fma_connect.exceptions">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_connect.settings
+
+        <ul>
+          <li><a href="clients/python_client/fma_connect.settings.html#module-fma_connect.settings">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_connect.version
+
+        <ul>
+          <li><a href="clients/python_client/fma_connect.version.html#module-fma_connect.version">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_core
+
+        <ul>
+          <li><a href="fma-core/fma_core.html#module-fma_core">module</a>, <a href="fma-core/index.html#module-fma_core">[1]</a>
+</li>
+        </ul></li>
+        <li>
+    fma_core.algorithms
+
+        <ul>
+          <li><a href="fma-core/fma_core.algorithms.html#module-fma_core.algorithms">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_core.algorithms.aggregators
+
+        <ul>
+          <li><a href="fma-core/fma_core.algorithms.aggregators.html#module-fma_core.algorithms.aggregators">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_core.algorithms.aggregators.common
+
+        <ul>
+          <li><a href="fma-core/fma_core.algorithms.aggregators.common.html#module-fma_core.algorithms.aggregators.common">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_core.algorithms.requirements
+
+        <ul>
+          <li><a href="fma-core/fma_core.algorithms.requirements.html#module-fma_core.algorithms.requirements">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_core.algorithms.requirements.common
+
+        <ul>
+          <li><a href="fma-core/fma_core.algorithms.requirements.common.html#module-fma_core.algorithms.requirements.common">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_core.conf
+
+        <ul>
+          <li><a href="fma-core/fma_core.conf.html#module-fma_core.conf">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_core.version
+
+        <ul>
+          <li><a href="fma-core/fma_core.version.html#module-fma_core.version">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_core.workflows
+
+        <ul>
+          <li><a href="fma-core/fma_core.workflows.html#module-fma_core.workflows">module</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    fma_core.workflows.aggregator_connectors_factory
+
+        <ul>
+          <li><a href="fma-core/fma_core.workflows.aggregator_connectors_factory.html#module-fma_core.workflows.aggregator_connectors_factory">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_core.workflows.aggregator_utils
+
+        <ul>
+          <li><a href="fma-core/fma_core.workflows.aggregator_utils.html#module-fma_core.workflows.aggregator_utils">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_core.workflows.api_handler_factory
+
+        <ul>
+          <li><a href="fma-core/fma_core.workflows.api_handler_factory.html#module-fma_core.workflows.api_handler_factory">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_core.workflows.api_handler_utils
+
+        <ul>
+          <li><a href="fma-core/fma_core.workflows.api_handler_utils.html#module-fma_core.workflows.api_handler_utils">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_core.workflows.metadata_connectors_factory
+
+        <ul>
+          <li><a href="fma-core/fma_core.workflows.metadata_connectors_factory.html#module-fma_core.workflows.metadata_connectors_factory">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_core.workflows.model_data_connectors_factory
+
+        <ul>
+          <li><a href="fma-core/fma_core.workflows.model_data_connectors_factory.html#module-fma_core.workflows.model_data_connectors_factory">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_core.workflows.tasks
+
+        <ul>
+          <li><a href="fma-core/fma_core.workflows.tasks.html#module-fma_core.workflows.tasks">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_django
+
+        <ul>
+          <li><a href="connectors/django/fma_django.html#module-fma_django">module</a>, <a href="connectors/django/index.html#module-fma_django">[1]</a>
+</li>
+        </ul></li>
+        <li>
+    fma_django.admin
+
+        <ul>
+          <li><a href="connectors/django/fma_django.admin.html#module-fma_django.admin">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_django.apps
+
+        <ul>
+          <li><a href="connectors/django/fma_django.apps.html#module-fma_django.apps">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_django.authenticators
+
+        <ul>
+          <li><a href="connectors/django/fma_django.authenticators.html#module-fma_django.authenticators">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_django.models
+
+        <ul>
+          <li><a href="connectors/django/fma_django.models.html#module-fma_django.models">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_django.version
+
+        <ul>
+          <li><a href="connectors/django/fma_django.version.html#module-fma_django.version">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_django_api
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.html#module-fma_django_api">module</a>, <a href="connectors/django/index.html#module-fma_django_api">[1]</a>
+</li>
+        </ul></li>
+        <li>
+    fma_django_api.apps
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.apps.html#module-fma_django_api.apps">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_django_api.urls
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.urls.html#module-fma_django_api.urls">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_django_api.utils
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.utils.html#module-fma_django_api.utils">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_django_api.v1
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.v1.html#module-fma_django_api.v1">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_django_api.v1.fields
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.v1.fields.html#module-fma_django_api.v1.fields">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_django_api.v1.filters
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.v1.filters.html#module-fma_django_api.v1.filters">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_django_api.v1.paginators
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.v1.paginators.html#module-fma_django_api.v1.paginators">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_django_api.v1.permissions
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.v1.permissions.html#module-fma_django_api.v1.permissions">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_django_api.v1.serializers
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.v1.serializers.html#module-fma_django_api.v1.serializers">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_django_api.v1.urls
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.v1.urls.html#module-fma_django_api.v1.urls">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_django_api.v1.views
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#module-fma_django_api.v1.views">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_django_connectors
+
+        <ul>
+          <li><a href="connectors/django/fma_django_connectors.html#module-fma_django_connectors">module</a>, <a href="connectors/django/index.html#module-fma_django_connectors">[1]</a>
+</li>
+        </ul></li>
+        <li>
+    fma_django_connectors.aggregator_connector
+
+        <ul>
+          <li><a href="connectors/django/fma_django_connectors.aggregator_connector.html#module-fma_django_connectors.aggregator_connector">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_django_connectors.api_handlers
+
+        <ul>
+          <li><a href="connectors/django/fma_django_connectors.api_handlers.html#module-fma_django_connectors.api_handlers">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_django_connectors.metadata_connector
+
+        <ul>
+          <li><a href="connectors/django/fma_django_connectors.metadata_connector.html#module-fma_django_connectors.metadata_connector">module</a>
+</li>
+        </ul></li>
+        <li>
+    fma_django_connectors.utils
+
+        <ul>
+          <li><a href="connectors/django/fma_django_connectors.utils.html#module-fma_django_connectors.utils">module</a>
+</li>
+        </ul></li>
+        <li><a href="connectors/django/fma_django.apps.html#fma_django.apps.FMADjangoBaseConfig">FMADjangoBaseConfig (class in fma_django.apps)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.FederatedModel.furthest_base_agg">furthest_base_agg (fma_django.models.FederatedModel attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="G" class="genindex-section">
+  <h2>G</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="clients/python_client/fma_connect.clients.html#fma_connect.clients.WebClient.get_current_artifact">get_current_artifact() (fma_connect.clients.WebClient method)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.FederatedModelViewSet.get_current_artifact">(fma_django_api.v1.views.FederatedModelViewSet method)</a>
+</li>
+        </ul></li>
+        <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.FederatedModelViewSet.get_latest_aggregate">get_latest_aggregate() (fma_django_api.v1.views.FederatedModelViewSet method)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.FederatedModelViewSet.get_latest_model">get_latest_model() (fma_django_api.v1.views.FederatedModelViewSet method)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ClientAggregateScore.get_next_by_created_on">get_next_by_created_on() (fma_django.models.ClientAggregateScore method)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django.models.html#fma_django.models.FederatedModel.get_next_by_created_on">(fma_django.models.FederatedModel method)</a>
+</li>
+          <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelAggregate.get_next_by_created_on">(fma_django.models.ModelAggregate method)</a>
+</li>
+          <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelArtifact.get_next_by_created_on">(fma_django.models.ModelArtifact method)</a>
+</li>
+          <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelUpdate.get_next_by_created_on">(fma_django.models.ModelUpdate method)</a>
+</li>
+        </ul></li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.FederatedModel.get_next_by_last_modified">get_next_by_last_modified() (fma_django.models.FederatedModel method)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.paginators.html#fma_django_api.v1.paginators.BaseResultsSetPagination.get_paginated_response">get_paginated_response() (fma_django_api.v1.paginators.BaseResultsSetPagination method)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ClientAggregateScore.get_previous_by_created_on">get_previous_by_created_on() (fma_django.models.ClientAggregateScore method)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django.models.html#fma_django.models.FederatedModel.get_previous_by_created_on">(fma_django.models.FederatedModel method)</a>
+</li>
+          <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelAggregate.get_previous_by_created_on">(fma_django.models.ModelAggregate method)</a>
+</li>
+          <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelArtifact.get_previous_by_created_on">(fma_django.models.ModelArtifact method)</a>
+</li>
+          <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelUpdate.get_previous_by_created_on">(fma_django.models.ModelUpdate method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.FederatedModel.get_previous_by_last_modified">get_previous_by_last_modified() (fma_django.models.FederatedModel method)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ClientAggregateScoreViewSet.get_queryset">get_queryset() (fma_django_api.v1.views.ClientAggregateScoreViewSet method)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.FederatedModelViewSet.get_queryset">(fma_django_api.v1.views.FederatedModelViewSet method)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ModelAggregateViewSet.get_queryset">(fma_django_api.v1.views.ModelAggregateViewSet method)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ModelUpdateViewSet.get_queryset">(fma_django_api.v1.views.ModelUpdateViewSet method)</a>
+</li>
+        </ul></li>
+        <li><a href="aggregator/secrets_managers.aws_secrets.html#secrets_managers.aws_secrets.get_secret">get_secret() (in module secrets_managers.aws_secrets)</a>, <a href="api_service/secrets_managers.aws_secrets.html#secrets_managers.aws_secrets.get_secret">[1]</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.FederatedModelViewSet.get_serializer_class">get_serializer_class() (fma_django_api.v1.views.FederatedModelViewSet method)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ModelUpdateViewSet.get_serializer_class">(fma_django_api.v1.views.ModelUpdateViewSet method)</a>
+</li>
+        </ul></li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelUpdate.get_status_display">get_status_display() (fma_django.models.ModelUpdate method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="H" class="genindex-section">
+  <h2>H</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="connectors/django/fma_django_api.v1.permissions.html#fma_django_api.v1.permissions.RegisteredClientOnlyPermission.has_object_permission">has_object_permission() (fma_django_api.v1.permissions.RegisteredClientOnlyPermission method)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.permissions.html#fma_django_api.v1.permissions.ClientCreateGetViewPermission.has_permission">has_permission() (fma_django_api.v1.permissions.ClientCreateGetViewPermission method)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.v1.permissions.html#fma_django_api.v1.permissions.ClientViewOnlyPermission.has_permission">(fma_django_api.v1.permissions.ClientViewOnlyPermission method)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.permissions.html#fma_django_api.v1.permissions.IsActive.has_permission">(fma_django_api.v1.permissions.IsActive method)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.permissions.html#fma_django_api.v1.permissions.IsClientDeveloperAdmin.has_permission">(fma_django_api.v1.permissions.IsClientDeveloperAdmin method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="I" class="genindex-section">
+  <h2>I</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ClientAggregateScore.id">id (fma_django.models.ClientAggregateScore attribute)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django.models.html#fma_django.models.FederatedModel.id">(fma_django.models.FederatedModel attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelAggregate.id">(fma_django.models.ModelAggregate attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelArtifact.id">(fma_django.models.ModelArtifact attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelUpdate.id">(fma_django.models.ModelUpdate attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelUpdate.TaskStatus.INVALID">INVALID (fma_django.models.ModelUpdate.TaskStatus attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ClientUser.is_authenticated">is_authenticated (fma_django.models.ClientUser property)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.permissions.html#fma_django_api.v1.permissions.IsActive">IsActive (class in fma_django_api.v1.permissions)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.permissions.html#fma_django_api.v1.permissions.IsClientDeveloperAdmin">IsClientDeveloperAdmin (class in fma_django_api.v1.permissions)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="J" class="genindex-section">
+  <h2>J</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="connectors/django/fma_django_api.v1.fields.html#fma_django_api.v1.fields.JsonFileField">JsonFileField (class in fma_django_api.v1.fields)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="connectors/django/fma_django_api.v1.fields.html#fma_django_api.v1.fields.JsonToInternalFileField">JsonToInternalFileField (class in fma_django_api.v1.fields)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="L" class="genindex-section">
+  <h2>L</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="connectors/django/fma_django_api.v1.paginators.html#fma_django_api.v1.paginators.LargeResultsSetPagination">LargeResultsSetPagination (class in fma_django_api.v1.paginators)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.FederatedModel.last_modified">last_modified (fma_django.models.FederatedModel attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelAggregate.level">level (fma_django.models.ModelAggregate attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelAggregate.lft">lft (fma_django.models.ModelAggregate attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django.admin.html#fma_django.admin.ClientAggregateScoreAdmin.list_display">list_display (fma_django.admin.ClientAggregateScoreAdmin attribute)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django.admin.html#fma_django.admin.FederatedModelAdmin.list_display">(fma_django.admin.FederatedModelAdmin attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django.admin.html#fma_django.admin.ModelAggregateAdmin.list_display">(fma_django.admin.ModelAggregateAdmin attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django.admin.html#fma_django.admin.ModelArtifactAdmin.list_display">(fma_django.admin.ModelArtifactAdmin attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django.admin.html#fma_django.admin.ModelUpdateAdmin.list_display">(fma_django.admin.ModelUpdateAdmin attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="api_service/federated_learning_project.s3_storage_utils.html#federated_learning_project.s3_storage_utils.StaticStorage.location">location (federated_learning_project.s3_storage_utils.StaticStorage attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="M" class="genindex-section">
+  <h2>M</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="aggregator/manage.html#manage.main">main() (in module manage)</a>, <a href="api_service/manage.html#manage.main">[1]</a>
+</li>
+        <li>
+    manage
+
+        <ul>
+          <li><a href="aggregator/manage.html#module-manage">module</a>, <a href="api_service/manage.html#module-manage">[1]</a>
+</li>
+        </ul></li>
+        <li><a href="connectors/django/fma_django_api.v1.paginators.html#fma_django_api.v1.paginators.LargeResultsSetPagination.max_page_size">max_page_size (fma_django_api.v1.paginators.LargeResultsSetPagination attribute)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.v1.paginators.html#fma_django_api.v1.paginators.StandardResultsSetPagination.max_page_size">(fma_django_api.v1.paginators.StandardResultsSetPagination attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="connectors/django/fma_django.admin.html#fma_django.admin.ClientAdmin.media">media (fma_django.admin.ClientAdmin property)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django.admin.html#fma_django.admin.ClientAggregateScoreAdmin.media">(fma_django.admin.ClientAggregateScoreAdmin property)</a>
+</li>
+          <li><a href="connectors/django/fma_django.admin.html#fma_django.admin.FederatedModelAdmin.media">(fma_django.admin.FederatedModelAdmin property)</a>
+</li>
+          <li><a href="connectors/django/fma_django.admin.html#fma_django.admin.ModelAggregateAdmin.media">(fma_django.admin.ModelAggregateAdmin property)</a>
+</li>
+          <li><a href="connectors/django/fma_django.admin.html#fma_django.admin.ModelArtifactAdmin.media">(fma_django.admin.ModelArtifactAdmin property)</a>
+</li>
+          <li><a href="connectors/django/fma_django.admin.html#fma_django.admin.ModelUpdateAdmin.media">(fma_django.admin.ModelUpdateAdmin property)</a>
+</li>
+        </ul></li>
+        <li><a href="connectors/django/fma_django_api.v1.filters.html#fma_django_api.v1.filters.FederatedModelFilter.Meta.model">model (fma_django_api.v1.filters.FederatedModelFilter.Meta attribute)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.ClientAggregateScoreSerializer.Meta.model">(fma_django_api.v1.serializers.ClientAggregateScoreSerializer.Meta attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.ClientSerializer.Meta.model">(fma_django_api.v1.serializers.ClientSerializer.Meta attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.FederatedModelSerializer.Meta.model">(fma_django_api.v1.serializers.FederatedModelSerializer.Meta attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.ModelAggregateRetrieveJSONSerializer.Meta.model">(fma_django_api.v1.serializers.ModelAggregateRetrieveJSONSerializer.Meta attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.ModelAggregateSerializer.Meta.model">(fma_django_api.v1.serializers.ModelAggregateSerializer.Meta attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.ModelArtifactSerializer.Meta.model">(fma_django_api.v1.serializers.ModelArtifactSerializer.Meta attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.ModelUpdateSerializer.Meta.model">(fma_django_api.v1.serializers.ModelUpdateSerializer.Meta attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.Client.model_updates">model_updates (fma_django.models.Client attribute)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django.models.html#fma_django.models.FederatedModel.model_updates">(fma_django.models.FederatedModel attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelAggregate">ModelAggregate (class in fma_django.models)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelAggregate.DoesNotExist">ModelAggregate.DoesNotExist</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelAggregate.MultipleObjectsReturned">ModelAggregate.MultipleObjectsReturned</a>
+</li>
+        <li><a href="connectors/django/fma_django.admin.html#fma_django.admin.ModelAggregateAdmin">ModelAggregateAdmin (class in fma_django.admin)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.ModelAggregateRetrieveJSONSerializer">ModelAggregateRetrieveJSONSerializer (class in fma_django_api.v1.serializers)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.ModelAggregateRetrieveJSONSerializer.Meta">ModelAggregateRetrieveJSONSerializer.Meta (class in fma_django_api.v1.serializers)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.ModelAggregateSerializer">ModelAggregateSerializer (class in fma_django_api.v1.serializers)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.ModelAggregateSerializer.Meta">ModelAggregateSerializer.Meta (class in fma_django_api.v1.serializers)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ModelAggregateViewSet">ModelAggregateViewSet (class in fma_django_api.v1.views)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelArtifact">ModelArtifact (class in fma_django.models)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelArtifact.DoesNotExist">ModelArtifact.DoesNotExist</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelArtifact.MultipleObjectsReturned">ModelArtifact.MultipleObjectsReturned</a>
+</li>
+        <li><a href="connectors/django/fma_django.admin.html#fma_django.admin.ModelArtifactAdmin">ModelArtifactAdmin (class in fma_django.admin)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.ModelArtifactSerializer">ModelArtifactSerializer (class in fma_django_api.v1.serializers)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.ModelArtifactSerializer.Meta">ModelArtifactSerializer.Meta (class in fma_django_api.v1.serializers)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelUpdate">ModelUpdate (class in fma_django.models)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelUpdate.DoesNotExist">ModelUpdate.DoesNotExist</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelUpdate.MultipleObjectsReturned">ModelUpdate.MultipleObjectsReturned</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelUpdate.TaskStatus">ModelUpdate.TaskStatus (class in fma_django.models)</a>
+</li>
+        <li><a href="connectors/django/fma_django.admin.html#fma_django.admin.ModelUpdateAdmin">ModelUpdateAdmin (class in fma_django.admin)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.ModelUpdateSerializer">ModelUpdateSerializer (class in fma_django_api.v1.serializers)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.ModelUpdateSerializer.Meta">ModelUpdateSerializer.Meta (class in fma_django_api.v1.serializers)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ModelUpdateViewSet">ModelUpdateViewSet (class in fma_django_api.v1.views)</a>
+</li>
+        <li>
+    module
+
+        <ul>
+          <li><a href="aggregator/federated_learning_project.html#module-federated_learning_project">federated_learning_project</a>, <a href="api_service/federated_learning_project.html#module-federated_learning_project">[1]</a>
+</li>
+          <li><a href="api_service/federated_learning_project.s3_storage_utils.html#module-federated_learning_project.s3_storage_utils">federated_learning_project.s3_storage_utils</a>
+</li>
+          <li><a href="api_service/federated_learning_project.urls.html#module-federated_learning_project.urls">federated_learning_project.urls</a>
+</li>
+          <li><a href="clients/python_client/fma_connect.html#module-fma_connect">fma_connect</a>, <a href="clients/python_client/index.html#module-fma_connect">[1]</a>
+</li>
+          <li><a href="clients/python_client/fma_connect.clients.html#module-fma_connect.clients">fma_connect.clients</a>
+</li>
+          <li><a href="clients/python_client/fma_connect.exceptions.html#module-fma_connect.exceptions">fma_connect.exceptions</a>
+</li>
+          <li><a href="clients/python_client/fma_connect.settings.html#module-fma_connect.settings">fma_connect.settings</a>
+</li>
+          <li><a href="clients/python_client/fma_connect.version.html#module-fma_connect.version">fma_connect.version</a>
+</li>
+          <li><a href="fma-core/fma_core.html#module-fma_core">fma_core</a>, <a href="fma-core/index.html#module-fma_core">[1]</a>
+</li>
+          <li><a href="fma-core/fma_core.algorithms.html#module-fma_core.algorithms">fma_core.algorithms</a>
+</li>
+          <li><a href="fma-core/fma_core.algorithms.aggregators.html#module-fma_core.algorithms.aggregators">fma_core.algorithms.aggregators</a>
+</li>
+          <li><a href="fma-core/fma_core.algorithms.aggregators.common.html#module-fma_core.algorithms.aggregators.common">fma_core.algorithms.aggregators.common</a>
+</li>
+          <li><a href="fma-core/fma_core.algorithms.requirements.html#module-fma_core.algorithms.requirements">fma_core.algorithms.requirements</a>
+</li>
+          <li><a href="fma-core/fma_core.algorithms.requirements.common.html#module-fma_core.algorithms.requirements.common">fma_core.algorithms.requirements.common</a>
+</li>
+          <li><a href="fma-core/fma_core.conf.html#module-fma_core.conf">fma_core.conf</a>
+</li>
+          <li><a href="fma-core/fma_core.version.html#module-fma_core.version">fma_core.version</a>
+</li>
+          <li><a href="fma-core/fma_core.workflows.html#module-fma_core.workflows">fma_core.workflows</a>
+</li>
+          <li><a href="fma-core/fma_core.workflows.aggregator_connectors_factory.html#module-fma_core.workflows.aggregator_connectors_factory">fma_core.workflows.aggregator_connectors_factory</a>
+</li>
+          <li><a href="fma-core/fma_core.workflows.aggregator_utils.html#module-fma_core.workflows.aggregator_utils">fma_core.workflows.aggregator_utils</a>
+</li>
+          <li><a href="fma-core/fma_core.workflows.api_handler_factory.html#module-fma_core.workflows.api_handler_factory">fma_core.workflows.api_handler_factory</a>
+</li>
+          <li><a href="fma-core/fma_core.workflows.api_handler_utils.html#module-fma_core.workflows.api_handler_utils">fma_core.workflows.api_handler_utils</a>
+</li>
+          <li><a href="fma-core/fma_core.workflows.metadata_connectors_factory.html#module-fma_core.workflows.metadata_connectors_factory">fma_core.workflows.metadata_connectors_factory</a>
+</li>
+          <li><a href="fma-core/fma_core.workflows.model_data_connectors_factory.html#module-fma_core.workflows.model_data_connectors_factory">fma_core.workflows.model_data_connectors_factory</a>
+</li>
+          <li><a href="fma-core/fma_core.workflows.tasks.html#module-fma_core.workflows.tasks">fma_core.workflows.tasks</a>
+</li>
+          <li><a href="connectors/django/fma_django.html#module-fma_django">fma_django</a>, <a href="connectors/django/index.html#module-fma_django">[1]</a>
+</li>
+          <li><a href="connectors/django/fma_django.admin.html#module-fma_django.admin">fma_django.admin</a>
+</li>
+          <li><a href="connectors/django/fma_django.apps.html#module-fma_django.apps">fma_django.apps</a>
+</li>
+          <li><a href="connectors/django/fma_django.authenticators.html#module-fma_django.authenticators">fma_django.authenticators</a>
+</li>
+          <li><a href="connectors/django/fma_django.models.html#module-fma_django.models">fma_django.models</a>
+</li>
+          <li><a href="connectors/django/fma_django.version.html#module-fma_django.version">fma_django.version</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.html#module-fma_django_api">fma_django_api</a>, <a href="connectors/django/index.html#module-fma_django_api">[1]</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.apps.html#module-fma_django_api.apps">fma_django_api.apps</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.urls.html#module-fma_django_api.urls">fma_django_api.urls</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.utils.html#module-fma_django_api.utils">fma_django_api.utils</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.html#module-fma_django_api.v1">fma_django_api.v1</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.fields.html#module-fma_django_api.v1.fields">fma_django_api.v1.fields</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.filters.html#module-fma_django_api.v1.filters">fma_django_api.v1.filters</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.paginators.html#module-fma_django_api.v1.paginators">fma_django_api.v1.paginators</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.permissions.html#module-fma_django_api.v1.permissions">fma_django_api.v1.permissions</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.serializers.html#module-fma_django_api.v1.serializers">fma_django_api.v1.serializers</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.urls.html#module-fma_django_api.v1.urls">fma_django_api.v1.urls</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#module-fma_django_api.v1.views">fma_django_api.v1.views</a>
+</li>
+          <li><a href="connectors/django/fma_django_connectors.html#module-fma_django_connectors">fma_django_connectors</a>, <a href="connectors/django/index.html#module-fma_django_connectors">[1]</a>
+</li>
+          <li><a href="connectors/django/fma_django_connectors.aggregator_connector.html#module-fma_django_connectors.aggregator_connector">fma_django_connectors.aggregator_connector</a>
+</li>
+          <li><a href="connectors/django/fma_django_connectors.api_handlers.html#module-fma_django_connectors.api_handlers">fma_django_connectors.api_handlers</a>
+</li>
+          <li><a href="connectors/django/fma_django_connectors.metadata_connector.html#module-fma_django_connectors.metadata_connector">fma_django_connectors.metadata_connector</a>
+</li>
+          <li><a href="connectors/django/fma_django_connectors.utils.html#module-fma_django_connectors.utils">fma_django_connectors.utils</a>
+</li>
+          <li><a href="aggregator/manage.html#module-manage">manage</a>, <a href="api_service/manage.html#module-manage">[1]</a>
+</li>
+          <li><a href="aggregator/secrets_managers.html#module-secrets_managers">secrets_managers</a>, <a href="api_service/secrets_managers.html#module-secrets_managers">[1]</a>
+</li>
+          <li><a href="aggregator/secrets_managers.aws_secrets.html#module-secrets_managers.aws_secrets">secrets_managers.aws_secrets</a>, <a href="api_service/secrets_managers.aws_secrets.html#module-secrets_managers.aws_secrets">[1]</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="N" class="genindex-section">
+  <h2>N</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="connectors/django/fma_django.apps.html#fma_django.apps.FMADjangoBaseConfig.name">name (fma_django.apps.FMADjangoBaseConfig attribute)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django.models.html#fma_django.models.FederatedModel.name">(fma_django.models.FederatedModel attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.apps.html#fma_django_api.apps.TaskQueueApiConfig.name">(fma_django_api.apps.TaskQueueApiConfig attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ClientAggregateScoreViewSet.name">(fma_django_api.v1.views.ClientAggregateScoreViewSet attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.FederatedModelViewSet.name">(fma_django_api.v1.views.FederatedModelViewSet attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ModelAggregateViewSet.name">(fma_django_api.v1.views.ModelAggregateViewSet attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ModelUpdateViewSet.name">(fma_django_api.v1.views.ModelUpdateViewSet attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="O" class="genindex-section">
+  <h2>O</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.Client.objects">objects (fma_django.models.Client attribute)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django.models.html#fma_django.models.ClientAggregateScore.objects">(fma_django.models.ClientAggregateScore attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django.models.html#fma_django.models.FederatedModel.objects">(fma_django.models.FederatedModel attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelArtifact.objects">(fma_django.models.ModelArtifact attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelUpdate.objects">(fma_django.models.ModelUpdate attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ClientAggregateScoreViewSet.ordering">ordering (fma_django_api.v1.views.ClientAggregateScoreViewSet attribute)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.FederatedModelViewSet.ordering">(fma_django_api.v1.views.FederatedModelViewSet attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ModelAggregateViewSet.ordering">(fma_django_api.v1.views.ModelAggregateViewSet attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ModelUpdateViewSet.ordering">(fma_django_api.v1.views.ModelUpdateViewSet attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ClientAggregateScoreViewSet.ordering_fields">ordering_fields (fma_django_api.v1.views.ClientAggregateScoreViewSet attribute)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.FederatedModelViewSet.ordering_fields">(fma_django_api.v1.views.FederatedModelViewSet attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ModelAggregateViewSet.ordering_fields">(fma_django_api.v1.views.ModelAggregateViewSet attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ModelUpdateViewSet.ordering_fields">(fma_django_api.v1.views.ModelUpdateViewSet attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="P" class="genindex-section">
+  <h2>P</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="connectors/django/fma_django_api.v1.paginators.html#fma_django_api.v1.paginators.LargeResultsSetPagination.page_size">page_size (fma_django_api.v1.paginators.LargeResultsSetPagination attribute)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.v1.paginators.html#fma_django_api.v1.paginators.StandardResultsSetPagination.page_size">(fma_django_api.v1.paginators.StandardResultsSetPagination attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="connectors/django/fma_django_api.v1.paginators.html#fma_django_api.v1.paginators.LargeResultsSetPagination.page_size_query_param">page_size_query_param (fma_django_api.v1.paginators.LargeResultsSetPagination attribute)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.v1.paginators.html#fma_django_api.v1.paginators.StandardResultsSetPagination.page_size_query_param">(fma_django_api.v1.paginators.StandardResultsSetPagination attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ClientAggregateScoreViewSet.pagination_class">pagination_class (fma_django_api.v1.views.ClientAggregateScoreViewSet attribute)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.FederatedModelViewSet.pagination_class">(fma_django_api.v1.views.FederatedModelViewSet attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ModelAggregateViewSet.pagination_class">(fma_django_api.v1.views.ModelAggregateViewSet attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ModelUpdateViewSet.pagination_class">(fma_django_api.v1.views.ModelUpdateViewSet attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelAggregate.parent">parent (fma_django.models.ModelAggregate attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelAggregate.parent_id">parent_id (fma_django.models.ModelAggregate attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelUpdate.TaskStatus.PENDING">PENDING (fma_django.models.ModelUpdate.TaskStatus attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ClientAggregateScoreViewSet.perform_create">perform_create() (fma_django_api.v1.views.ClientAggregateScoreViewSet method)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ModelUpdateViewSet.perform_create">(fma_django_api.v1.views.ModelUpdateViewSet method)</a>
+</li>
+        </ul></li>
+        <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ClientAggregateScoreViewSet.permission_classes">permission_classes (fma_django_api.v1.views.ClientAggregateScoreViewSet attribute)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.FederatedModelViewSet.permission_classes">(fma_django_api.v1.views.FederatedModelViewSet attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ModelAggregateViewSet.permission_classes">(fma_django_api.v1.views.ModelAggregateViewSet attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ModelUpdateViewSet.permission_classes">(fma_django_api.v1.views.ModelUpdateViewSet attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="fma-core/fma_core.workflows.tasks.html#fma_core.workflows.tasks.post_agg_service_hook">post_agg_service_hook() (in module fma_core.workflows.tasks)</a>
+</li>
+        <li><a href="fma-core/fma_core.workflows.aggregator_connectors_factory.html#fma_core.workflows.aggregator_connectors_factory.BaseAggConnector.post_new_model_aggregate">post_new_model_aggregate() (fma_core.workflows.aggregator_connectors_factory.BaseAggConnector method)</a>
+
+        <ul>
+          <li><a href="fma-core/fma_core.workflows.metadata_connectors_factory.html#fma_core.workflows.metadata_connectors_factory.BaseMetadataConnector.post_new_model_aggregate">(fma_core.workflows.metadata_connectors_factory.BaseMetadataConnector method)</a>
+</li>
+          <li><a href="connectors/django/fma_django_connectors.aggregator_connector.html#fma_django_connectors.aggregator_connector.DjangoAggConnector.post_new_model_aggregate">(fma_django_connectors.aggregator_connector.DjangoAggConnector method)</a>
+</li>
+          <li><a href="connectors/django/fma_django_connectors.metadata_connector.html#fma_django_connectors.metadata_connector.DjangoMetadataConnector.post_new_model_aggregate">(fma_django_connectors.metadata_connector.DjangoMetadataConnector method)</a>
+</li>
+        </ul></li>
+        <li><a href="fma-core/fma_core.workflows.aggregator_connectors_factory.html#fma_core.workflows.aggregator_connectors_factory.BaseAggConnector.prep_model_data_for_storage">prep_model_data_for_storage() (fma_core.workflows.aggregator_connectors_factory.BaseAggConnector method)</a>
+
+        <ul>
+          <li><a href="fma-core/fma_core.workflows.model_data_connectors_factory.html#fma_core.workflows.model_data_connectors_factory.BaseModelDataConnector.prep_model_data_for_storage">(fma_core.workflows.model_data_connectors_factory.BaseModelDataConnector method)</a>
+</li>
+          <li><a href="connectors/django/fma_django_connectors.aggregator_connector.html#fma_django_connectors.aggregator_connector.DjangoAggConnector.prep_model_data_for_storage">(fma_django_connectors.aggregator_connector.DjangoAggConnector method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ModelAggregateViewSet.publish_aggregate">publish_aggregate() (fma_django_api.v1.views.ModelAggregateViewSet method)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.PublishModelSerializer">PublishModelSerializer (class in fma_django_api.v1.serializers)</a>
+</li>
+        <li><a href="fma-core/fma_core.workflows.aggregator_connectors_factory.html#fma_core.workflows.aggregator_connectors_factory.BaseAggConnector.pull_federated_model_w_id">pull_federated_model_w_id() (fma_core.workflows.aggregator_connectors_factory.BaseAggConnector method)</a>
+
+        <ul>
+          <li><a href="fma-core/fma_core.workflows.metadata_connectors_factory.html#fma_core.workflows.metadata_connectors_factory.BaseMetadataConnector.pull_federated_model_w_id">(fma_core.workflows.metadata_connectors_factory.BaseMetadataConnector method)</a>
+</li>
+          <li><a href="connectors/django/fma_django_connectors.metadata_connector.html#fma_django_connectors.metadata_connector.DjangoMetadataConnector.pull_federated_model_w_id">(fma_django_connectors.metadata_connector.DjangoMetadataConnector method)</a>
+</li>
+        </ul></li>
+        <li><a href="fma-core/fma_core.workflows.aggregator_connectors_factory.html#fma_core.workflows.aggregator_connectors_factory.BaseAggConnector.pull_latest_model_aggregate">pull_latest_model_aggregate() (fma_core.workflows.aggregator_connectors_factory.BaseAggConnector method)</a>
+
+        <ul>
+          <li><a href="fma-core/fma_core.workflows.metadata_connectors_factory.html#fma_core.workflows.metadata_connectors_factory.BaseMetadataConnector.pull_latest_model_aggregate">(fma_core.workflows.metadata_connectors_factory.BaseMetadataConnector method)</a>
+</li>
+          <li><a href="connectors/django/fma_django_connectors.metadata_connector.html#fma_django_connectors.metadata_connector.DjangoMetadataConnector.pull_latest_model_aggregate">(fma_django_connectors.metadata_connector.DjangoMetadataConnector method)</a>
+</li>
+        </ul></li>
+        <li><a href="fma-core/fma_core.workflows.aggregator_connectors_factory.html#fma_core.workflows.aggregator_connectors_factory.BaseAggConnector.pull_model_requirements">pull_model_requirements() (fma_core.workflows.aggregator_connectors_factory.BaseAggConnector method)</a>
+
+        <ul>
+          <li><a href="fma-core/fma_core.workflows.metadata_connectors_factory.html#fma_core.workflows.metadata_connectors_factory.BaseMetadataConnector.pull_model_requirements">(fma_core.workflows.metadata_connectors_factory.BaseMetadataConnector method)</a>
+</li>
+          <li><a href="connectors/django/fma_django_connectors.metadata_connector.html#fma_django_connectors.metadata_connector.DjangoMetadataConnector.pull_model_requirements">(fma_django_connectors.metadata_connector.DjangoMetadataConnector method)</a>
+</li>
+        </ul></li>
+        <li><a href="fma-core/fma_core.workflows.aggregator_connectors_factory.html#fma_core.workflows.aggregator_connectors_factory.BaseAggConnector.pull_model_updates_data">pull_model_updates_data() (fma_core.workflows.aggregator_connectors_factory.BaseAggConnector method)</a>
+
+        <ul>
+          <li><a href="fma-core/fma_core.workflows.model_data_connectors_factory.html#fma_core.workflows.model_data_connectors_factory.BaseModelDataConnector.pull_model_updates_data">(fma_core.workflows.model_data_connectors_factory.BaseModelDataConnector method)</a>
+</li>
+          <li><a href="connectors/django/fma_django_connectors.aggregator_connector.html#fma_django_connectors.aggregator_connector.DjangoAggConnector.pull_model_updates_data">(fma_django_connectors.aggregator_connector.DjangoAggConnector method)</a>
+</li>
+        </ul></li>
+        <li><a href="fma-core/fma_core.workflows.aggregator_connectors_factory.html#fma_core.workflows.aggregator_connectors_factory.BaseAggConnector.pull_model_updates_pending_aggregation">pull_model_updates_pending_aggregation() (fma_core.workflows.aggregator_connectors_factory.BaseAggConnector method)</a>
+
+        <ul>
+          <li><a href="fma-core/fma_core.workflows.metadata_connectors_factory.html#fma_core.workflows.metadata_connectors_factory.BaseMetadataConnector.pull_model_updates_pending_aggregation">(fma_core.workflows.metadata_connectors_factory.BaseMetadataConnector method)</a>
+</li>
+          <li><a href="connectors/django/fma_django_connectors.metadata_connector.html#fma_django_connectors.metadata_connector.DjangoMetadataConnector.pull_model_updates_pending_aggregation">(fma_django_connectors.metadata_connector.DjangoMetadataConnector method)</a>
+</li>
+        </ul></li>
+        <li><a href="fma-core/fma_core.workflows.aggregator_connectors_factory.html#fma_core.workflows.aggregator_connectors_factory.BaseAggConnector.pull_model_updates_ready_for_aggregation">pull_model_updates_ready_for_aggregation() (fma_core.workflows.aggregator_connectors_factory.BaseAggConnector method)</a>
+
+        <ul>
+          <li><a href="fma-core/fma_core.workflows.metadata_connectors_factory.html#fma_core.workflows.metadata_connectors_factory.BaseMetadataConnector.pull_model_updates_ready_for_aggregation">(fma_core.workflows.metadata_connectors_factory.BaseMetadataConnector method)</a>
+</li>
+          <li><a href="connectors/django/fma_django_connectors.metadata_connector.html#fma_django_connectors.metadata_connector.DjangoMetadataConnector.pull_model_updates_ready_for_aggregation">(fma_django_connectors.metadata_connector.DjangoMetadataConnector method)</a>
+</li>
+        </ul></li>
+        <li><a href="fma-core/fma_core.workflows.aggregator_connectors_factory.html#fma_core.workflows.aggregator_connectors_factory.BaseAggConnector.pull_model_updates_registered_for_aggregation">pull_model_updates_registered_for_aggregation() (fma_core.workflows.aggregator_connectors_factory.BaseAggConnector method)</a>
+
+        <ul>
+          <li><a href="fma-core/fma_core.workflows.metadata_connectors_factory.html#fma_core.workflows.metadata_connectors_factory.BaseMetadataConnector.pull_model_updates_registered_for_aggregation">(fma_core.workflows.metadata_connectors_factory.BaseMetadataConnector method)</a>
+</li>
+          <li><a href="connectors/django/fma_django_connectors.metadata_connector.html#fma_django_connectors.metadata_connector.DjangoMetadataConnector.pull_model_updates_registered_for_aggregation">(fma_django_connectors.metadata_connector.DjangoMetadataConnector method)</a>
+</li>
+        </ul></li>
+        <li><a href="fma-core/fma_core.workflows.model_data_connectors_factory.html#fma_core.workflows.model_data_connectors_factory.BaseModelDataConnector.push_model_data_to_storage">push_model_data_to_storage() (fma_core.workflows.model_data_connectors_factory.BaseModelDataConnector method)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.PushValidationScore">PushValidationScore (class in fma_django_api.v1.serializers)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="Q" class="genindex-section">
+  <h2>Q</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ClientAggregateScoreViewSet.queryset">queryset (fma_django_api.v1.views.ClientAggregateScoreViewSet attribute)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.FederatedModelViewSet.queryset">(fma_django_api.v1.views.FederatedModelViewSet attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ModelAggregateViewSet.queryset">(fma_django_api.v1.views.ModelAggregateViewSet attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ModelUpdateViewSet.queryset">(fma_django_api.v1.views.ModelUpdateViewSet attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="R" class="genindex-section">
+  <h2>R</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.ClientModelUpdateSerializer.Meta.read_only_fields">read_only_fields (fma_django_api.v1.serializers.ClientModelUpdateSerializer.Meta attribute)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.FederatedModelSerializer.Meta.read_only_fields">(fma_django_api.v1.serializers.FederatedModelSerializer.Meta attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.ModelArtifactSerializer.Meta.read_only_fields">(fma_django_api.v1.serializers.ModelArtifactSerializer.Meta attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.ModelUpdateSerializer.Meta.read_only_fields">(fma_django_api.v1.serializers.ModelUpdateSerializer.Meta attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="clients/python_client/fma_connect.clients.html#fma_connect.clients.WebClient.register">register() (fma_connect.clients.WebClient method)</a>
+
+        <ul>
+          <li><a href="fma-core/fma_core.workflows.api_handler_utils.html#fma_core.workflows.api_handler_utils.register">(in module fma_core.workflows.api_handler_utils)</a>
+</li>
+        </ul></li>
+        <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.FederatedModelViewSet.register_client">register_client() (fma_django_api.v1.views.FederatedModelViewSet method)</a>
+</li>
+        <li><a href="fma-core/fma_core.workflows.aggregator_connectors_factory.html#fma_core.workflows.aggregator_connectors_factory.BaseAggConnector.register_model_update_used_in_aggregate">register_model_update_used_in_aggregate() (fma_core.workflows.aggregator_connectors_factory.BaseAggConnector method)</a>
+
+        <ul>
+          <li><a href="fma-core/fma_core.workflows.metadata_connectors_factory.html#fma_core.workflows.metadata_connectors_factory.BaseMetadataConnector.register_model_update_used_in_aggregate">(fma_core.workflows.metadata_connectors_factory.BaseMetadataConnector method)</a>
+</li>
+          <li><a href="connectors/django/fma_django_connectors.metadata_connector.html#fma_django_connectors.metadata_connector.DjangoMetadataConnector.register_model_update_used_in_aggregate">(fma_django_connectors.metadata_connector.DjangoMetadataConnector method)</a>
+</li>
+        </ul></li>
+        <li><a href="fma-core/fma_core.workflows.aggregator_connectors_factory.html#fma_core.workflows.aggregator_connectors_factory.BaseAggConnector.register_model_updates_for_aggregation">register_model_updates_for_aggregation() (fma_core.workflows.aggregator_connectors_factory.BaseAggConnector method)</a>
+
+        <ul>
+          <li><a href="fma-core/fma_core.workflows.metadata_connectors_factory.html#fma_core.workflows.metadata_connectors_factory.BaseMetadataConnector.register_model_updates_for_aggregation">(fma_core.workflows.metadata_connectors_factory.BaseMetadataConnector method)</a>
+</li>
+          <li><a href="connectors/django/fma_django_connectors.metadata_connector.html#fma_django_connectors.metadata_connector.DjangoMetadataConnector.register_model_updates_for_aggregation">(fma_django_connectors.metadata_connector.DjangoMetadataConnector method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="fma-core/fma_core.workflows.aggregator_connectors_factory.html#fma_core.workflows.aggregator_connectors_factory.BaseAggConnector.register_model_updates_use_in_aggregation_complete">register_model_updates_use_in_aggregation_complete() (fma_core.workflows.aggregator_connectors_factory.BaseAggConnector method)</a>
+
+        <ul>
+          <li><a href="fma-core/fma_core.workflows.metadata_connectors_factory.html#fma_core.workflows.metadata_connectors_factory.BaseMetadataConnector.register_model_updates_use_in_aggregation_complete">(fma_core.workflows.metadata_connectors_factory.BaseMetadataConnector method)</a>
+</li>
+          <li><a href="connectors/django/fma_django_connectors.metadata_connector.html#fma_django_connectors.metadata_connector.DjangoMetadataConnector.register_model_updates_use_in_aggregation_complete">(fma_django_connectors.metadata_connector.DjangoMetadataConnector method)</a>
+</li>
+        </ul></li>
+        <li><a href="fma-core/fma_core.workflows.aggregator_connectors_factory.html#fma_core.workflows.aggregator_connectors_factory.BaseAggConnector.register_model_updates_use_in_aggregation_failed">register_model_updates_use_in_aggregation_failed() (fma_core.workflows.aggregator_connectors_factory.BaseAggConnector method)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.permissions.html#fma_django_api.v1.permissions.RegisteredClientOnlyPermission">RegisteredClientOnlyPermission (class in fma_django_api.v1.permissions)</a>
+</li>
+        <li><a href="fma-core/fma_core.algorithms.requirements.common.html#fma_core.algorithms.requirements.common.require_x_updates">require_x_updates() (in module fma_core.algorithms.requirements.common)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.FederatedModel.requirement">requirement (fma_django.models.FederatedModel attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.FederatedModel.requirement_args">requirement_args (fma_django.models.FederatedModel attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelAggregate.result">result (fma_django.models.ModelAggregate attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ModelAggregateViewSet.retrieve">retrieve() (fma_django_api.v1.views.ModelAggregateViewSet method)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelAggregate.rght">rght (fma_django.models.ModelAggregate attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelUpdate.TaskStatus.RUNNING">RUNNING (fma_django.models.ModelUpdate.TaskStatus attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="S" class="genindex-section">
+  <h2>S</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.FederatedModel.scheduler">scheduler (fma_django.models.FederatedModel attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.FederatedModel.scheduler_id">scheduler_id (fma_django.models.FederatedModel attribute)</a>
+</li>
+        <li><a href="aggregator/secrets_managers.aws_secrets.html#secrets_managers.aws_secrets.SecretException">SecretException</a>, <a href="api_service/secrets_managers.aws_secrets.html#secrets_managers.aws_secrets.SecretException">[1]</a>
+</li>
+        <li>
+    secrets_managers
+
+        <ul>
+          <li><a href="aggregator/secrets_managers.html#module-secrets_managers">module</a>, <a href="api_service/secrets_managers.html#module-secrets_managers">[1]</a>
+</li>
+        </ul></li>
+        <li>
+    secrets_managers.aws_secrets
+
+        <ul>
+          <li><a href="aggregator/secrets_managers.aws_secrets.html#module-secrets_managers.aws_secrets">module</a>, <a href="api_service/secrets_managers.aws_secrets.html#module-secrets_managers.aws_secrets">[1]</a>
+</li>
+        </ul></li>
+        <li><a href="clients/python_client/fma_connect.clients.html#fma_connect.clients.WebClient.send_update">send_update() (fma_connect.clients.WebClient method)</a>
+</li>
+        <li><a href="clients/python_client/fma_connect.clients.html#fma_connect.clients.WebClient.send_val_results">send_val_results() (fma_connect.clients.WebClient method)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ClientAggregateScoreViewSet.serializer_class">serializer_class (fma_django_api.v1.views.ClientAggregateScoreViewSet attribute)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.FederatedModelViewSet.serializer_class">(fma_django_api.v1.views.FederatedModelViewSet attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ModelAggregateViewSet.serializer_class">(fma_django_api.v1.views.ModelAggregateViewSet attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="fma-core/fma_core.conf.html#fma_core.conf.Settings">Settings (class in fma_core.conf)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.paginators.html#fma_django_api.v1.paginators.StandardResultsSetPagination">StandardResultsSetPagination (class in fma_django_api.v1.paginators)</a>
+</li>
+        <li><a href="api_service/federated_learning_project.s3_storage_utils.html#federated_learning_project.s3_storage_utils.StaticStorage">StaticStorage (class in federated_learning_project.s3_storage_utils)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelUpdate.status">status (fma_django.models.ModelUpdate attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ClientAggregateScoreViewSet.suffix">suffix (fma_django_api.v1.views.ClientAggregateScoreViewSet attribute)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.FederatedModelViewSet.suffix">(fma_django_api.v1.views.FederatedModelViewSet attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ModelAggregateViewSet.suffix">(fma_django_api.v1.views.ModelAggregateViewSet attribute)</a>
+</li>
+          <li><a href="connectors/django/fma_django_api.v1.views.html#fma_django_api.v1.views.ModelUpdateViewSet.suffix">(fma_django_api.v1.views.ModelUpdateViewSet attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="T" class="genindex-section">
+  <h2>T</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="connectors/django/fma_django_api.apps.html#fma_django_api.apps.TaskQueueApiConfig">TaskQueueApiConfig (class in fma_django_api.apps)</a>
+</li>
+        <li><a href="connectors/django/fma_django_api.v1.fields.html#fma_django_api.v1.fields.JsonToInternalFileField.to_internal_value">to_internal_value() (fma_django_api.v1.fields.JsonToInternalFileField method)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="connectors/django/fma_django_api.v1.fields.html#fma_django_api.v1.fields.JsonFileField.to_representation">to_representation() (fma_django_api.v1.fields.JsonFileField method)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelAggregate.tree_id">tree_id (fma_django.models.ModelAggregate attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="U" class="genindex-section">
+  <h2>U</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.FederatedModelSerializer.update">update() (fma_django_api.v1.serializers.FederatedModelSerializer method)</a>
+</li>
+        <li><a href="fma-core/fma_core.workflows.metadata_connectors_factory.html#fma_core.workflows.metadata_connectors_factory.BaseMetadataConnector.update_database">update_database() (fma_core.workflows.metadata_connectors_factory.BaseMetadataConnector method)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django_connectors.metadata_connector.html#fma_django_connectors.metadata_connector.DjangoMetadataConnector.update_database">(fma_django_connectors.metadata_connector.DjangoMetadataConnector method)</a>
+</li>
+        </ul></li>
+        <li><a href="fma-core/fma_core.workflows.aggregator_connectors_factory.html#fma_core.workflows.aggregator_connectors_factory.BaseAggConnector.update_metadata_database_arch">update_metadata_database_arch() (fma_core.workflows.aggregator_connectors_factory.BaseAggConnector method)</a>
+</li>
+        <li><a href="fma-core/fma_core.workflows.tasks.html#fma_core.workflows.tasks.update_metadata_db">update_metadata_db() (in module fma_core.workflows.tasks)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.FederatedModel.update_schema">update_schema (fma_django.models.FederatedModel attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelAggregate.updates_used_to_agg">updates_used_to_agg (fma_django.models.ModelAggregate attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelAggregate.updates_using_this">updates_using_this (fma_django.models.ModelAggregate attribute)</a>
+</li>
+        <li><a href="clients/python_client/fma_connect.clients.html#fma_connect.clients.WebClient.url">url (fma_connect.clients.WebClient property)</a>
+</li>
+        <li><a href="clients/python_client/fma_connect.clients.html#fma_connect.clients.WebClient.uuid">uuid (fma_connect.clients.WebClient property)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django.models.html#fma_django.models.Client.uuid">(fma_django.models.Client attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="V" class="genindex-section">
+  <h2>V</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.ClientAggregateScoreSerializer.validate">validate() (fma_django_api.v1.serializers.ClientAggregateScoreSerializer method)</a>
+
+        <ul>
+          <li><a href="connectors/django/fma_django_api.v1.serializers.html#fma_django_api.v1.serializers.ModelUpdateSerializer.validate">(fma_django_api.v1.serializers.ModelUpdateSerializer method)</a>
+</li>
+        </ul></li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ClientAggregateScore.validation_results">validation_results (fma_django.models.ClientAggregateScore attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelAggregate.validation_score">validation_score (fma_django.models.ModelAggregate attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelArtifact.values">values (fma_django.models.ModelArtifact attribute)</a>
+</li>
+        <li><a href="connectors/django/fma_django.models.html#fma_django.models.ModelArtifact.version">version (fma_django.models.ModelArtifact attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="W" class="genindex-section">
+  <h2>W</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="clients/python_client/fma_connect.clients.html#fma_connect.clients.WebClient">WebClient (class in fma_connect.clients)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; (&#39;2023, Kenny Bean, Tyler Farnan, Taylor Turner, Michael Davis,  Jeremy Goodsitt&#39;,)
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    </body>
+</html>
