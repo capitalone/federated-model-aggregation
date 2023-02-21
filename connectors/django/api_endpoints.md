@@ -182,7 +182,7 @@ GET
 ### ModelArtifact
 - `id` (integer)
 - `values` (File)
-- `federated_model` (Foregin Key)
+- `federated_model` (ForeignKey)
 - `version` (string)
 
 ### ModelAggregate
@@ -199,7 +199,7 @@ GET
 - `data` (json)
 - `status` (Integer)
 - `base_aggregate` (ForeignKey)
-- `applied_aggregate` (ForeginKey)
+- `applied_aggregate` (ForeignKey)
 
 ### ClientAggregateScore
 - `id` (integer)
