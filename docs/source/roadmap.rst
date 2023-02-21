@@ -19,7 +19,7 @@ Developer Experience
     - Other tests missing
     - Integration testing 
 - Refactoring
-    - Improve naming conventions to be more explicit / self documenting
+    - Improve naming conventions to be more explicit / self-documenting
     - Improve DRY-ness
         - e.g. settings file(s)
     - Enable “1-click deploys”. Refactor configuration scripts to have 1 source of truth / 1 settings file
@@ -64,6 +64,6 @@ Architectural/Infrastructure Upgrades
     - Support use of SNS
 - Security and authentication method improvements
 - Create Django Q as an extra for fma-django
-  - Fix the model to use a generic instead of a schedule for linking
-  - Update setup.py for django-q to be an extra
-  - Remove django-q from agg / api remote deployment examples
+    - Fix the model to use a generic instead of a schedule for linking
+    - Update setup.py for django-q to be an extra
+    - Remove django-q from agg / api remote deployment examples
