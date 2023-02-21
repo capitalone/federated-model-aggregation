@@ -13,8 +13,7 @@ Prerequisites
 
 Creation of initial model weights
 *************
-* To create a weights file that contains fresh weights for dataprofiler with the correct labels
-run `python3 create_initial_model_weights.py`
+* To create a weights file that contains fresh weights for dataprofiler with the correct labels run `python3 create_initial_model_weights.py`
 * This will create a file with the weights you need in the form of a json file at `create_initial_model_weights.json`
 
 Initializing a model
@@ -22,7 +21,9 @@ Initializing a model
 Once you have started the service locally on your browser the service will ask you to login
 
 * Provided users use the default deployment, `/api/v1/models` is the default endpoint users can find the model aggregation setup. The default endpoint is 
-  `http://127.0.0.1:8000/api/v1/models` -- `http://127.0.0.1:8000` is swappable and may differ depending on your implementation.
+  `http://127.0.0.1:8000/api/v1/models`
+
+  - `http://127.0.0.1:8000` is swappable and may differ depending on your implementation.
 
   - You can edit pre-existing models here by clicking on the name of them in the list
 
