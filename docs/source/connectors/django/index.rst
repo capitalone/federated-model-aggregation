@@ -3,9 +3,6 @@
 .. include:: ../../../../feature_branch/connectors/django/README.md
    :parser: myst_parser.sphinx_
 
-Modules
--------
-
 .. toctree::
    :maxdepth: 2
    :hidden:
