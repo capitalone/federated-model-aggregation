@@ -1,0 +1,522 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Urls" href="federated_learning_project.urls.html" /><link rel="prev" title="Federated Learning Project" href="federated_learning_project.html" />
+
+    <!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 -->
+        <title>S3 Storage Utils - Federated Model Aggregation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand"><div class='title'>Federated Model Aggregation</div></div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text"><div class='title'>Federated Model Aggregation</div></span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/capitalone/federated-model-aggregation/docs/build/index.html">FMA Home Page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
+<ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="modules.html">API</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 current has-children"><a class="reference internal" href="federated_learning_project.html">Federated Learning Project</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3 current current-page"><a class="current reference internal" href="#">S3 Storage Utils</a></li>
+<li class="toctree-l3"><a class="reference internal" href="federated_learning_project.urls.html">Urls</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="manage.html">Manage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patch_xray.html">Patch Xray</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="secrets_managers.html">Secrets Managers</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="secrets_managers.aws_secrets.html">Aws Secrets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="service_initialization.html">Service Initialization</a></li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="module-federated_learning_project.s3_storage_utils">
+<span id="s3-storage-utils"></span><h1>S3 Storage Utils<a class="headerlink" href="#module-federated_learning_project.s3_storage_utils" title="Permalink to this heading">#</a></h1>
+<p>Module created for s3 linkage in settings files.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="federated_learning_project.s3_storage_utils.StaticStorage">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">federated_learning_project.s3_storage_utils.</span></span><span class="sig-name descname"><span class="pre">StaticStorage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#federated_learning_project.s3_storage_utils.StaticStorage" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">S3Boto3Storage</span></code></p>
+<p>Class used for linkage to s3 bucket for settings file.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="federated_learning_project.s3_storage_utils.StaticStorage.bucket_name">
+<span class="sig-name descname"><span class="pre">bucket_name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'fma-serverless-storage'</span></em><a class="headerlink" href="#federated_learning_project.s3_storage_utils.StaticStorage.bucket_name" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="federated_learning_project.s3_storage_utils.StaticStorage.location">
+<span class="sig-name descname"><span class="pre">location</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'static'</span></em><a class="headerlink" href="#federated_learning_project.s3_storage_utils.StaticStorage.location" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="federated_learning_project.s3_storage_utils.StaticStorage.access_key_names">
+<span class="sig-name descname"><span class="pre">access_key_names</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['AWS_S3_ACCESS_KEY_ID',</span> <span class="pre">'AWS_ACCESS_KEY_ID']</span></em><a class="headerlink" href="#federated_learning_project.s3_storage_utils.StaticStorage.access_key_names" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="federated_learning_project.s3_storage_utils.StaticStorage.bucket">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">bucket</span></span><a class="headerlink" href="#federated_learning_project.s3_storage_utils.StaticStorage.bucket" title="Permalink to this definition">#</a></dt>
+<dd><p>Get the current bucket. If there is no current bucket object
+create it.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="federated_learning_project.s3_storage_utils.StaticStorage.config">
+<span class="sig-name descname"><span class="pre">config</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#federated_learning_project.s3_storage_utils.StaticStorage.config" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="federated_learning_project.s3_storage_utils.StaticStorage.connection">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">connection</span></span><a class="headerlink" href="#federated_learning_project.s3_storage_utils.StaticStorage.connection" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="federated_learning_project.s3_storage_utils.StaticStorage.deconstruct">
+<span class="sig-name descname"><span class="pre">deconstruct</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#federated_learning_project.s3_storage_utils.StaticStorage.deconstruct" title="Permalink to this definition">#</a></dt>
+<dd><p>Return a 3-tuple of class import path, positional arguments,
+and keyword arguments.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="federated_learning_project.s3_storage_utils.StaticStorage.default_content_type">
+<span class="sig-name descname"><span class="pre">default_content_type</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'application/octet-stream'</span></em><a class="headerlink" href="#federated_learning_project.s3_storage_utils.StaticStorage.default_content_type" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="federated_learning_project.s3_storage_utils.StaticStorage.delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#federated_learning_project.s3_storage_utils.StaticStorage.delete" title="Permalink to this definition">#</a></dt>
+<dd><p>Delete the specified file from the storage system.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="federated_learning_project.s3_storage_utils.StaticStorage.exists">
+<span class="sig-name descname"><span class="pre">exists</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#federated_learning_project.s3_storage_utils.StaticStorage.exists" title="Permalink to this definition">#</a></dt>
+<dd><p>Return True if a file referenced by the given name already exists in the
+storage system, or False if the name is available for a new file.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="federated_learning_project.s3_storage_utils.StaticStorage.generate_filename">
+<span class="sig-name descname"><span class="pre">generate_filename</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#federated_learning_project.s3_storage_utils.StaticStorage.generate_filename" title="Permalink to this definition">#</a></dt>
+<dd><p>Validate the filename by calling get_valid_name() and return a filename
+to be passed to the save() method.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="federated_learning_project.s3_storage_utils.StaticStorage.get_accessed_time">
+<span class="sig-name descname"><span class="pre">get_accessed_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#federated_learning_project.s3_storage_utils.StaticStorage.get_accessed_time" title="Permalink to this definition">#</a></dt>
+<dd><p>Return the last accessed time (as a datetime) of the file specified by
+name. The datetime will be timezone-aware if USE_TZ=True.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="federated_learning_project.s3_storage_utils.StaticStorage.get_alternative_name">
+<span class="sig-name descname"><span class="pre">get_alternative_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_ext</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#federated_learning_project.s3_storage_utils.StaticStorage.get_alternative_name" title="Permalink to this definition">#</a></dt>
+<dd><p>Return an alternative filename, by adding an underscore and a random 7
+character alphanumeric string (before the file extension, if one
+exists) to the filename.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="federated_learning_project.s3_storage_utils.StaticStorage.get_available_name">
+<span class="sig-name descname"><span class="pre">get_available_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#federated_learning_project.s3_storage_utils.StaticStorage.get_available_name" title="Permalink to this definition">#</a></dt>
+<dd><p>Overwrite existing file with the same name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="federated_learning_project.s3_storage_utils.StaticStorage.get_cloudfront_signer">
+<span class="sig-name descname"><span class="pre">get_cloudfront_signer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#federated_learning_project.s3_storage_utils.StaticStorage.get_cloudfront_signer" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="federated_learning_project.s3_storage_utils.StaticStorage.get_created_time">
+<span class="sig-name descname"><span class="pre">get_created_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#federated_learning_project.s3_storage_utils.StaticStorage.get_created_time" title="Permalink to this definition">#</a></dt>
+<dd><p>Return the creation time (as a datetime) of the file specified by name.
+The datetime will be timezone-aware if USE_TZ=True.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="federated_learning_project.s3_storage_utils.StaticStorage.get_default_settings">
+<span class="sig-name descname"><span class="pre">get_default_settings</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#federated_learning_project.s3_storage_utils.StaticStorage.get_default_settings" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="federated_learning_project.s3_storage_utils.StaticStorage.get_modified_time">
+<span class="sig-name descname"><span class="pre">get_modified_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#federated_learning_project.s3_storage_utils.StaticStorage.get_modified_time" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns an (aware) datetime object containing the last modified time if
+USE_TZ is True, otherwise returns a naive datetime in the local timezone.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="federated_learning_project.s3_storage_utils.StaticStorage.get_object_parameters">
+<span class="sig-name descname"><span class="pre">get_object_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#federated_learning_project.s3_storage_utils.StaticStorage.get_object_parameters" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a dictionary that is passed to file upload. Override this
+method to adjust this on a per-object basis to set e.g ContentDisposition.</p>
+<p>By default, returns the value of AWS_S3_OBJECT_PARAMETERS.</p>
+<p>Setting ContentEncoding will prevent objects from being automatically gzipped.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="federated_learning_project.s3_storage_utils.StaticStorage.get_valid_name">
+<span class="sig-name descname"><span class="pre">get_valid_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#federated_learning_project.s3_storage_utils.StaticStorage.get_valid_name" title="Permalink to this definition">#</a></dt>
+<dd><p>Return a filename, based on the provided filename, that’s suitable for
+use in the target storage system.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="federated_learning_project.s3_storage_utils.StaticStorage.listdir">
+<span class="sig-name descname"><span class="pre">listdir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#federated_learning_project.s3_storage_utils.StaticStorage.listdir" title="Permalink to this definition">#</a></dt>
+<dd><p>List the contents of the specified path. Return a 2-tuple of lists:
+the first item being directories, the second item being files.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="federated_learning_project.s3_storage_utils.StaticStorage.modified_time">
+<span class="sig-name descname"><span class="pre">modified_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#federated_learning_project.s3_storage_utils.StaticStorage.modified_time" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a naive datetime object containing the last modified time.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="federated_learning_project.s3_storage_utils.StaticStorage.open">
+<span class="sig-name descname"><span class="pre">open</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rb'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#federated_learning_project.s3_storage_utils.StaticStorage.open" title="Permalink to this definition">#</a></dt>
+<dd><p>Retrieve the specified file from storage.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="federated_learning_project.s3_storage_utils.StaticStorage.path">
+<span class="sig-name descname"><span class="pre">path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#federated_learning_project.s3_storage_utils.StaticStorage.path" title="Permalink to this definition">#</a></dt>
+<dd><p>Return a local filesystem path where the file can be retrieved using
+Python’s built-in open() function. Storage systems that can’t be
+accessed using open() should <em>not</em> implement this method.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="federated_learning_project.s3_storage_utils.StaticStorage.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">content</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#federated_learning_project.s3_storage_utils.StaticStorage.save" title="Permalink to this definition">#</a></dt>
+<dd><p>Save new content to the file specified by name. The content should be
+a proper File object or any Python file-like object, ready to be read
+from the beginning.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="federated_learning_project.s3_storage_utils.StaticStorage.secret_key_names">
+<span class="sig-name descname"><span class="pre">secret_key_names</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['AWS_S3_SECRET_ACCESS_KEY',</span> <span class="pre">'AWS_SECRET_ACCESS_KEY']</span></em><a class="headerlink" href="#federated_learning_project.s3_storage_utils.StaticStorage.secret_key_names" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="federated_learning_project.s3_storage_utils.StaticStorage.security_token">
+<span class="sig-name descname"><span class="pre">security_token</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#federated_learning_project.s3_storage_utils.StaticStorage.security_token" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="federated_learning_project.s3_storage_utils.StaticStorage.security_token_names">
+<span class="sig-name descname"><span class="pre">security_token_names</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['AWS_SESSION_TOKEN',</span> <span class="pre">'AWS_SECURITY_TOKEN']</span></em><a class="headerlink" href="#federated_learning_project.s3_storage_utils.StaticStorage.security_token_names" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="federated_learning_project.s3_storage_utils.StaticStorage.size">
+<span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#federated_learning_project.s3_storage_utils.StaticStorage.size" title="Permalink to this definition">#</a></dt>
+<dd><p>Return the total size, in bytes, of the file specified by name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="federated_learning_project.s3_storage_utils.StaticStorage.url">
+<span class="sig-name descname"><span class="pre">url</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parameters</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expire</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">http_method</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#federated_learning_project.s3_storage_utils.StaticStorage.url" title="Permalink to this definition">#</a></dt>
+<dd><p>Return an absolute URL where the file’s contents can be accessed
+directly by a web browser.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="federated_learning_project.urls.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Urls</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="federated_learning_project.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Federated Learning Project</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; (&#39;2023, Kenny Bean, Tyler Farnan, Taylor Turner, Michael Davis,  Jeremy Goodsitt&#39;,)
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">S3 Storage Utils</a><ul>
+<li><a class="reference internal" href="#federated_learning_project.s3_storage_utils.StaticStorage"><code class="docutils literal notranslate"><span class="pre">StaticStorage</span></code></a><ul>
+<li><a class="reference internal" href="#federated_learning_project.s3_storage_utils.StaticStorage.bucket_name"><code class="docutils literal notranslate"><span class="pre">StaticStorage.bucket_name</span></code></a></li>
+<li><a class="reference internal" href="#federated_learning_project.s3_storage_utils.StaticStorage.location"><code class="docutils literal notranslate"><span class="pre">StaticStorage.location</span></code></a></li>
+<li><a class="reference internal" href="#federated_learning_project.s3_storage_utils.StaticStorage.access_key_names"><code class="docutils literal notranslate"><span class="pre">StaticStorage.access_key_names</span></code></a></li>
+<li><a class="reference internal" href="#federated_learning_project.s3_storage_utils.StaticStorage.bucket"><code class="docutils literal notranslate"><span class="pre">StaticStorage.bucket</span></code></a></li>
+<li><a class="reference internal" href="#federated_learning_project.s3_storage_utils.StaticStorage.config"><code class="docutils literal notranslate"><span class="pre">StaticStorage.config</span></code></a></li>
+<li><a class="reference internal" href="#federated_learning_project.s3_storage_utils.StaticStorage.connection"><code class="docutils literal notranslate"><span class="pre">StaticStorage.connection</span></code></a></li>
+<li><a class="reference internal" href="#federated_learning_project.s3_storage_utils.StaticStorage.deconstruct"><code class="docutils literal notranslate"><span class="pre">StaticStorage.deconstruct()</span></code></a></li>
+<li><a class="reference internal" href="#federated_learning_project.s3_storage_utils.StaticStorage.default_content_type"><code class="docutils literal notranslate"><span class="pre">StaticStorage.default_content_type</span></code></a></li>
+<li><a class="reference internal" href="#federated_learning_project.s3_storage_utils.StaticStorage.delete"><code class="docutils literal notranslate"><span class="pre">StaticStorage.delete()</span></code></a></li>
+<li><a class="reference internal" href="#federated_learning_project.s3_storage_utils.StaticStorage.exists"><code class="docutils literal notranslate"><span class="pre">StaticStorage.exists()</span></code></a></li>
+<li><a class="reference internal" href="#federated_learning_project.s3_storage_utils.StaticStorage.generate_filename"><code class="docutils literal notranslate"><span class="pre">StaticStorage.generate_filename()</span></code></a></li>
+<li><a class="reference internal" href="#federated_learning_project.s3_storage_utils.StaticStorage.get_accessed_time"><code class="docutils literal notranslate"><span class="pre">StaticStorage.get_accessed_time()</span></code></a></li>
+<li><a class="reference internal" href="#federated_learning_project.s3_storage_utils.StaticStorage.get_alternative_name"><code class="docutils literal notranslate"><span class="pre">StaticStorage.get_alternative_name()</span></code></a></li>
+<li><a class="reference internal" href="#federated_learning_project.s3_storage_utils.StaticStorage.get_available_name"><code class="docutils literal notranslate"><span class="pre">StaticStorage.get_available_name()</span></code></a></li>
+<li><a class="reference internal" href="#federated_learning_project.s3_storage_utils.StaticStorage.get_cloudfront_signer"><code class="docutils literal notranslate"><span class="pre">StaticStorage.get_cloudfront_signer()</span></code></a></li>
+<li><a class="reference internal" href="#federated_learning_project.s3_storage_utils.StaticStorage.get_created_time"><code class="docutils literal notranslate"><span class="pre">StaticStorage.get_created_time()</span></code></a></li>
+<li><a class="reference internal" href="#federated_learning_project.s3_storage_utils.StaticStorage.get_default_settings"><code class="docutils literal notranslate"><span class="pre">StaticStorage.get_default_settings()</span></code></a></li>
+<li><a class="reference internal" href="#federated_learning_project.s3_storage_utils.StaticStorage.get_modified_time"><code class="docutils literal notranslate"><span class="pre">StaticStorage.get_modified_time()</span></code></a></li>
+<li><a class="reference internal" href="#federated_learning_project.s3_storage_utils.StaticStorage.get_object_parameters"><code class="docutils literal notranslate"><span class="pre">StaticStorage.get_object_parameters()</span></code></a></li>
+<li><a class="reference internal" href="#federated_learning_project.s3_storage_utils.StaticStorage.get_valid_name"><code class="docutils literal notranslate"><span class="pre">StaticStorage.get_valid_name()</span></code></a></li>
+<li><a class="reference internal" href="#federated_learning_project.s3_storage_utils.StaticStorage.listdir"><code class="docutils literal notranslate"><span class="pre">StaticStorage.listdir()</span></code></a></li>
+<li><a class="reference internal" href="#federated_learning_project.s3_storage_utils.StaticStorage.modified_time"><code class="docutils literal notranslate"><span class="pre">StaticStorage.modified_time()</span></code></a></li>
+<li><a class="reference internal" href="#federated_learning_project.s3_storage_utils.StaticStorage.open"><code class="docutils literal notranslate"><span class="pre">StaticStorage.open()</span></code></a></li>
+<li><a class="reference internal" href="#federated_learning_project.s3_storage_utils.StaticStorage.path"><code class="docutils literal notranslate"><span class="pre">StaticStorage.path()</span></code></a></li>
+<li><a class="reference internal" href="#federated_learning_project.s3_storage_utils.StaticStorage.save"><code class="docutils literal notranslate"><span class="pre">StaticStorage.save()</span></code></a></li>
+<li><a class="reference internal" href="#federated_learning_project.s3_storage_utils.StaticStorage.secret_key_names"><code class="docutils literal notranslate"><span class="pre">StaticStorage.secret_key_names</span></code></a></li>
+<li><a class="reference internal" href="#federated_learning_project.s3_storage_utils.StaticStorage.security_token"><code class="docutils literal notranslate"><span class="pre">StaticStorage.security_token</span></code></a></li>
+<li><a class="reference internal" href="#federated_learning_project.s3_storage_utils.StaticStorage.security_token_names"><code class="docutils literal notranslate"><span class="pre">StaticStorage.security_token_names</span></code></a></li>
+<li><a class="reference internal" href="#federated_learning_project.s3_storage_utils.StaticStorage.size"><code class="docutils literal notranslate"><span class="pre">StaticStorage.size()</span></code></a></li>
+<li><a class="reference internal" href="#federated_learning_project.s3_storage_utils.StaticStorage.url"><code class="docutils literal notranslate"><span class="pre">StaticStorage.url()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    </body>
+</html>
