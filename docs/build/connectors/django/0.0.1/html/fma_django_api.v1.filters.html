@@ -1,0 +1,467 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Paginators" href="fma_django_api.v1.paginators.html" /><link rel="prev" title="Fields" href="fma_django_api.v1.fields.html" />
+
+    <!-- Generated with Sphinx 5.3.0 and Furo 2022.12.07 -->
+        <title>Filters - Federated Model Aggregation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=91d0f0d1c444bdcb17a68e833c7a53903343c195" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand"><div class='title'>Federated Model Aggregation</div></div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text"><div class='title'>Federated Model Aggregation</div></span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/capitalone/federated-model-aggregation/docs/build/index.html">FMA Home Page</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
+<ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="modules.html">API</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="fma_django.html">Fma Django</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="fma_django.admin.html">Admin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fma_django.apps.html">Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fma_django.authenticators.html">Authenticators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fma_django.models.html">Models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fma_django.version.html">Version</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current has-children"><a class="reference internal" href="fma_django_api.html">Fma Django Api</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l3 current has-children"><a class="reference internal" href="fma_django_api.v1.html">V1</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="fma_django_api.v1.fields.html">Fields</a></li>
+<li class="toctree-l4 current current-page"><a class="current reference internal" href="#">Filters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fma_django_api.v1.paginators.html">Paginators</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fma_django_api.v1.permissions.html">Permissions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fma_django_api.v1.serializers.html">Serializers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fma_django_api.v1.urls.html">Urls</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fma_django_api.v1.views.html">Views</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fma_django_api.apps.html">Apps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fma_django_api.urls.html">Urls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fma_django_api.utils.html">Utils</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="fma_django_connectors.html">Fma Django Connectors</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle child pages in navigation</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="fma_django_connectors.aggregator_connector.html">Aggregator Connector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fma_django_connectors.api_handlers.html">Api Handlers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fma_django_connectors.metadata_connector.html">Metadata Connector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fma_django_connectors.utils.html">Utils</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="module-fma_django_api.v1.filters">
+<span id="filters"></span><h1>Filters<a class="headerlink" href="#module-fma_django_api.v1.filters" title="Permalink to this heading">#</a></h1>
+<p>Contains a Class for adding filters to the Django QuerySet.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="fma_django_api.v1.filters.FederatedModelFilter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">fma_django_api.v1.filters.</span></span><span class="sig-name descname"><span class="pre">FederatedModelFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">queryset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fma_django_api.v1.filters.FederatedModelFilter" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">FilterSet</span></code></p>
+<p>Django-filter specifically designed to make allow_aggregation searchable.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="fma_django_api.v1.filters.FederatedModelFilter.filter_allow_aggregation">
+<span class="sig-name descname"><span class="pre">filter_allow_aggregation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">queryset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fma_django_api.v1.filters.FederatedModelFilter.filter_allow_aggregation" title="Permalink to this definition">#</a></dt>
+<dd><p>Construct the full lookup expression.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>queryset</strong> (<em>Class</em>) – a Django QuerySet class object</p></li>
+<li><p><strong>name</strong> (<em>Any</em>) – Additional flag, yet to be implemented</p></li>
+<li><p><strong>value</strong> (<em>Any</em>) – A flag to determine whether or not to include the queryset</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>a Django QuerySet class object</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>django.db.models.QuerySet</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="fma_django_api.v1.filters.FederatedModelFilter.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="headerlink" href="#fma_django_api.v1.filters.FederatedModelFilter.Meta" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fma_django_api.v1.filters.FederatedModelFilter.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#fma_django_api.v1.filters.FederatedModelFilter.Meta.model" title="Permalink to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="fma_django.models.html#fma_django.models.FederatedModel" title="fma_django.models.FederatedModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">FederatedModel</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fma_django_api.v1.filters.FederatedModelFilter.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['allow_aggregation']</span></em><a class="headerlink" href="#fma_django_api.v1.filters.FederatedModelFilter.Meta.fields" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fma_django_api.v1.filters.FederatedModelFilter.FILTER_DEFAULTS">
+<span class="sig-name descname"><span class="pre">FILTER_DEFAULTS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{&lt;class</span> <span class="pre">'django.db.models.fields.AutoField'&gt;:</span> <span class="pre">{'filter_class':</span> <span class="pre">&lt;class</span> <span class="pre">'django_filters.filters.NumberFilter'&gt;},</span> <span class="pre">&lt;class</span> <span class="pre">'django.db.models.fields.CharField'&gt;:</span> <span class="pre">{'filter_class':</span> <span class="pre">&lt;class</span> <span class="pre">'django_filters.filters.CharFilter'&gt;},</span> <span class="pre">&lt;class</span> <span class="pre">'django.db.models.fields.TextField'&gt;:</span> <span class="pre">{'filter_class':</span> <span class="pre">&lt;class</span> <span class="pre">'django_filters.filters.CharFilter'&gt;},</span> <span class="pre">&lt;class</span> <span class="pre">'django.db.models.fields.BooleanField'&gt;:</span> <span class="pre">{'filter_class':</span> <span class="pre">&lt;class</span> <span class="pre">'django_filters.filters.BooleanFilter'&gt;},</span> <span class="pre">&lt;class</span> <span class="pre">'django.db.models.fields.DateField'&gt;:</span> <span class="pre">{'filter_class':</span> <span class="pre">&lt;class</span> <span class="pre">'django_filters.filters.DateFilter'&gt;},</span> <span class="pre">&lt;class</span> <span class="pre">'django.db.models.fields.DateTimeField'&gt;:</span> <span class="pre">{'filter_class':</span> <span class="pre">&lt;class</span> <span class="pre">'django_filters.filters.DateTimeFilter'&gt;},</span> <span class="pre">&lt;class</span> <span class="pre">'django.db.models.fields.TimeField'&gt;:</span> <span class="pre">{'filter_class':</span> <span class="pre">&lt;class</span> <span class="pre">'django_filters.filters.TimeFilter'&gt;},</span> <span class="pre">&lt;class</span> <span class="pre">'django.db.models.fields.DurationField'&gt;:</span> <span class="pre">{'filter_class':</span> <span class="pre">&lt;class</span> <span class="pre">'django_filters.filters.DurationFilter'&gt;},</span> <span class="pre">&lt;class</span> <span class="pre">'django.db.models.fields.DecimalField'&gt;:</span> <span class="pre">{'filter_class':</span> <span class="pre">&lt;class</span> <span class="pre">'django_filters.filters.NumberFilter'&gt;},</span> <span class="pre">&lt;class</span> <span class="pre">'django.db.models.fields.SmallIntegerField'&gt;:</span> <span class="pre">{'filter_class':</span> <span class="pre">&lt;class</span> <span class="pre">'django_filters.filters.NumberFilter'&gt;},</span> <span class="pre">&lt;class</span> <span class="pre">'django.db.models.fields.IntegerField'&gt;:</span> <span class="pre">{'filter_class':</span> <span class="pre">&lt;class</span> <span class="pre">'django_filters.filters.NumberFilter'&gt;},</span> <span class="pre">&lt;class</span> <span class="pre">'django.db.models.fields.PositiveIntegerField'&gt;:</span> <span class="pre">{'filter_class':</span> <span class="pre">&lt;class</span> <span class="pre">'django_filters.filters.NumberFilter'&gt;},</span> <span class="pre">&lt;class</span> <span class="pre">'django.db.models.fields.PositiveSmallIntegerField'&gt;:</span> <span class="pre">{'filter_class':</span> <span class="pre">&lt;class</span> <span class="pre">'django_filters.filters.NumberFilter'&gt;},</span> <span class="pre">&lt;class</span> <span class="pre">'django.db.models.fields.FloatField'&gt;:</span> <span class="pre">{'filter_class':</span> <span class="pre">&lt;class</span> <span class="pre">'django_filters.filters.NumberFilter'&gt;},</span> <span class="pre">&lt;class</span> <span class="pre">'django.db.models.fields.NullBooleanField'&gt;:</span> <span class="pre">{'filter_class':</span> <span class="pre">&lt;class</span> <span class="pre">'django_filters.filters.BooleanFilter'&gt;},</span> <span class="pre">&lt;class</span> <span class="pre">'django.db.models.fields.SlugField'&gt;:</span> <span class="pre">{'filter_class':</span> <span class="pre">&lt;class</span> <span class="pre">'django_filters.filters.CharFilter'&gt;},</span> <span class="pre">&lt;class</span> <span class="pre">'django.db.models.fields.EmailField'&gt;:</span> <span class="pre">{'filter_class':</span> <span class="pre">&lt;class</span> <span class="pre">'django_filters.filters.CharFilter'&gt;},</span> <span class="pre">&lt;class</span> <span class="pre">'django.db.models.fields.FilePathField'&gt;:</span> <span class="pre">{'filter_class':</span> <span class="pre">&lt;class</span> <span class="pre">'django_filters.filters.CharFilter'&gt;},</span> <span class="pre">&lt;class</span> <span class="pre">'django.db.models.fields.URLField'&gt;:</span> <span class="pre">{'filter_class':</span> <span class="pre">&lt;class</span> <span class="pre">'django_filters.filters.CharFilter'&gt;},</span> <span class="pre">&lt;class</span> <span class="pre">'django.db.models.fields.GenericIPAddressField'&gt;:</span> <span class="pre">{'filter_class':</span> <span class="pre">&lt;class</span> <span class="pre">'django_filters.filters.CharFilter'&gt;},</span> <span class="pre">&lt;class</span> <span class="pre">'django.db.models.fields.CommaSeparatedIntegerField'&gt;:</span> <span class="pre">{'filter_class':</span> <span class="pre">&lt;class</span> <span class="pre">'django_filters.filters.CharFilter'&gt;},</span> <span class="pre">&lt;class</span> <span class="pre">'django.db.models.fields.UUIDField'&gt;:</span> <span class="pre">{'filter_class':</span> <span class="pre">&lt;class</span> <span class="pre">'django_filters.filters.UUIDFilter'&gt;},</span> <span class="pre">&lt;class</span> <span class="pre">'django.db.models.fields.related.OneToOneField'&gt;:</span> <span class="pre">{'filter_class':</span> <span class="pre">&lt;class</span> <span class="pre">'django_filters.filters.ModelChoiceFilter'&gt;,</span> <span class="pre">'extra':</span> <span class="pre">&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;},</span> <span class="pre">&lt;class</span> <span class="pre">'django.db.models.fields.related.ForeignKey'&gt;:</span> <span class="pre">{'filter_class':</span> <span class="pre">&lt;class</span> <span class="pre">'django_filters.filters.ModelChoiceFilter'&gt;,</span> <span class="pre">'extra':</span> <span class="pre">&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;},</span> <span class="pre">&lt;class</span> <span class="pre">'django.db.models.fields.related.ManyToManyField'&gt;:</span> <span class="pre">{'filter_class':</span> <span class="pre">&lt;class</span> <span class="pre">'django_filters.filters.ModelMultipleChoiceFilter'&gt;,</span> <span class="pre">'extra':</span> <span class="pre">&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;},</span> <span class="pre">&lt;class</span> <span class="pre">'django.db.models.fields.reverse_related.OneToOneRel'&gt;:</span> <span class="pre">{'filter_class':</span> <span class="pre">&lt;class</span> <span class="pre">'django_filters.filters.ModelChoiceFilter'&gt;,</span> <span class="pre">'extra':</span> <span class="pre">&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;},</span> <span class="pre">&lt;class</span> <span class="pre">'django.db.models.fields.reverse_related.ManyToOneRel'&gt;:</span> <span class="pre">{'filter_class':</span> <span class="pre">&lt;class</span> <span class="pre">'django_filters.filters.ModelMultipleChoiceFilter'&gt;,</span> <span class="pre">'extra':</span> <span class="pre">&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;},</span> <span class="pre">&lt;class</span> <span class="pre">'django.db.models.fields.reverse_related.ManyToManyRel'&gt;:</span> <span class="pre">{'filter_class':</span> <span class="pre">&lt;class</span> <span class="pre">'django_filters.filters.ModelMultipleChoiceFilter'&gt;,</span> <span class="pre">'extra':</span> <span class="pre">&lt;function</span> <span class="pre">&lt;lambda&gt;&gt;}}</span></em><a class="headerlink" href="#fma_django_api.v1.filters.FederatedModelFilter.FILTER_DEFAULTS" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fma_django_api.v1.filters.FederatedModelFilter.base_filters">
+<span class="sig-name descname"><span class="pre">base_filters</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'allow_aggregation':</span> <span class="pre">&lt;django_filters.filters.BooleanFilter</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#fma_django_api.v1.filters.FederatedModelFilter.base_filters" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="fma_django_api.v1.filters.FederatedModelFilter.declared_filters">
+<span class="sig-name descname"><span class="pre">declared_filters</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'allow_aggregation':</span> <span class="pre">&lt;django_filters.filters.BooleanFilter</span> <span class="pre">object&gt;}</span></em><a class="headerlink" href="#fma_django_api.v1.filters.FederatedModelFilter.declared_filters" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fma_django_api.v1.filters.FederatedModelFilter.errors">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">errors</span></span><a class="headerlink" href="#fma_django_api.v1.filters.FederatedModelFilter.errors" title="Permalink to this definition">#</a></dt>
+<dd><p>Return an ErrorDict for the data provided for the underlying form.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fma_django_api.v1.filters.FederatedModelFilter.filter_for_field">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">filter_for_field</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lookup_expr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fma_django_api.v1.filters.FederatedModelFilter.filter_for_field" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fma_django_api.v1.filters.FederatedModelFilter.filter_for_lookup">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">filter_for_lookup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lookup_type</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fma_django_api.v1.filters.FederatedModelFilter.filter_for_lookup" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fma_django_api.v1.filters.FederatedModelFilter.filter_queryset">
+<span class="sig-name descname"><span class="pre">filter_queryset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">queryset</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fma_django_api.v1.filters.FederatedModelFilter.filter_queryset" title="Permalink to this definition">#</a></dt>
+<dd><p>Filter the queryset with the underlying form’s <cite>cleaned_data</cite>. You must
+call <cite>is_valid()</cite> or <cite>errors</cite> before calling this method.</p>
+<p>This method should be overridden if additional filtering needs to be
+applied to the queryset before it is cached.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fma_django_api.v1.filters.FederatedModelFilter.form">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">form</span></span><a class="headerlink" href="#fma_django_api.v1.filters.FederatedModelFilter.form" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fma_django_api.v1.filters.FederatedModelFilter.get_fields">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_fields</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fma_django_api.v1.filters.FederatedModelFilter.get_fields" title="Permalink to this definition">#</a></dt>
+<dd><p>Resolve the ‘fields’ argument that should be used for generating filters on the
+filterset. This is ‘Meta.fields’ sans the fields in ‘Meta.exclude’.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fma_django_api.v1.filters.FederatedModelFilter.get_filter_name">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_filter_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lookup_expr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fma_django_api.v1.filters.FederatedModelFilter.get_filter_name" title="Permalink to this definition">#</a></dt>
+<dd><p>Combine a field name and lookup expression into a usable filter name.
+Exact lookups are the implicit default, so “exact” is stripped from the
+end of the filter name.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fma_django_api.v1.filters.FederatedModelFilter.get_filters">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_filters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fma_django_api.v1.filters.FederatedModelFilter.get_filters" title="Permalink to this definition">#</a></dt>
+<dd><p>Get all filters for the filterset. This is the combination of declared and
+generated filters.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fma_django_api.v1.filters.FederatedModelFilter.get_form_class">
+<span class="sig-name descname"><span class="pre">get_form_class</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fma_django_api.v1.filters.FederatedModelFilter.get_form_class" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a django Form suitable of validating the filterset data.</p>
+<p>This method should be overridden if the form class needs to be
+customized relative to the filterset instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="fma_django_api.v1.filters.FederatedModelFilter.is_valid">
+<span class="sig-name descname"><span class="pre">is_valid</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fma_django_api.v1.filters.FederatedModelFilter.is_valid" title="Permalink to this definition">#</a></dt>
+<dd><p>Return True if the underlying form has no errors, or False otherwise.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="fma_django_api.v1.filters.FederatedModelFilter.qs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">qs</span></span><a class="headerlink" href="#fma_django_api.v1.filters.FederatedModelFilter.qs" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="fma_django_api.v1.paginators.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Paginators</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="fma_django_api.v1.fields.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Fields</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; (&#39;2023, Kenny Bean, Tyler Farnan, Taylor Turner, Michael Davis,  Jeremy Goodsitt&#39;,)
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Filters</a><ul>
+<li><a class="reference internal" href="#fma_django_api.v1.filters.FederatedModelFilter"><code class="docutils literal notranslate"><span class="pre">FederatedModelFilter</span></code></a><ul>
+<li><a class="reference internal" href="#fma_django_api.v1.filters.FederatedModelFilter.filter_allow_aggregation"><code class="docutils literal notranslate"><span class="pre">FederatedModelFilter.filter_allow_aggregation()</span></code></a></li>
+<li><a class="reference internal" href="#fma_django_api.v1.filters.FederatedModelFilter.Meta"><code class="docutils literal notranslate"><span class="pre">FederatedModelFilter.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#fma_django_api.v1.filters.FederatedModelFilter.Meta.model"><code class="docutils literal notranslate"><span class="pre">FederatedModelFilter.Meta.model</span></code></a></li>
+<li><a class="reference internal" href="#fma_django_api.v1.filters.FederatedModelFilter.Meta.fields"><code class="docutils literal notranslate"><span class="pre">FederatedModelFilter.Meta.fields</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#fma_django_api.v1.filters.FederatedModelFilter.FILTER_DEFAULTS"><code class="docutils literal notranslate"><span class="pre">FederatedModelFilter.FILTER_DEFAULTS</span></code></a></li>
+<li><a class="reference internal" href="#fma_django_api.v1.filters.FederatedModelFilter.base_filters"><code class="docutils literal notranslate"><span class="pre">FederatedModelFilter.base_filters</span></code></a></li>
+<li><a class="reference internal" href="#fma_django_api.v1.filters.FederatedModelFilter.declared_filters"><code class="docutils literal notranslate"><span class="pre">FederatedModelFilter.declared_filters</span></code></a></li>
+<li><a class="reference internal" href="#fma_django_api.v1.filters.FederatedModelFilter.errors"><code class="docutils literal notranslate"><span class="pre">FederatedModelFilter.errors</span></code></a></li>
+<li><a class="reference internal" href="#fma_django_api.v1.filters.FederatedModelFilter.filter_for_field"><code class="docutils literal notranslate"><span class="pre">FederatedModelFilter.filter_for_field()</span></code></a></li>
+<li><a class="reference internal" href="#fma_django_api.v1.filters.FederatedModelFilter.filter_for_lookup"><code class="docutils literal notranslate"><span class="pre">FederatedModelFilter.filter_for_lookup()</span></code></a></li>
+<li><a class="reference internal" href="#fma_django_api.v1.filters.FederatedModelFilter.filter_queryset"><code class="docutils literal notranslate"><span class="pre">FederatedModelFilter.filter_queryset()</span></code></a></li>
+<li><a class="reference internal" href="#fma_django_api.v1.filters.FederatedModelFilter.form"><code class="docutils literal notranslate"><span class="pre">FederatedModelFilter.form</span></code></a></li>
+<li><a class="reference internal" href="#fma_django_api.v1.filters.FederatedModelFilter.get_fields"><code class="docutils literal notranslate"><span class="pre">FederatedModelFilter.get_fields()</span></code></a></li>
+<li><a class="reference internal" href="#fma_django_api.v1.filters.FederatedModelFilter.get_filter_name"><code class="docutils literal notranslate"><span class="pre">FederatedModelFilter.get_filter_name()</span></code></a></li>
+<li><a class="reference internal" href="#fma_django_api.v1.filters.FederatedModelFilter.get_filters"><code class="docutils literal notranslate"><span class="pre">FederatedModelFilter.get_filters()</span></code></a></li>
+<li><a class="reference internal" href="#fma_django_api.v1.filters.FederatedModelFilter.get_form_class"><code class="docutils literal notranslate"><span class="pre">FederatedModelFilter.get_form_class()</span></code></a></li>
+<li><a class="reference internal" href="#fma_django_api.v1.filters.FederatedModelFilter.is_valid"><code class="docutils literal notranslate"><span class="pre">FederatedModelFilter.is_valid()</span></code></a></li>
+<li><a class="reference internal" href="#fma_django_api.v1.filters.FederatedModelFilter.qs"><code class="docutils literal notranslate"><span class="pre">FederatedModelFilter.qs</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    </body>
+</html>
