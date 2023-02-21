@@ -104,7 +104,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.autosummary',
     'sphinx.ext.napoleon',
-    'furo',
+    # 'furo',
     'sphinx.ext.intersphinx',
     "myst_parser",
 ]
