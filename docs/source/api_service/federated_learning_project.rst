@@ -14,7 +14,6 @@ Modules
 
    federated_learning_project.s3_storage_utils
    federated_learning_project.urls
-   federated_learning_project.utils
 
 .. automodule:: federated_learning_project
    :members:
