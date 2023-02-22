@@ -13,7 +13,7 @@ with open(os.path.join(project_path, "requirements.txt"), encoding="utf-8") as f
 with open(os.path.join(project_path, "README.md"), encoding="utf-8") as f:
     LONG_DESCRIPTION = f.read()
 
-DESCRIPTION = "Federated Model Aggregation Algoithms"
+DESCRIPTION = "Federated Model Aggregation's Core Functionality"
 
 packages = find_packages(exclude=["*.tests"])
 

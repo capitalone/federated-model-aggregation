@@ -19,7 +19,7 @@ with open(path.join(project_path, "..", "README.md"), encoding="utf-8") as f:
 with open(path.join(project_path, 'requirements.txt'), encoding='utf-8') as f:
     required_packages = f.read().splitlines()
 
-DESCRIPTION = "Federated Model Aggregation Clients"
+DESCRIPTION = "Federated Model Aggregation's Python Clients"
 
 packages = find_packages(exclude=["fma_connect/tests"])
 

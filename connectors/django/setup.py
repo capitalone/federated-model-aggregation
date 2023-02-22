@@ -23,7 +23,7 @@ with open(os.path.join(project_path, "requirements.txt"), encoding="utf-8") as f
 with open(os.path.join(project_path, "requirements-api.txt"), encoding="utf-8") as f:
     api_required_packages = f.read().splitlines()
 
-DESCRIPTION = "Federated Model Aggregation Connectors"
+DESCRIPTION = "Federated Model Aggregation's Django Connectors"
 
 packages = find_packages(exclude=["*.tests"])
 
