@@ -3,9 +3,11 @@
 
 name: Test Submodules in federated-model-aggregation
 
-on:
-  pull_request:
-    branches: [ main ]
+# on:
+#   pull_request:
+#     branches: [ main ]
+
+on: [pull_request]
 
 jobs:
   run_tests:
