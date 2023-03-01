@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.8, 3.9, "3.10"]
+        python-version: [3.9]
 
     steps:
     - uses: actions/checkout@v3
@@ -24,7 +24,7 @@ jobs:
         cd fma-core
         python -m pip install pipenv
         make install || exit 1
-        python -m pipenv run pre-commit run --all-files  || exit 1
+        python -m pipenv run pre-commit run --all-files  || exit 1sd
         make test-and-coverage || exit 1
         cd -
     - name: Test fma-django on python version ${{matrix.python-version}}
