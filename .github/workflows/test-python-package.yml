@@ -22,6 +22,7 @@ jobs:
     - name: Test fma-core on python version ${{matrix.python-version}}
       run: |
         cd fma-core
+        python -m pip install pipenv
         make install || exit 1
         python -m pipenv run pre-commit run --all-files  || exit 1
         make test-and-coverage || exit 1
@@ -29,6 +30,7 @@ jobs:
     - name: Test fma-django on python version ${{matrix.python-version}}
       run: |
         cd connectors/django/
+        python -m pip install pipenv
         make install || exit 1
         python -m pipenv run pre-commit run --all-files || exit 1
         make test-and-coverage || exit 1
@@ -36,6 +38,7 @@ jobs:
     - name: Test fma-connect on python version ${{matrix.python-version}}
       run: |
         cd clients/python_client
+        python -m pip install pipenv
         make install || exit 1
         python -m pipenv run pre-commit run --all-files  || exit 1
         make test-and-coverage || exit 1
