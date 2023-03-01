@@ -21,4 +21,4 @@ fma-django = {path = "./artifacts/fma_django-0.0.1-py3-none-any.whl"}
 fma-core = {path = "./artifacts/fma_core-0.0.1-py3-none-any.whl"}
 
 [requires]
-python_version = "3.9"
+python_version = ">=3.8"
