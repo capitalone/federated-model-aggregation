@@ -79,7 +79,6 @@ class FederatedModelViewSet(viewsets.ModelViewSet):
         :return: Serialized data about the registered client
         :rtype: Response
         """
-
         model = self.get_object()
 
         client = None
