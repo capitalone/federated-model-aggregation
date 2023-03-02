@@ -26,7 +26,7 @@ jobs:
       run: |
         cd fma-core
         make install || exit 1
-        python -m pipenv run pre-commit run --all-files  || exit 1sd
+        python -m pipenv run pre-commit run --all-files  || exit 1
         make test-and-coverage || exit 1
     - name: Test fma-django on python version ${{matrix.python-version}}
       run: |
