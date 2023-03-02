@@ -42,4 +42,4 @@ jobs:
         make install || exit 1
         python -m pipenv run pre-commit run --all-files  || exit 1
         make test-and-coverage || exit 1
-        cd -
+        cd -d
