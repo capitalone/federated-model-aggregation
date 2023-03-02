@@ -32,7 +32,7 @@ repos:
         exclude: (^.*/tests|^.*/__init__.py|connectors/django/fma_django/migrations)
 
 -   repo: https://github.com/pycqa/isort
-    rev: 5.10.1
+    rev: 5.12.0
     hooks:
       - id: isort
         name: isort for django
