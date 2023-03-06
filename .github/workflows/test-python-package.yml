@@ -1,0 +1,42 @@
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Test Submodules
+
+on: [pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.8, 3.9, "3.10"]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install pipenv 
+      run: | 
+        python -m pip install pipenv
+    - name: Test fma-core on python version ${{matrix.python-version}}
+      run: |
+        cd fma-core
+        make install || exit 1
+        python -m pipenv run pre-commit run --all-files  || exit 1
+        make test-and-coverage || exit 1
+    - name: Test fma-django on python version ${{matrix.python-version}}
+      run: |
+        cd connectors/django/
+        make install || exit 1
+        python -m pipenv run pre-commit run --all-files || exit 1
+        make test-and-coverage || exit 1
+    - name: Test fma-connect on python version ${{matrix.python-version}}
+      run: |
+        cd clients/python_client
+        make install || exit 1
+        python -m pipenv run pre-commit run --all-files  || exit 1
+        make test-and-coverage || exit 1
