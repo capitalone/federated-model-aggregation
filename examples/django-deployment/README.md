@@ -37,6 +37,8 @@ pipenv run python manage.py createsuperuser
 The aggregator connector is customizable for many types of deployment the user may wish to use.
 The aggregator’s type is decided by the settings file (`aggregator/federated_learning_project/fma_settings.py`)
 ```
+INSTALLED_PACKAGES = ["fma_django_connectors"]
+
 AGGREGATOR_SETTINGS = {
     "aggregator_connector_type": "DjangoAggConnector",
     "metadata_connector": {
@@ -49,7 +51,8 @@ AGGREGATOR_SETTINGS = {
     "secrets_name": ["<name of secrets to pull>"],
 }
 ```
-As you can see the `AGGREGATOR_SETTINGS` is customized by setting the `aggregator_connector_type`.
+As seen above, `INSTALLED_PACKAGES` references the package(s) which contain the connectors being used in the below settings.
+`AGGREGATOR_SETTINGS` is customized by setting the `aggregator_connector_type`.
 There is also the settings of the underlying connectors that the aggregator connector uses.
 
 * The `model_data_connector` is used to push and pull data to and from the resource that stores model data for your federated experiments

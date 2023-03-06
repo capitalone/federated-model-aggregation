@@ -164,6 +164,7 @@ locals {
         FMA_DATABASE_PORT                       = "5432"
         FMA_DB_SECRET_PATH                      = "<insert path to secrets here>"
         PARAMETERS_SECRETS_EXTENSION_HTTP_PORT  = "2773"
+        FMA_SETTINGS_MODULE                     = "federated_learning_project.fma_settings"
     }
     api_env_vars = {
         ENV                                     = "dev"
@@ -174,6 +175,7 @@ locals {
         LAMBDA_INVOKED_FUNCTION_ARN             = aws_lambda_function.fma_serverless_aggregator.arn
         FMA_DB_SECRET_PATH                      = "<insert path to secrets here>"
         PARAMETERS_SECRETS_EXTENSION_HTTP_PORT  = "2773"
+        FMA_SETTINGS_MODULE                     = "federated_learning_project.fma_settings"
     }
 
     security_groups_ids = [aws_security_group.lambda_api_sg]

@@ -3,6 +3,9 @@
 import os
 import sys
 
+# added for testing circular imports
+from fma_core.conf import settings as fma_settings  # noqa: F401
+
 try:
     # TODO: abstract to file and remove only for testing locally
     import pysqlite3  # noqa: F401

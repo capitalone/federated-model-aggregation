@@ -1,4 +1,3 @@
-
 .PHONY: install
 install:
 	pipenv --rm || true
@@ -22,14 +21,12 @@ sam-build-local:
 	PIPENV_VERBOSITY=-1                                                      \
 	pipenv requirements --dev > requirements.txt &&                              \
 	pipenv run echo "pysqlite3-binary" >> requirements.txt &&                \
- 	pipenv run echo "--extra-index-url $(PYPI_INDEX)" >> requirements.txt && \
 	pipenv run sam build --skip-pull-image --use-container --debug
 
 .PHONY: sam-build-remote
 sam-build-remote:
 	PIPENV_VERBOSITY=-1                                                               \
 	pipenv requirements > requirements.txt &&                                         \
-	pipenv run echo "--extra-index-url $(PYPI_INDEX)" >> requirements.txt &&          \
 	pipenv run sam build --debug --use-container --template=./template-remote.yaml
 
 .PHONY: build-FmaServerless

@@ -16,7 +16,7 @@ class Settings:
         agg_settings = getattr(mod, "AGGREGATOR_SETTINGS", None)
         if not agg_settings or not isinstance(agg_settings, dict):
             raise ValueError(
-                "`FMA_SETTINGS_MODULE` is imporpery configured and must "
+                "`FMA_SETTINGS_MODULE` is improperly configured and must "
                 "contain the dict `AGGREGATOR_SETTINGS`"
             )
         for attr in dir(mod):
