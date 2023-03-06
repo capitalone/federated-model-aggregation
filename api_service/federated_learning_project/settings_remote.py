@@ -4,7 +4,6 @@ import os
 
 from fma_core.conf import settings as fma_settings
 
-from . import utils
 from .settings_base import *  # noqa: F401,F403
 
 
