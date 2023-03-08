@@ -32,8 +32,8 @@ setup(
     long_description=LONG_DESCRIPTION,
     long_description_content_type="text/markdown",
     classifiers=[
-        "Framework:: Django",
-        "Framework:: Django:: 4. *",
+        "Framework :: Django",
+        "Framework :: Django :: 4",
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
         "Intended Audience :: Information Technology",
