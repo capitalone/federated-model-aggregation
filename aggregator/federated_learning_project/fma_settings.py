@@ -1,5 +1,5 @@
 """Abstract aggregator settings."""
-import fma_django_connectors  # noqa: F401
+INSTALLED_PACKAGES = ["fma_django_connectors"]
 
 AGGREGATOR_SETTINGS = {
     "aggregator_connector_type": "DjangoAggConnector",

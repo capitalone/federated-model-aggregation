@@ -11,6 +11,7 @@ flake8 = "*"
 pytest-cov = "*"
 pre-commit = "*"
 pytest-django = "*"
+pytest-env = "*"
 
 [packages]
 requests = "2.28.1"

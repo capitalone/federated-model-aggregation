@@ -1,12 +1,14 @@
 """Factory function for calling registered api handlers specified in settings."""
 from typing import Any
 
+import fma_core
 from fma_core.conf import settings as fma_settings
 from fma_core.workflows.api_handler_utils import _registry
 
 
 def call_api_handler(*args, **kwargs) -> Any:
     """Abstract call to API handler of a connector."""
+    fma_core.setup()
     handler_settings = getattr(fma_settings, "API_SERVICE_SETTINGS", None)
     if not handler_settings:
         raise ValueError(

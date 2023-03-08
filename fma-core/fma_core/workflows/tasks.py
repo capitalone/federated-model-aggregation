@@ -1,6 +1,7 @@
 """General aggregation tasks are created here."""
 from typing import Any, Optional
 
+import fma_core
 from fma_core.algorithms.aggregators import common as common_aggregators
 from fma_core.algorithms.requirements import common as common_requirements
 from fma_core.conf import settings as fma_settings
@@ -17,6 +18,7 @@ def agg_service(model_id: int) -> Optional[int]:
     :return: ID of newly created ModelAggregate
     :rtype: int
     """
+    fma_core.setup()
     agg_settings = getattr(fma_settings, "AGGREGATOR_SETTINGS")
     if not agg_settings:
         raise ValueError("Aggregator settings are not specified in settings")
@@ -87,6 +89,7 @@ def post_agg_service_hook(task: Any):
     :raise ValueError: Error: aggregator settings are not specified in settings
     :raise ValueError: Error: aggregator type not specified in settings
     """
+    fma_core.setup()
     model_id = task.args[0]
     agg_settings = getattr(fma_settings, "AGGREGATOR_SETTINGS")
     if not agg_settings:
@@ -119,6 +122,7 @@ def update_metadata_db() -> None:
     :raise ValueError: aggregator settings are not specified in settings
     :raise ValueError: aggregator type not specified in settings
     """
+    fma_core.setup()
     agg_settings = getattr(fma_settings, "AGGREGATOR_SETTINGS")
     if not agg_settings:
         raise ValueError("Aggregator settings are not specified in settings")

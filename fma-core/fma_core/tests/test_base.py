@@ -42,3 +42,23 @@ class TestBaseInfo(unittest.TestCase):
             "`FMA_SETTINGS_MODULE` is improperly configured and must contain the dict `AGGREGATOR_SETTINGS`",
         ):
             Settings()
+
+    def test_setup(self):
+        from fma_core.conf import settings
+
+        # with no packages specified
+        with mock.patch("importlib.import_module") as mock_import:
+            fma_core.setup()
+            mock_import.assert_not_called()
+
+        # with package that doesn't exist
+        INSTALLED_PACKAGES = ["fake-package-no-exist-123"]
+        with mock.patch("fma_core.conf.settings") as mock_settings:
+            mock_settings.INSTALLED_PACKAGES = ["fake-package-no-exist-123"]
+            with self.assertRaisesRegex(ImportError, "fake-package-no-exist-123"):
+                fma_core.setup()
+
+        # with package that does exist
+        with mock.patch("fma_core.conf.settings") as mock_settings:
+            mock_settings.INSTALLED_PACKAGES = ["fma_core"]
+            fma_core.setup()
