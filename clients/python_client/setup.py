@@ -12,7 +12,7 @@ from fma_connect.version import __version__
 project_path = path.abspath(path.dirname(__file__))
 
 # Get the long description from the README file
-with open(path.join(project_path, "..", "README.md"), encoding="utf-8") as f:
+with open(path.join(project_path, "README.md"), encoding="utf-8") as f:
     LONG_DESCRIPTION = f.read()
 
 # Get the install_requirements from requirements.txt
