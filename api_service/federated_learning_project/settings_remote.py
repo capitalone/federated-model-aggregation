@@ -42,7 +42,7 @@ DATABASES = {
         "NAME": fma_database_name,
         "USER": list(db_secret.keys())[0],
         "PASSWORD": list(db_secret.values())[0],
-        "HOST": fma_database_name,
+        "HOST": fma_database_host,
         "PORT": fma_database_port,
     }
 }
