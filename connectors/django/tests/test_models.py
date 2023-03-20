@@ -83,8 +83,9 @@ class TestModelsFunctions(TestCase):
         # Called twice, once on creation and once on save to DB
         self.assertEqual(1, mock_remote_agg_task.call_count)
         self.assertIsNone(fed_model.scheduler)
+        # First index of call_args_list is "1" due to multiple calls to aws
         self.assertListEqual(
-            expected_value, mock_botocore_api.call_args_list[0][0][1]["Tags"]
+            expected_value, mock_botocore_api.call_args_list[1][0][1]["Tags"]
         )
 
     @override_settings(IS_LOCAL_DEPLOYMENT=True)

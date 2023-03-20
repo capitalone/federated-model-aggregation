@@ -1,13 +1,17 @@
 """Contains classes and methods for managing Django Models and their schedulers."""
+import logging
 import uuid
 
 import boto3
+from botocore.client import Config
 from django.conf import settings
 from django.contrib.auth.models import AnonymousUser, User
 from django.core import validators
 from django.db import models
 from django_q.tasks import Schedule, schedule
 from mptt.models import MPTTModel, TreeForeignKey
+
+logger = logging.getLogger()
 
 
 class Client(models.Model):
@@ -99,7 +103,10 @@ class FederatedModel(models.Model):
         """
         if not self.scheduler:
             if self._allow_aggregation is None:
-                return False
+                allow_aggregation = get_aws_event_rule_state(self)
+                if allow_aggregation is None:
+                    return allow_aggregation
+                return get_aws_event_rule_state(self) == "enabled"
             return self._allow_aggregation
         return self.scheduler.repeats != 0
 
@@ -228,6 +235,27 @@ def delete_model_aggregation_schedule_remote(sender, instance, **kwargs):
 
     name = f"fma-scheduled-model-{instance.id}-dev"
     _ = events_client.delete_rule(Name=name)
+
+
+def get_aws_event_rule_state(federated_model):
+    """Checks the AWS Event Rule state for a given Federated Model.
+
+    :param federated_model: federated model instance
+    :type federated_model: An instance of a model object with an aggregation task.
+    :return: state of the rule associated with the aggregation task (disabled|enabled)
+    :rtype: (None|string)
+    """
+    state = None
+    try:
+        config = Config(connect_timeout=5, retries={"max_attempts": 0})
+        events_client = boto3.client("events", region_name="us-east-1", config=config)
+        response = events_client.describe_rule(
+            Name=f"fma-scheduled-model-{federated_model.id}-dev",
+        )
+        state = response.get("State", "DISABLED").lower()
+    except Exception as e:
+        logger.error(str(e))
+    return state
 
 
 def create_model_agg_task(*args, **kwargs):

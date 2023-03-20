@@ -112,21 +112,12 @@ variable "metadata_db_defaults" {
     }
 }
 
-
 # General reuse variables
-# Custom tags
 variable "tags" {
     type = map
     default = {}
 }
 
-# Security group ids for vpcs
-variable "vpc_security_group_ids" {
-    type = list
-    default = []
-}
-
-# Subnet ids for vpcs"
 variable "subnet_ids" {
     type = list
     default = []
@@ -149,6 +140,8 @@ locals {
         model_data_log_db_name = "${var.application_base_name}-model-storage-log"
         api_service_alb_name = "${var.application_base_name}-api-service-alb"
         metadata_db_identifier = "${var.application_base_name}-metadata-storage"
+        metadata_db_parameter_group_name = "${var.application_base_name}-metadata-db-param-group"
+        aggregator_alias_name = "${var.application_base_name}-aggregator-alias"
     }
     db_specific_env_vars = {
         FMA_DATABASE_NAME                       = local.resource_names.metadata_db_name
@@ -159,11 +152,11 @@ locals {
     agg_env_vars = {
         ENV                                     = "dev"
         DJANGO_SETTINGS_MODULE                  = "federated_learning_project.settings_remote"
+        PARAMETERS_SECRETS_EXTENSION_HTTP_PORT  = "2773"
         FMA_DATABASE_NAME                       = local.resource_names.metadata_db_name
         FMA_DATABASE_HOST                       = aws_db_instance.metadata_db.address
         FMA_DATABASE_PORT                       = "5432"
         FMA_DB_SECRET_PATH                      = "<insert path to secrets here>"
-        PARAMETERS_SECRETS_EXTENSION_HTTP_PORT  = "2773"
         FMA_SETTINGS_MODULE                     = "federated_learning_project.fma_settings"
     }
     api_env_vars = {
@@ -176,8 +169,18 @@ locals {
         FMA_DB_SECRET_PATH                      = "<insert path to secrets here>"
         PARAMETERS_SECRETS_EXTENSION_HTTP_PORT  = "2773"
         FMA_SETTINGS_MODULE                     = "federated_learning_project.fma_settings"
-    }
 
-    security_groups_ids = [aws_security_group.lambda_api_sg]
+    }
+    security_groups  = {
+        aggregator_sg_ids       = [aws_security_group.lambda_agg_sg]
+        api_service_sg_ids      = [aws_security_group.lambda_api_sg]
+        api_service_alb_sg_ids  = [aws_security_group.alb_sg]
+        metadata_db_sg_ids      = [aws_security_group.rds_sg]
+    }
+    metadata_db_tags = {tags = "<insert metadata db specific tags>"}
+    vpc_id = "<insert vpc id>"
+    db_parameter_family = "postgres14"
     db_password = data.aws_secretsmanager_secret_version.password
+    event_bridge_rule_source_arn = "<insert base arn path for event bridge rule>/fma-scheduled-model-*-dev"
+
 }
