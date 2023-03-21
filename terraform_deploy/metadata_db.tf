@@ -29,7 +29,11 @@ resource "aws_db_instance" "metadata_db" {
     instance_class                            = var.metadata_db_defaults["instance_class"]
     username                                  = var.metadata_db_defaults["username"]
     password                                  = local.db_password
-    parameter_group_name                      = length(aws_db_parameter_group.metadata_db_parameter_group) == 1 ? aws_db_parameter_group.metadata_db_parameter_group[length(aws_db_parameter_group.metadata_db_parameter_group)].name: ""
+    parameter_group_name                      = (length(aws_db_parameter_group.metadata_db_parameter_group) == 1 ?
+                                                    aws_db_parameter_group.metadata_db_parameter_group[
+                                                        length(aws_db_parameter_group.metadata_db_parameter_group)
+                                                    ].name: ""
+                                                )
     skip_final_snapshot                       = var.metadata_db_defaults["skip_final_snapshot"]
     availability_zone                         = var.metadata_db_defaults["availability_zone"]
     iam_database_authentication_enabled       = var.metadata_db_defaults["iam_database_authentication_enabled"]
