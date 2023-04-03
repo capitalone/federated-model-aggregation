@@ -106,7 +106,7 @@ class FederatedModel(models.Model):
                 allow_aggregation = get_aws_event_rule_state(self)
                 if allow_aggregation is None:
                     return allow_aggregation
-                return get_aws_event_rule_state(self) == "enabled"
+                return allow_aggregation == "enabled"
             return self._allow_aggregation
         return self.scheduler.repeats != 0
 
