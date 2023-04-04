@@ -10,14 +10,15 @@ resource "aws_lambda_function" "fma_serverless_api_service" {
     timeout                               = var.api_service_defaults["timeout"]
     memory_size                           = var.api_service_defaults["memory_size"]
     tags                                  = var.tags
+    publish                               = true
 
     vpc_config {
-        security_group_ids = local.security_groups_ids
+        security_group_ids = local.security_groups.api_service_sg_ids
         subnet_ids = var.subnet_ids
     }
 
     environment {
-        variables = merge(local.agg_env_vars, local.db_specific_env_vars)
+        variables = merge(local.api_env_vars, local.db_specific_env_vars)
     }
 
     layers = local.resource_arns.secrets_manager_arns

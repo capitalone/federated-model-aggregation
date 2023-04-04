@@ -40,7 +40,7 @@ class ModelArtifactSerializer(serializers.ModelSerializer):
 class FederatedModelSerializer(serializers.ModelSerializer):
     """The serializer for federated models."""
 
-    allow_aggregation = serializers.BooleanField(default=False)
+    allow_aggregation = serializers.BooleanField(default=False, allow_null=True)
     aggregator = serializers.ChoiceField(
         choices=list(map(itemgetter(0), getmembers(agg_common, isfunction)))
     )
@@ -71,6 +71,8 @@ class FederatedModelSerializer(serializers.ModelSerializer):
         if allow_aggregation is not None and instance.scheduler:
             instance.scheduler.repeats = -1 if allow_aggregation else 0
             instance.scheduler.save()
+        elif not instance.scheduler:
+            instance.allow_aggregation = allow_aggregation
         super().update(instance, validated_data)
         return instance
 
@@ -78,6 +80,7 @@ class FederatedModelSerializer(serializers.ModelSerializer):
 class CreateFederatedModelSerializer(FederatedModelSerializer):
     """The serializer for creating a federated model."""
 
+    allow_aggregation = serializers.BooleanField(default=False)
     initial_model = serializers.JSONField(
         allow_null=True, write_only=True, required=False
     )

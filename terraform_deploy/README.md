@@ -18,6 +18,14 @@ The variables that *MUST* be modified are:
 * `api_service_listeners_defaults/ssl_policy` - The ssl policy required for listeners
 * `locals/api_env_vars/FMA_DB_SECRET_PATH` - The path used to store database secrets permissions definitions for api service lambda
 * `locals/agg_env_vars/FMA_DB_SECRET_PATH` - The path used to store database secrets permissions definitions for aggregator lambda
+* `locals/db_parameter_family` - The family of database parameters used to initialize the database
+(dependent on `locals/db_parameters`)
+* `locals/metadata_db_tags` - The tags used in the deployment of the RDS metadata database
+* `locals/vpc_id` - The id of the vpc to which the service deploys
+* `locals/event_bridge_rule_source_arn` - The base ARN path for the rule, rather than the full string
+* `parameters` - The database parameters used to initialize the database (list of maps that require a `name` and `value` field)
+can be an empty list
+
 
 ***NOTE: If deployment fails, terraform should inform you of any issues that may have occurred and will most likely be due 
 to these values listed above.*** <br>

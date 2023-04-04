@@ -2,7 +2,7 @@ resource "aws_lb" "api_service_alb" {
     name                              = local.resource_names.api_service_alb_name
     internal                          = var.api_service_alb_defaults["internal"]
     load_balancer_type                = var.api_service_alb_defaults["load_balancer_type"]
-    security_groups                   = local.security_groups_ids
+    security_groups                   = local.security_groups.api_service_alb_sg_ids
     subnets                           = var.subnet_ids
     enable_deletion_protection        = var.api_service_alb_defaults["enable_deletion_protection"]
     tags                              = var.tags

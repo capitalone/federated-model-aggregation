@@ -2,28 +2,28 @@
 resource "aws_security_group" "lambda_agg_sg" {
     name        = "${var.application_base_name}-lambda-agg-sg"
     description = "Security Group for the Aggregator Lambda"
-    vpc_id      = var.vpc_security_group_ids[0]
+    vpc_id      = local.vpc_id
     tags        = var.tags
 }
 
 resource "aws_security_group" "alb_sg" {
     name        = "${var.application_base_name}-alb-sg"
     description = "Security Group for the ALB"
-    vpc_id      = var.vpc_security_group_ids[0]
+    vpc_id      = local.vpc_id
     tags        = var.tags
 }
 
 resource "aws_security_group" "lambda_api_sg" {
     name        = "${var.application_base_name}-lambda-api-sg"
     description = "Security Group for the API Lamdba"
-    vpc_id      = var.vpc_security_group_ids[0]
+    vpc_id      = local.vpc_id
     tags        = var.tags
 }
 
 resource "aws_security_group" "rds_sg" {
     name        = "${var.application_base_name}-rds-sg"
     description = "Security Group for the RDS"
-    vpc_id      = var.vpc_security_group_ids[0]
+    vpc_id      = local.vpc_id
     tags        = var.tags
 }
 
