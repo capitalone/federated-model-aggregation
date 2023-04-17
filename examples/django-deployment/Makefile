@@ -22,10 +22,39 @@ test-and-coverage:
 .PHONY: compile-packages
 compile-packages:
 	PIPENV_VERBOSITY=-1                                \
-	mkdir -p ./artifacts && 									 \
+	mkdir -p ./artifacts && 									 				 \
 	cd ../../connectors/django/	&&  	 		        	   \
 	pipenv run python setup.py sdist bdist_wheel &&    \
 	cp -r dist/* ../../examples/django-deployment/artifacts/
-	cd ../../fma-core	&&  	          							 \
+	cd ../../fma-core	&&  	          							 	 \
 	pipenv run python setup.py sdist bdist_wheel &&    \
 	cp -r dist/* ../examples/django-deployment/artifacts/
+
+
+.PHONY: complete-install
+complete-install:
+	make compile-packages && 																										 \
+	make install && 																														 \
+	unameOut="$(uname -s)" && 																									 \
+		case "${unameOut}" in  																										 \
+			Linux*)     apt-get install redis;; 																		 \
+			Darwin*)    brew install redis;; 																				 \
+      CYGWIN*)    echo "Error! redis not supported by ${unameOut}"; exit 125;; \
+      MINGW*)     echo "Error! redis not supported by ${unameOut}"; exit 125;; \
+      *)          echo "Error! redis not supported by ${unameOut}"; exit 125;; \
+  esac
+
+
+.PHONY: start-service-local
+start-service-local:
+	export FMA_SETTINGS_MODULE=federated_learning_project.fma_settings && 			 \
+	pipenv run python3 manage.py migrate && 																		 \
+	pipenv run python manage.py createsuperuser
+	pipenv run python manage.py runserver & redis-server & pipenv run python manage.py qcluster
+
+
+.PHONY: kill-service-local
+kill-service-local:
+	pkill -f manage.py
+	pkill -f redis
+	pkill -f qcluster
