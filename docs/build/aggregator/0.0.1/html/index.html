@@ -157,7 +157,7 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference external" href="https://github.com/capitalone/federated-model-aggregation/docs/build/index.html">FMA Home Page</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://capitalone.github.io/federated-model-aggregation/docs/build/index.html">FMA Home Page</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Overview</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
@@ -268,7 +268,9 @@ the form of deployment chosen</strong></p>
 <p>The aggregator connector is customizable for many types of deployments.
 The aggregator’s connector type is decided by the settings file
 (<code class="docutils literal notranslate"><span class="pre">aggregator/federated_learning_project/fma_settings.py</span></code>)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AGGREGATOR_SETTINGS</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">INSTALLED_PACKAGES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;fma_django_connectors&quot;</span><span class="p">]</span>
+
+<span class="n">AGGREGATOR_SETTINGS</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;aggregator_connector_type&quot;</span><span class="p">:</span> <span class="s2">&quot;DjangoAggConnector&quot;</span><span class="p">,</span>
     <span class="s2">&quot;metadata_connector&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;DjangoMetadataConnector&quot;</span><span class="p">,</span>
@@ -277,11 +279,12 @@ The aggregator’s connector type is decided by the settings file
         <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="kc">None</span>
     <span class="p">}</span>
     <span class="s2">&quot;secrets_manager&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;name of secrets manager&gt;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;secrets_name&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;&lt;name of secrets to pull&gt;&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;secrets_name&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;&lt;name of secrets to pull&gt;&quot;</span><span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>As you can see the <code class="docutils literal notranslate"><span class="pre">AGGREGATOR_SETTINGS</span></code> is customized by setting the <code class="docutils literal notranslate"><span class="pre">aggregator_connector_type</span></code>.
+<p>As seen above, <code class="docutils literal notranslate"><span class="pre">INSTALLED_PACKAGES</span></code> references the package(s) which contain the connectors being used in the below settings.
+<code class="docutils literal notranslate"><span class="pre">AGGREGATOR_SETTINGS</span></code> is customized by setting the <code class="docutils literal notranslate"><span class="pre">aggregator_connector_type</span></code>.
 There are also the settings of the underlying connectors that the aggregator connector uses.</p>
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">model_data_connector</span></code> is used to push and pull data to and from the resource that stores model data for your federated experiments</p></li>

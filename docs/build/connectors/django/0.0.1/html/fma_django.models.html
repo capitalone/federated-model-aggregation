@@ -157,7 +157,7 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Getting Started:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/capitalone/federated-model-aggregation/docs/build/index.html">FMA Home Page</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://capitalone.github.io/federated-model-aggregation/docs/build/index.html">FMA Home Page</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html">Overview</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">User Guide:</span></p>
@@ -1281,6 +1281,23 @@ failed.</p>
 <li><p><strong>instance</strong> (<em>Any</em>) – An instance of a model object with an aggregation task.</p></li>
 <li><p><strong>kwargs</strong> (<em>Dict</em><em>, </em><em>optional</em>) – keyword arguments</p></li>
 </ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fma_django.models.get_aws_event_rule_state">
+<span class="sig-prename descclassname"><span class="pre">fma_django.models.</span></span><span class="sig-name descname"><span class="pre">get_aws_event_rule_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">federated_model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#fma_django.models.get_aws_event_rule_state" title="Permalink to this definition">#</a></dt>
+<dd><p>Checks the AWS Event Rule state for a given Federated Model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>federated_model</strong> (<em>An instance</em><em> of </em><em>a model object with an aggregation task.</em>) – federated model instance</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>state of the rule associated with the aggregation task (disabled|enabled)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(None|string)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -2890,6 +2907,7 @@ failed.</p>
 <li><a class="reference internal" href="#fma_django.models.create_model_aggregation_schedule_remote"><code class="docutils literal notranslate"><span class="pre">create_model_aggregation_schedule_remote()</span></code></a></li>
 <li><a class="reference internal" href="#fma_django.models.delete_model_aggregation_schedule_local"><code class="docutils literal notranslate"><span class="pre">delete_model_aggregation_schedule_local()</span></code></a></li>
 <li><a class="reference internal" href="#fma_django.models.delete_model_aggregation_schedule_remote"><code class="docutils literal notranslate"><span class="pre">delete_model_aggregation_schedule_remote()</span></code></a></li>
+<li><a class="reference internal" href="#fma_django.models.get_aws_event_rule_state"><code class="docutils literal notranslate"><span class="pre">get_aws_event_rule_state()</span></code></a></li>
 <li><a class="reference internal" href="#fma_django.models.create_model_agg_task"><code class="docutils literal notranslate"><span class="pre">create_model_agg_task()</span></code></a></li>
 <li><a class="reference internal" href="#fma_django.models.delete_model_agg_task"><code class="docutils literal notranslate"><span class="pre">delete_model_agg_task()</span></code></a></li>
 <li><a class="reference internal" href="#fma_django.models.ModelArtifact"><code class="docutils literal notranslate"><span class="pre">ModelArtifact</span></code></a><ul>

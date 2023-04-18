@@ -12,7 +12,7 @@ This module consists of aggregation algorithms and experiment requirements which
    :hidden:
    :caption: Getting Started:
 
-   FMA Home Page <https://github.com/capitalone/federated-model-aggregation/docs/build/index.html>
+   FMA Home Page <https://capitalone.github.io/federated-model-aggregation/docs/build/index.html>
    Overview <self>
    
    
