@@ -1,7 +1,7 @@
 # Django Deployment Example
 A service for aggregating model updates into a single update using Django.
 
-## Local Backend Setup
+## Local Backend Setup (Quick setup)
 
 1. Setup a Pipenv with all required packages for service startup with:
 ```console
@@ -14,12 +14,11 @@ username and passsword.
 ```console
 make start-service-local
 ```
-> When the server is started, you will be able to login at
-[127.0.0.1:8000/admin](http://127.0.0.1:8000/admin/).
-> For local test purposes, this should be a simple username and password for testing.
+When the server is started, you will be able to login at [127.0.0.1:8000/admin](http://127.0.0.1:8000/admin/). 
+For local test purposes, this should be a simple username and password for testing.
 
 
-### FMA Settings Description
+## FMA Settings Description
 The aggregator connector is customizable for many types of deployment the user may wish to use.
 The aggregator’s type is decided by the settings file (`aggregator/federated_learning_project/fma_settings.py`)
 ```
@@ -51,6 +50,54 @@ The last part of the `AGGREGATOR_SETTINGS` is the `secrets_manager` and `secrets
 These components are used to tell the aggregator what type of secrets manager the user
 is requesting to use and the name of the secrets the user wishes to grab using the
 specified manager.
+
+
+## Local Backend Setup (Granular setup)
+For users looking for a more granular understanding of the example, 
+the steps to create the environment for the service are as follows:
+
+1. Create the virtual environment (or use conda)
+```console
+make compile-packages
+make install
+```
+
+2. Set environment variable for FMA_SETTINGS_MODULE, make sure the environment is setup in runserver and qcluster shells via:
+```
+export FMA_SETTINGS_MODULE=federated_learning_project.fma_settings
+```
+
+3.  Install redis (MAC OS)
+```console
+brew install redis
+```
+
+4. To Create Database:
+```console
+pipenv run python3 manage.py migrate
+```
+
+5. To Create an admin User:
+```console
+pipenv run python manage.py createsuperuser
+```
+When the server is started, you will be able to login at [127.0.0.1:8000/admin](http://127.0.0.1:8000/admin/). 
+For local test purposes, this should be a simple username and password for testing.
+
+### Start the Django Backend:
+```console
+pipenv run python manage.py runserver
+```
+
+### Start the Redis Server
+```console
+redis-server
+```
+
+### Start the Django Q Cluster:
+```console
+pipenv run python manage.py qcluster
+```
 
 
 ## Example Clients
