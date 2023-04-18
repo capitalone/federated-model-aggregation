@@ -3,35 +3,21 @@ A service for aggregating model updates into a single update using Django.
 
 ## Local Backend Setup
 
-1. Create the virtual environment (or use conda)
+1. Setup a Pipenv with all required packages for service startup with:
 ```console
-make compile-packages
-make install
+make complete-install
 ```
+Upon successful initialization of the service you will be prompted to create a superuser. This will require you to set a 
+username and passsword.
 
-2. Set environment variable for FMA_SETTINGS_MODULE, make sure the environment is setup in runserver and qcluster shells via:
-```
-export FMA_SETTINGS_MODULE=federated_learning_project.fma_settings
-```
-
-3.  Install redis (MAC OS)
+2. After initialization the servie can be spun up with the following command:
 ```console
-brew install redis
+make start-service-local
 ```
-
-4. To Create Database:
-```console
-pipenv run python3 manage.py migrate
-```
-
-5. To Create an admin User:
-
 > When the server is started, you will be able to login at
-[127.0.0.1:8000/admin](http://127.0.0.1:8000/admin/). For local test purposes, this
-should be a simple username and password for testing.
-```console
-pipenv run python manage.py createsuperuser
-```
+[127.0.0.1:8000/admin](http://127.0.0.1:8000/admin/).
+> For local test purposes, this should be a simple username and password for testing.
+
 
 ### FMA Settings Description
 The aggregator connector is customizable for many types of deployment the user may wish to use.
@@ -66,20 +52,6 @@ These components are used to tell the aggregator what type of secrets manager th
 is requesting to use and the name of the secrets the user wishes to grab using the
 specified manager.
 
-### Start the Django Backend:
-```console
-pipenv run python manage.py runserver
-```
-
-### Start the Redis Server
-```console
-redis-server
-```
-
-### Start the Django Q Cluster:
-```console
-pipenv run python manage.py qcluster
-```
 
 ## Example Clients
 Navigate to client_examples and follow the instructions that README.md to spin up
