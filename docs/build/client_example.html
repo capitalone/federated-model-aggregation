@@ -172,7 +172,7 @@
 <li class="toctree-l1"><a class="reference internal" href="aggregator/0.0.1/html/index.html">Aggregator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_service/0.0.1/html/index.html">API Service</a></li>
 <li class="toctree-l1"><a class="reference internal" href="connectors/django/0.0.1/html/index.html">FMA Django</a></li>
-<li class="toctree-l1"><a class="reference internal" href="clients/python_client/0.0.1/html/index.html">FMA Connect</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clients/python_client/0.0.2/html/index.html">FMA Connect</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fma-core/0.0.1/html/index.html">FMA Core</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Community:</span></p>
@@ -265,6 +265,30 @@
 </li>
 <li><p>Once all relevant fields are filled out, click “POST” and your model aggregation is created.</p></li>
 </ul>
+<section id="dataprofiler-example">
+<h3>Dataprofiler Example<a class="headerlink" href="#dataprofiler-example" title="Permalink to this heading">#</a></h3>
+<p>A demonstration of the federated model aggregation service for the dataprofiler.</p>
+<section id="running-the-example">
+<h4>Running the Example<a class="headerlink" href="#running-the-example" title="Permalink to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>Make sure the FMA service is up and running via this <span class="xref myst">server setup readme</span></p></li>
+<li><p>Upload custom model weight extraction function to <span class="xref myst">model_utils.py</span></p></li>
+<li><p>Run example, specifying the desired number of clients (n=3), user (abc123), the base url the service is at (http://localhost:8000),
+the number of epochs to run the experiment (1), and the train entities (None) to be included in the experiment.</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bash</span> <span class="n">run_example</span><span class="o">.</span><span class="n">sh</span> <span class="mi">3</span> <span class="n">abc123</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8000</span> <span class="mi">1</span> <span class="kc">None</span>
+</pre></div>
+</div>
+<section id="details-on-run-example-sh">
+<h5>Details on run_example.sh:<a class="headerlink" href="#details-on-run-example-sh" title="Permalink to this heading">#</a></h5>
+<ol class="arabic simple">
+<li><p>Generates initial model weights and schema via <span class="xref myst">create_initial_model_json_files.py</span></p></li>
+<li><p>POSTS model registration</p></li>
+<li><p>Executes <span class="xref myst">run_client.sh</span> (n) times</p></li>
+</ol>
+</section>
+</section>
+</section>
 </section>
 </section>
 
@@ -327,7 +351,16 @@
 <li><a class="reference internal" href="#usage-of-federated-model-aggregation-service">Usage of Federated Model Aggregation service</a></li>
 <li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
 <li><a class="reference internal" href="#creation-of-initial-model-weights">Creation of initial model weights</a></li>
-<li><a class="reference internal" href="#initializing-a-model">Initializing a model</a></li>
+<li><a class="reference internal" href="#initializing-a-model">Initializing a model</a><ul>
+<li><a class="reference internal" href="#dataprofiler-example">Dataprofiler Example</a><ul>
+<li><a class="reference internal" href="#running-the-example">Running the Example</a><ul>
+<li><a class="reference internal" href="#details-on-run-example-sh">Details on run_example.sh:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

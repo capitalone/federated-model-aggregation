@@ -172,7 +172,7 @@
 <li class="toctree-l1"><a class="reference internal" href="aggregator/0.0.1/html/index.html">Aggregator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_service/0.0.1/html/index.html">API Service</a></li>
 <li class="toctree-l1"><a class="reference internal" href="connectors/django/0.0.1/html/index.html">FMA Django</a></li>
-<li class="toctree-l1"><a class="reference internal" href="clients/python_client/0.0.1/html/index.html">FMA Connect</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clients/python_client/0.0.2/html/index.html">FMA Connect</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fma-core/0.0.1/html/index.html">FMA Core</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Community:</span></p>
@@ -220,49 +220,32 @@
 <section id="django-deployment-example">
 <h2>Django Deployment Example<a class="headerlink" href="#django-deployment-example" title="Permalink to this heading">#</a></h2>
 <p>A service for aggregating model updates into a single update using Django.</p>
-<section id="local-backend-setup">
-<h3>Local Backend Setup<a class="headerlink" href="#local-backend-setup" title="Permalink to this heading">#</a></h3>
+<section id="local-backend-setup-quick-setup">
+<h3>Local Backend Setup (Quick setup)<a class="headerlink" href="#local-backend-setup-quick-setup" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
-<li><p>Create the virtual environment (or use conda)</p></li>
+<li><p>Setup a Pipenv with all required packages for service startup with:</p></li>
 </ol>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">make compile-packages</span>
-<span class="go">make install</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">make complete-install</span>
 </pre></div>
 </div>
+<p>Upon successful initialization of the service you will be prompted to create a superuser. This will require you to set a
+username and passsword.</p>
 <ol class="arabic simple" start="2">
-<li><p>Set environment variable for FMA_SETTINGS_MODULE, make sure the environment is setup in runserver and qcluster shells via:</p></li>
+<li><p>After initialization, the service can be spun up with the following command:</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">FMA_SETTINGS_MODULE</span><span class="o">=</span><span class="n">federated_learning_project</span><span class="o">.</span><span class="n">fma_settings</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">make start-service-local</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="3">
-<li><p>Install redis (MAC OS)</p></li>
-</ol>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">brew install redis</span>
-</pre></div>
-</div>
-<ol class="arabic simple" start="4">
-<li><p>To Create Database:</p></li>
-</ol>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pipenv run python3 manage.py migrate</span>
-</pre></div>
-</div>
-<ol class="arabic simple" start="5">
-<li><p>To Create an admin User:</p></li>
-</ol>
-<blockquote>
-<div><p>When the server is started, you will be able to login at
-<a class="reference external" href="http://127.0.0.1:8000/admin/">127.0.0.1:8000/admin</a>. For local test purposes, this
-should be a simple username and password for testing.</p>
-</div></blockquote>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pipenv run python manage.py createsuperuser</span>
-</pre></div>
-</div>
+<p>When the server is started, you will be able to login at <a class="reference external" href="http://127.0.0.1:8000/admin/">127.0.0.1:8000/admin</a>.
+For local test purposes, this should be a simple username and password for testing.</p>
+</section>
 <section id="fma-settings-description">
-<h4>FMA Settings Description<a class="headerlink" href="#fma-settings-description" title="Permalink to this heading">#</a></h4>
+<h3>FMA Settings Description<a class="headerlink" href="#fma-settings-description" title="Permalink to this heading">#</a></h3>
 <p>The aggregator connector is customizable for many types of deployment the user may wish to use.
 The aggregator’s type is decided by the settings file (<code class="docutils literal notranslate"><span class="pre">aggregator/federated_learning_project/fma_settings.py</span></code>)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">AGGREGATOR_SETTINGS</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">INSTALLED_PACKAGES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;fma_django_connectors&quot;</span><span class="p">]</span>
+
+<span class="n">AGGREGATOR_SETTINGS</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;aggregator_connector_type&quot;</span><span class="p">:</span> <span class="s2">&quot;DjangoAggConnector&quot;</span><span class="p">,</span>
     <span class="s2">&quot;metadata_connector&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;DjangoMetadataConnector&quot;</span><span class="p">,</span>
@@ -275,32 +258,91 @@ The aggregator’s type is decided by the settings file (<code class="docutils l
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>As you can see the <code class="docutils literal notranslate"><span class="pre">AGGREGATOR_SETTINGS</span></code> is customized by setting the <code class="docutils literal notranslate"><span class="pre">aggregator_connector_type</span></code>.
-There is also the settings of the underlying connectors that the aggregator connector uses.</p>
+<p>As seen above, <code class="docutils literal notranslate"><span class="pre">INSTALLED_PACKAGES</span></code> references the package(s) which contain the connectors being used in the below settings.
+<code class="docutils literal notranslate"><span class="pre">AGGREGATOR_SETTINGS</span></code> is customized by setting the <code class="docutils literal notranslate"><span class="pre">aggregator_connector_type</span></code>.
+There are also the settings of the underlying connectors that the aggregator connector uses.</p>
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">model_data_connector</span></code> is used to push and pull data to and from the resource that stores model data for your federated experiments</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">metadata_connector</span></code> is used to push and pull data to and from the resource that stores metadata for your federated experiments</p></li>
 </ul>
 <p><em>Note: We talk about the model and meta data connectors in greater detail in the “Connectors” component section</em></p>
 <p>The last part of the <code class="docutils literal notranslate"><span class="pre">AGGREGATOR_SETTINGS</span></code> is the <code class="docutils literal notranslate"><span class="pre">secrets_manager</span></code> and <code class="docutils literal notranslate"><span class="pre">secrets_name</span></code>. <br>
-These components are used to tell the aggregator what type of secrets manager the user
-is requesting to use and the name of the secrets the user wishes to grab using the
-specified manager.</p>
+These two settings indicate to the aggregator:</p>
+<ul class="simple">
+<li><p>The type of secrets manager to utilize</p>
+<ul>
+<li><p>The secret name(s) for the manager to query</p></li>
+</ul>
+</li>
+</ul>
 </section>
-<section id="start-the-django-backend">
-<h4>Start the Django Backend:<a class="headerlink" href="#start-the-django-backend" title="Permalink to this heading">#</a></h4>
+<section id="local-backend-setup-granular-setup">
+<h3>Local Backend Setup (Granular setup)<a class="headerlink" href="#local-backend-setup-granular-setup" title="Permalink to this heading">#</a></h3>
+<p>For users looking for a more granular understanding of the example,
+the steps to create the environment for the service are as follows:</p>
+<section id="installation-process">
+<h4>Installation Process<a class="headerlink" href="#installation-process" title="Permalink to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>Create the virtual environment</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">make compile-packages</span>
+<span class="go">make install</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Set environment variable for FMA_SETTINGS_MODULE, make sure the environment is setup in runserver and qcluster shells via:</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">FMA_SETTINGS_MODULE</span><span class="o">=</span><span class="n">federated_learning_project</span><span class="o">.</span><span class="n">fma_settings</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Install redis</p></li>
+</ol>
+<ul class="simple">
+<li><p>Mac OS</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">brew install redis</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Linux</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">apt-get install redis</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>To Create Database:</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pipenv run python3 manage.py migrate</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>To Create an admin User:</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pipenv run python manage.py createsuperuser</span>
+</pre></div>
+</div>
+<p>When the server is started, you will be able to login at <a class="reference external" href="http://127.0.0.1:8000/admin/">127.0.0.1:8000/admin</a>.
+For local test purposes, this should be a simple username and password for testing.</p>
+</section>
+<section id="starting-the-service">
+<h4>Starting the service<a class="headerlink" href="#starting-the-service" title="Permalink to this heading">#</a></h4>
+<p>within separate consoles do the following commands:</p>
+<ul class="simple">
+<li><p>Start the Django Backend:</p></li>
+</ul>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pipenv run python manage.py runserver</span>
 </pre></div>
 </div>
-</section>
-<section id="start-the-redis-server">
-<h4>Start the Redis Server<a class="headerlink" href="#start-the-redis-server" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Start the Redis Server</p></li>
+</ul>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">redis-server</span>
 </pre></div>
 </div>
-</section>
-<section id="start-the-django-q-cluster">
-<h4>Start the Django Q Cluster:<a class="headerlink" href="#start-the-django-q-cluster" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Start the Django Q Cluster:</p></li>
+</ul>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pipenv run python manage.py qcluster</span>
 </pre></div>
 </div>
@@ -371,11 +413,11 @@ python clients to interact with the service.</p>
             <ul>
 <li><a class="reference internal" href="#">Django Example</a><ul>
 <li><a class="reference internal" href="#django-deployment-example">Django Deployment Example</a><ul>
-<li><a class="reference internal" href="#local-backend-setup">Local Backend Setup</a><ul>
+<li><a class="reference internal" href="#local-backend-setup-quick-setup">Local Backend Setup (Quick setup)</a></li>
 <li><a class="reference internal" href="#fma-settings-description">FMA Settings Description</a></li>
-<li><a class="reference internal" href="#start-the-django-backend">Start the Django Backend:</a></li>
-<li><a class="reference internal" href="#start-the-redis-server">Start the Redis Server</a></li>
-<li><a class="reference internal" href="#start-the-django-q-cluster">Start the Django Q Cluster:</a></li>
+<li><a class="reference internal" href="#local-backend-setup-granular-setup">Local Backend Setup (Granular setup)</a><ul>
+<li><a class="reference internal" href="#installation-process">Installation Process</a></li>
+<li><a class="reference internal" href="#starting-the-service">Starting the service</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#example-clients">Example Clients</a></li>

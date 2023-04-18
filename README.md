@@ -70,6 +70,7 @@ pip install -r requirements.txt
 
 # install django project requirements from feature branch
 pip install -r feature_branch/connectors/django/requirements.txt
+pip install -r feature_branch/connectors/django/requirements-api.txt
 ```
 
 5. And finally, from the root of `federated-model-aggregation`, run the following commands to generate the sphinx documentation:

@@ -172,7 +172,7 @@
 <li class="toctree-l1"><a class="reference internal" href="aggregator/0.0.1/html/index.html">Aggregator</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_service/0.0.1/html/index.html">API Service</a></li>
 <li class="toctree-l1"><a class="reference internal" href="connectors/django/0.0.1/html/index.html">FMA Django</a></li>
-<li class="toctree-l1"><a class="reference internal" href="clients/python_client/0.0.1/html/index.html">FMA Connect</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clients/python_client/0.0.2/html/index.html">FMA Connect</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fma-core/0.0.1/html/index.html">FMA Core</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Community:</span></p>
@@ -281,6 +281,13 @@ The variables that <em>MUST</em> be modified are:</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">api_service_listeners_defaults/ssl_policy</span></code> - The ssl policy required for listeners</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">locals/api_env_vars/FMA_DB_SECRET_PATH</span></code> - The path used to store database secrets permissions definitions for api service lambda</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">locals/agg_env_vars/FMA_DB_SECRET_PATH</span></code> - The path used to store database secrets permissions definitions for aggregator lambda</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">locals/db_parameter_family</span></code> - The family of database parameters used to initialize the database
+(dependent on <code class="docutils literal notranslate"><span class="pre">locals/db_parameters</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">locals/metadata_db_tags</span></code> - The tags used in the deployment of the RDS metadata database</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">locals/vpc_id</span></code> - The id of the vpc to which the service deploys</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">locals/event_bridge_rule_source_arn</span></code> - The base ARN path for the rule, rather than the full string</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parameters</span></code> - The database parameters used to initialize the database (list of maps that require a <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">value</span></code> field)
+can be an empty list</p></li>
 </ul>
 <p><em><strong>NOTE: If deployment fails, terraform should inform you of any issues that may have occurred and will most likely be due
 to these values listed above.</strong></em> <br></p>
