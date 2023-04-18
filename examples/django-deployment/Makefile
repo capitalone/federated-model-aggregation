@@ -21,40 +21,40 @@ test-and-coverage:
 
 .PHONY: compile-packages
 compile-packages:
-	PIPENV_VERBOSITY=-1                                \
-	mkdir -p ./artifacts && 									 				 \
-	cd ../../connectors/django/	&&  	 		        	   \
-	pipenv run python setup.py sdist bdist_wheel &&    \
+	PIPENV_VERBOSITY=-1																\
+	mkdir -p ./artifacts &&														\
+	cd ../../connectors/django &&											\
+	pipenv run python setup.py sdist bdist_wheel &&		\
 	cp -r dist/* ../../examples/django-deployment/artifacts/
-	cd ../../fma-core	&&  	          							 	 \
-	pipenv run python setup.py sdist bdist_wheel &&    \
+	cd ../../fma-core	&&															\
+	pipenv run python setup.py sdist bdist_wheel &&		\
 	cp -r dist/* ../examples/django-deployment/artifacts/
 
 
 .PHONY: complete-install
 complete-install:
-	make compile-packages && 																										 \
-	make install && 																														 \
-	unameOut="$(uname -s)" && 																									 \
-		case "${unameOut}" in  																										 \
-			Linux*)     apt-get install redis;; 																		 \
-			Darwin*)    brew install redis;; 																				 \
-      CYGWIN*)    echo "Error! redis not supported by ${unameOut}"; exit 125;; \
-      MINGW*)     echo "Error! redis not supported by ${unameOut}"; exit 125;; \
-      *)          echo "Error! redis not supported by ${unameOut}"; exit 125;; \
-  esac
+	make compile-packages && make install
+ifeq ($(shell uname -s), Linux)
+	apt-get install redis
+else ifeq ($(shell uname -s),Darwin)
+	brew install redis
+else
+	echo "Error! redis not supported by $(shell uname -s)"
+	exit 125
+endif
+	export FMA_SETTINGS_MODULE=federated_learning_project.fma_settings
+	pipenv run python manage.py migrate
+	pipenv run python manage.py createsuperuser
 
 
 .PHONY: start-service-local
 start-service-local:
-	export FMA_SETTINGS_MODULE=federated_learning_project.fma_settings && 			 \
-	pipenv run python manage.py migrate && 																		 \
-	pipenv run python manage.py createsuperuser
-	pipenv run python manage.py runserver & redis-server & pipenv run python manage.py qcluster
+	export FMA_SETTINGS_MODULE=federated_learning_project.fma_settings
+	pipenv run python manage.py runserver & redis-server & pipenv run python manage.py qcluster &
 
 
 .PHONY: kill-service-local
 kill-service-local:
-	pkill -f manage.py
-	pkill -f redis
-	pkill -f qcluster
+	pkill -f manage.py || true
+	pkill -f redis || true
+	pkill -f qcluster || true
