@@ -10,7 +10,7 @@ make complete-install
 Upon successful initialization of the service you will be prompted to create a superuser. This will require you to set a 
 username and passsword.
 
-2. After initialization the servie can be spun up with the following command:
+2. After initialization, the service can be spun up with the following command:
 ```console
 make start-service-local
 ```
@@ -38,7 +38,7 @@ AGGREGATOR_SETTINGS = {
 ```
 As seen above, `INSTALLED_PACKAGES` references the package(s) which contain the connectors being used in the below settings.
 `AGGREGATOR_SETTINGS` is customized by setting the `aggregator_connector_type`.
-There is also the settings of the underlying connectors that the aggregator connector uses.
+There are also the settings of the underlying connectors that the aggregator connector uses.
 
 * The `model_data_connector` is used to push and pull data to and from the resource that stores model data for your federated experiments
 
@@ -47,16 +47,17 @@ There is also the settings of the underlying connectors that the aggregator conn
 *Note: We talk about the model and meta data connectors in greater detail in the “Connectors” component section*
 
 The last part of the `AGGREGATOR_SETTINGS` is the `secrets_manager` and `secrets_name`. <br>
-These components are used to tell the aggregator what type of secrets manager the user
-is requesting to use and the name of the secrets the user wishes to grab using the
-specified manager.
+These two settings indicate to the aggregator: 
+- The type of secrets manager to utilize
+  - The secret name(s) for the manager to query
 
 
 ## Local Backend Setup (Granular setup)
 For users looking for a more granular understanding of the example, 
 the steps to create the environment for the service are as follows:
 
-1. Create the virtual environment (or use conda)
+### Installation Process
+1. Create the virtual environment
 ```console
 make compile-packages
 make install
@@ -90,17 +91,19 @@ pipenv run python manage.py createsuperuser
 When the server is started, you will be able to login at [127.0.0.1:8000/admin](http://127.0.0.1:8000/admin/). 
 For local test purposes, this should be a simple username and password for testing.
 
-### Start the Django Backend:
+### Starting the service
+within separate consoles do the following commands:
+- Start the Django Backend:
 ```console
 pipenv run python manage.py runserver
 ```
 
-### Start the Redis Server
+- Start the Redis Server
 ```console
 redis-server
 ```
 
-### Start the Django Q Cluster:
+- Start the Django Q Cluster:
 ```console
 pipenv run python manage.py qcluster
 ```
