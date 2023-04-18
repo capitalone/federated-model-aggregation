@@ -67,9 +67,15 @@ make install
 export FMA_SETTINGS_MODULE=federated_learning_project.fma_settings
 ```
 
-3.  Install redis (MAC OS)
+3.  Install redis
+- Mac OS
 ```console
 brew install redis
+```
+
+- Linux
+```console
+apt-get install redis
 ```
 
 4. To Create Database:
