@@ -21,13 +21,13 @@ test-and-coverage:
 
 .PHONY: compile-packages
 compile-packages:
-	PIPENV_VERBOSITY=-1																\
-	mkdir -p ./artifacts &&														\
-	cd ../../connectors/django &&											\
-	pipenv run python setup.py sdist bdist_wheel &&		\
+	PIPENV_VERBOSITY=-1 \
+	mkdir -p ./artifacts && \
+	cd ../../connectors/django && \
+	pipenv run python setup.py sdist bdist_wheel && \
 	cp -r dist/* ../../examples/django-deployment/artifacts/
-	cd ../../fma-core	&&															\
-	pipenv run python setup.py sdist bdist_wheel &&		\
+	cd ../../fma-core	&& \
+	pipenv run python setup.py sdist bdist_wheel && \
 	cp -r dist/* ../examples/django-deployment/artifacts/
 
 
