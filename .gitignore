@@ -29,6 +29,15 @@ aggregator/requirements.txt
 aggregator/artifacts/
 aggregator/mediafiles/**
 
+examples/django-deployment/mediafiles/
+examples/django-deployment/artifacts/
+examples/django-deployment/db.sqlite3
+examples/django-deployment/dump.rdb
+examples/client_examples/python_client/dataprofiler_developer/initial_model_schema.json
+examples/client_examples/python_client/dataprofiler_developer/initial_model_weights.json
+examples/client_examples/python_client/post_data.json
+examples/client_examples/python_client/dataprofiler_clients/uui_temp_*.txt
+examples/client_examples/python_client/dataprofiler_clients/logfile.log
 
 **/*.egg-info/*
 **/build/*

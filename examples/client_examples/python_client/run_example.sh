@@ -1,5 +1,10 @@
 #!/bin/bash
 
+python -m venv venv
+source venv/bin/activate
+pip3 install -r requirements.txt
+pip3 install -r ./dataprofiler_clients/requirements.txt
+
 cd ./dataprofiler_developer/
 
 python3 create_initial_model_json_files.py
