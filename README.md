@@ -72,6 +72,7 @@ visit their respective documentation located in the links below:
 ## Examples
 To see documentation around examples and deployments, visit the
 links with their respective documentation:
+- [Local Setup Tutorial Video](https://www.youtube.com/watch?v=TFdem9lY7jw)
 - [Client Example](examples/client_examples/python_client/dataprofiler_developer/README.md)
 - [Django Example](examples/django-deployment/README.md)
 - [Remote Terraform Deployment](terraform_deploy/README.md)
