@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@tensorflow/tfjs": "^3.18.0",
+    "http-server": "^14.1.1",
+    "ts-node": "^10.8.1",
+    "argparse":"^3.9.0"
+  }
+}
+  
