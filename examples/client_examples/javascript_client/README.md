@@ -10,7 +10,7 @@ npm install
 
 2. EXAMPLE
 ```console
-bash run_example.sh 3 cuq552 average_layers http://host.docker.internal:8000 http://0.0.0.0:8080
+bash run_example.sh 3 <user_id> average_layers http://host.docker.internal:8000 http://0.0.0.0:8080
 ```
 
 3. Run Client.ts
