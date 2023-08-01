@@ -2,14 +2,7 @@
 An api client wrapper for connecting to the federated-learning-service.
 
 ## Setup
-Please run the ```setup``` at the top level of the directory
-```npm setup```
-
-### Example Setup
-[README.md](examples/browser_client/README.md)
+Run `npm setup` in `clients/javascript_client` directory
 
 ## Testing
-### npm test
-To run testing of the API interface functions run  
-```npm test```
-
+To run the tests of API interface functions run `npm test` in `clients/javascript_client` directory
