@@ -44,3 +44,5 @@ examples/client_examples/python_client/dataprofiler_clients/logfile.log
 **/dist/*
 docs/*
 .vscode/*
+**/node_modules/*
+**/coverage/*

@@ -1,0 +1,6 @@
+node_modules
+dist
+coverage
+
+# Ignore all JS files, this is only for TS
+**/*.js
