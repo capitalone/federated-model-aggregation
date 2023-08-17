@@ -8,8 +8,9 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
+    env:
+        working-directory: ./clients/javascript_client
 
     strategy:
       matrix:
@@ -21,8 +22,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          working-directory: ./clients/javascript_client
-      - run: npm install
       - run: npm ci
+        working-directory: ${{env.working-directory}}
       - run: npm run build --if-present
+        working-directory: ${{env.working-directory}}
       - run: npm test
+        working-directory: ${{env.working-directory}}
