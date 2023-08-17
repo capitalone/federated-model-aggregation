@@ -18,19 +18,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
-        working-directory: ./clients/javascript_client
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Install npm dependencies
-        working-directory: ./clients/javascript_client
-        run: npm install
-      - name: Run npm ci
-        working-directory: ./clients/javascript_client
-        run: npm ci
-      - name: Run npm build
-        working-directory: ./clients/javascript_client
-        run: npm run build --if-present
-      - name: Run Tests
-        working-directory: ./clients/javascript_client
-        run: npm test
+          working-directory: ./clients/javascript_client
+      - run: npm install
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm test
