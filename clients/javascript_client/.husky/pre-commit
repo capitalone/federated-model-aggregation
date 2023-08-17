@@ -1,4 +1,0 @@
-cd clients/javascript_client
-npm run format
-npm run lint
-npm run test
