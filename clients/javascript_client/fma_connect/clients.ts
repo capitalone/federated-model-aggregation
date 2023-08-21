@@ -1,3 +1,3 @@
-import { DefaultSettings } from './settings';
+// import { DefaultSettings } from './settings';
 
-const defaultSettings = new DefaultSettings();
+// const defaultSettings = new DefaultSettings();
