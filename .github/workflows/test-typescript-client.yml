@@ -20,15 +20,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm install
-        working-directory: ${{env.working-directory}}
-      - run: npm ci
-        working-directory: ${{env.working-directory}}
-      - run: npm run build --if-present
-        working-directory: ${{env.working-directory}}
-      - run: npm run format
-        working-directory: ${{env.working-directory}}
-      - run: npm run lint
-        working-directory: ${{env.working-directory}}
-      - run: npm test
+      - run: |
+          npm install
+          npm ci
+          npm run build --if-present
+          npm run format
+          npm run lint
+          npm test
         working-directory: ${{env.working-directory}}
