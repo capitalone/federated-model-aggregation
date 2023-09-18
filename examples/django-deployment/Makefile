@@ -56,7 +56,7 @@ ifneq ($(shell pip list | grep pipenv | cut -d ' ' -f1),pipenv)
 	pip install --user pipenv
 endif
 
-	export PATH=${PATH}:${USER_BIN_PATH}
+	export PATH=${PATH}:${USER_BIN_PATH} && \
 	make compile-packages && make install
 
 ifeq ($(shell uname -s), Linux)
