@@ -38,22 +38,22 @@ complete-install:
 
 ifeq (${PG_CONFIG_PATH},)
 ifeq ($(shell uname -s), Linux)
-	apt-get -y install postgresql
+  apt-get -y install postgresql
 else ifeq ($(shell uname -s), Darwin)
-	brew install postgresql
+  brew install postgresql
 else
-	echo "Error! redis not supported by $(shell uname -s)"
-	exit 125
+  echo "Error! redis not supported by $(shell uname -s)"
+  exit 125
 endif
 endif
 
 ifneq ($(shell pip list | grep pipenv | cut -d ' ' -f1),pipenv)
-	pip install --user pipenv && \
-	export PATH=${PATH}:${USER_BIN_PATH} && \
-	make compile-packages && \
-	make install
+  pip install --user pipenv && \
+  export PATH=${PATH}:${USER_BIN_PATH} && \
+  make compile-packages && \
+  make install
 else
-	export PATH=${PATH}:${USER_BIN_PATH} && \
+  export PATH=${PATH}:${USER_BIN_PATH} && \
   make compile-packages && make install
 endif
 
