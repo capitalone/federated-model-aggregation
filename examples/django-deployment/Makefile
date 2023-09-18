@@ -48,7 +48,7 @@ ifeq ($(shell uname -s), Linux)
 else ifeq ($(shell uname -s), Darwin)
 	brew install postgresql
 else
-	echo "Error! redis not supported by $(shell uname -s)"
+	echo "Error! postgresql not supported by $(shell uname -s)"
 	exit 125
 endif
 endif
