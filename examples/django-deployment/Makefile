@@ -57,7 +57,6 @@ else
   make compile-packages && make install
 endif
 
-	exit 1
 ifeq ($(shell uname -s), Linux)
 	apt-get install redis
 else ifeq ($(shell uname -s),Darwin)
