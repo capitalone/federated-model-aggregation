@@ -1,4 +1,7 @@
 HOME_DIR = $(shell pwd)
+USER_BIN_PATH = $(shell python3 -m site --user-base)/bin
+PG_CONFIG_PATH = $(shell which pg_config)
+PIP_PATH = $(shell which pip)
 
 .PHONY: install
 install:
@@ -33,7 +36,30 @@ compile-packages:
 
 .PHONY: complete-install
 complete-install:
+
+ifeq (${PIP_PATH},)
+	curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+	python ./get-pip.py
+endif
+
+ifeq (${PG_CONFIG_PATH},)
+ifeq ($(shell uname -s), Linux)
+	apt-get -y install postgresql
+else ifeq ($(shell uname -s), Darwin)
+	brew install postgresql
+else
+	echo "Error! postgresql not supported by $(shell uname -s)"
+	exit 125
+endif
+endif
+
+ifneq ($(shell pip list | grep pipenv | cut -d ' ' -f1),pipenv)
+	pip install --user pipenv
+endif
+
+	export PATH=${PATH}:${USER_BIN_PATH} && \
 	make compile-packages && make install
+
 ifeq ($(shell uname -s), Linux)
 	apt-get install redis
 else ifeq ($(shell uname -s),Darwin)
