@@ -21,6 +21,7 @@ jobs:
       - name: Install all packages
         run: |
           cd clients/javascript_client/
+          npm install --package-lock-only
           npm ci
       - name: Run Formatting Checks
         run: |
