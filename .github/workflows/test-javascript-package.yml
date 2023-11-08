@@ -1,0 +1,36 @@
+# This workflow will install Javascript/Typescript dependencies, run tests and lint with a variety of Node versions
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Test JS/TS Submodules
+
+on: [pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x, 20.x]
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install all packages
+        run: |
+          cd clients/javascript_client/
+          npm ci
+      - name: Run Formatting Checks
+        run: |
+          cd clients/javascript_client/
+          npm run format
+      - name: Run Lint
+        run: |
+          cd clients/javascript_client/
+          npm run lint
+      - name: Run Tests
+        run: |
+          cd clients/javascript_client/
+          npm run test
