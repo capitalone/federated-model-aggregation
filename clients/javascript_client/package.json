@@ -41,7 +41,9 @@
     "test": "jest --coverage --passWithNoTests",
     "preinstall": "npx npm-force-resolutions"
   },
-  "resolutions": {
-    "@babel/traverse": "7.23.2"
+  "overrides": {
+    "fetch-mock": {
+      "@babel/traverse": "7.23.2"
+    }
   }
 }
