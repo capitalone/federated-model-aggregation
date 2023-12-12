@@ -38,8 +38,7 @@
     "format": "prettier --ignore-path .gitignore --check .",
     "lint": "eslint fma_connect --ignore-path .eslintignore --ext .ts --format table",
     "prepare": "cd ../../ && husky install clients/javascript_client/.husky",
-    "test": "jest --coverage --passWithNoTests",
-    "preinstall": "npx npm-force-resolutions"
+    "test": "jest --coverage --passWithNoTests"
   },
   "overrides": {
     "fetch-mock": {
