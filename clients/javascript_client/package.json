@@ -39,5 +39,10 @@
     "lint": "eslint fma_connect --ignore-path .eslintignore --ext .ts --format table",
     "prepare": "cd ../../ && husky install clients/javascript_client/.husky",
     "test": "jest --coverage --passWithNoTests"
+  },
+  "overrides": {
+    "fetch-mock": {
+      "@babel/traverse": "7.23.2"
+    }
   }
 }
