@@ -1,2 +1,2 @@
 DataProfiler[full]>=0.8.6
-requests>=2.27.1
+requests>=2.32.2
