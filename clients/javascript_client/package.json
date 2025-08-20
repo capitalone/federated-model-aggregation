@@ -23,7 +23,7 @@
     "typescript": "^5.1.6"
   },
   "dependencies": {
-    "@tensorflow/tfjs": "^4.10.0",
+    "@tensorflow/tfjs": "^4.21.0",
     "@tensorflow/tfjs-core": "^4.10.0",
     "argparse": "^2.0.1",
     "fetch-mock": "^9.11.0",
